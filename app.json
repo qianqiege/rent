@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/list/list",
+    "pages/orderList/orderList"
+  ],
+  
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "易享优租",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f3f2f8"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#FF6000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/tabbar/recommend2.png",
+        "selectedIconPath": "images/tabbar/recommend1.png",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "iconPath": "images/tabbar/classify2.png",
+        "selectedIconPath": "images/tabbar/classify1.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/orderList/orderList",
+        "iconPath": "images/tabbar/user2.png",
+        "selectedIconPath": "images/tabbar/user1.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

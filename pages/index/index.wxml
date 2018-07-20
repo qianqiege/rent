@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class="container">
+    <view class="ipt phone" >
+      <input placeholder="请输入手机号码" auto-focus/>
+    </view>
+    <view class="ipt vcode" >
+      <input placeholder="请输入验证码" />
+    </view>
+
+    <view class="ipt btn" >
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" >获得用户信息</button>
+      <button bindtap='createOrder' >生成订单</button>
+      <button bindtap='sendCode' >发送手机验证码</button>
+      <button bindtap='bindPhone' >绑定手机到用户</button>
+      <button bindtap='bindPhoneToOrder' >绑定手机到订单</button>
+      <button bindtap='closeOrder' >关闭订单操作</button>
+    </view>
+
+  </view>
+
+  <view class="container">
+    <form bindsubmit="faceSign">
+      <view class="ipt phone" >
+        <input placeholder="订单" name="order_id" value="1" />
+        <input placeholder="IMEI" name="imei" value="imei909300803920" />
+        <input placeholder="取货码" name="pickup_code" value="134343434" />
+        
+        <input placeholder="正面" name="avatar" value="{{iptAvatar}}" auto-focus/>
+        <image src="{{avatar}}" bindtap='uploadAvatar'></image>
+      </view>
+      <view class="ipt vcode" >
+        <input placeholder="反面" name='back' value="{{iptBack}}" />
+        <image src="{{back}}" bindtap='uploadBack'></image>
+      </view>
+      <view class="ipt vcode" >
+        <input placeholder="手持" name='handson' value="{{iptHandson}}" />
+        <image src="{{handson}}" bindtap='uploadHandson' ></image>
+      </view>
+
+      <view class="ipt btn" >
+        <button formType="submit">面签操作</button>
+      </view>
+    </form>
+  </view>
+
+    <view class="ipt btn" >
+      <button bindtap='indexBanner' >首页banner</button>
+      <button bindtap='indexHotGoods' >首页热门商品</button>
+      <button bindtap='brandList' >品牌列表</button>
+      <button bindtap='goodsList' >商品列表</button>
+      <button bindtap='goodsDetail' >商品详情</button>
+      <button bindtap='goodsSku' >商品sku</button>
+    </view>
+
+</view>
