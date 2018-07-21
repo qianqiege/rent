@@ -1,0 +1,272 @@
+<wxs module="filters" src="../fliter.wxs"></wxs>
+<view class="header">
+  <!-- 产品轮播图 -->
+  <view class="image">
+    <swiper indicator-dots indicator-active-color="#FF0052" circular="circular">
+      <!-- <block wx:for="{{product.imgs}}" wx:key="id"> -->
+        <swiper-item>
+          <image src="{{product.imgs}}" mode="aspectFit"/>
+        </swiper-item>
+      <!-- </block> -->
+    </swiper>
+  </view>
+  <!-- 产品信息介绍 -->
+  <view class="product">
+    <view class="title">
+      <view>{{product.goods_name}}</view>
+      <view class="desc">市场售价<text>¥{{filters.parse(product.market_price)}}</text></view>
+    </view>
+
+    <view class="price">
+      <view>租金<text class="money">¥{{filters.toFix(product.rent_amount/product.rent_lbf_period)}}</text><text class="extra">/期起</text></view>
+      <view><text class="dayInfo">{{product.rent_lbf_period}}期</text><text class="day">（25天/期）</text></view>
+    </view>
+  </view>
+
+  <view class="guarantee">
+    <view class="bloGuar">
+      <image src="../../images/product/advan.png"/>
+      正品国行
+    </view>
+    <view class="bloGuar">
+      <image src="../../images/product/advan.png"/>
+      碎屏无忧 免费官修
+    </view>
+    <view class="bloGuar">
+      <image src="../../images/product/advan.png"/>
+      租金分期 轻松享用
+    </view>
+    <view class="bloGuar">
+      <image class="arrow" src="../../images/product/arrow.png" bindtap="showDetail"/>
+    </view>
+  </view>
+  <!-- 租机优势 -->
+  <view class="container advantage">
+    <view class="page__title">租机优势</view>
+    <view class="superiority">
+      <view class="list">
+        <view class="buy">直接购买</view>
+        <view>¥{{product.market_price}}</view>
+        <view>资金压力大</view>
+      </view>
+      <view class="list">
+        <view class="buy">分期购买</view>
+        <view>¥{{filters.toFix(product.rent_amount/12)}}/期</view>
+        <view>首付多，利息高</view>
+      </view>
+      <view class="list">
+        <view class="buy">信用租机</view>
+        <view class="import">¥{{filters.toFix(product.rent_amount/product.rent_lbf_period)}}/期</view>
+        <view class="import">租金低，0压力</view>
+      </view>
+    </view>
+  </view>
+  <!-- 租赁到期可选方案 -->
+  <view class="container plan">
+    <view class="page__title">租赁到期可选方案</view>
+    <view class="expire">
+      <view class="plan">
+        <view class="buyout">.买断.</view>
+        <view>支付尾款，自己拥有</view>
+      </view>
+      <view class="plan">
+        <view class="buyout">.归还.</view>
+        <view>年年换新，玩机无忧</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="container no-padding">
+    <view class="content">
+      <view class="navbar">
+        <block  wx:for="{{tabs}}" wx:key="id">
+          <view id="{{index}}" class="item {{activeIndex == index ? 'item_on' : ''}}" bindtap="tabClick">
+            {{item}}
+          </view>
+        </block>
+        <view class="slider" style="left: {{sliderLeft}}rpx; transform: translateX({{sliderOffset}}rpx); -webkit-transform: translateX({{sliderOffset}}rpx);"/>
+      </view>
+      <view class="panel">
+        <!-- 租机流程 -->
+        <view class="tab_content" hidden="{{activeIndex != 0}}">
+          <!-- 流程图 -->
+          <view class="process">
+            <view class="model">
+              <image class="imgModel" src="../../images/product/model.png"/>
+              <view class="firView">选择机型</view>
+              <view>提交订单</view>
+            </view>
+            <image class="polygon" src="../../images/product/polygon.png"/>
+            <view class="model">
+              <image class="imgPay" src="../../images/product/pay.png"/>
+              <view class="firView">确认订单</view>
+              <view>支付费用</view>
+            </view>
+
+            <image class="polygon" src="../../images/product/polygon.png"/>
+            <view class="model">
+              <image class="imgload" src="../../images/product/upload.png"/>
+              <view class="firView">拍照面签</view>
+              <view>开始用机</view>
+            </view>
+
+            <image class="polygon" src="../../images/product/polygon.png"/>
+            <view class="model">
+              <image class="imgcomp" src="../../images/product/complete.png"/>
+              <view class="firView">到期可选</view>
+              <view>归还/买断</view>
+            </view>
+          </view>
+          <!-- 过程描述 -->
+          <view class="proDescrip">
+            <view class="step">
+              <image src="../../images/product/one.png"/>
+              <text class="title">选择喜爱的机器型号、租赁时长，提交订单</text>
+              <view class="desc">如：选择OPPO R15 星空紫 128G 全新 15期</view>
+            </view>
+            <view class="step">
+              <image src="../../images/product/two.png"/>
+              <text class="title">确认订单，支付费用</text>
+              <view class="desc">确认订单信息无误后，输入信用卡账号信息，冻结授权额度。冻结额度不产生任何费用、无需还款，分期支付租金。</view>
+            </view>
+            <view class="step">
+              <image src="../../images/product/three.png"/>
+              <text class="title">拍照面签，支付费用</text>
+              <view class="desc">拍照上传身份证及手持手机照片，完成面签，即可取走手机，开始您的愉快用机。</view>
+            </view>
+            <view class="step">
+              <image src="../../images/product/four.png"/>
+              <text class="title">租赁到期后，归还、买断随您选</text>
+              <view class="desc">归还：支持门店或者邮寄归还；
+              <view>买断：支付机器尾款，终身拥有。</view></view>
+            </view>
+          </view>
+        </view>
+        <!-- 费用说明 -->
+        <view class="tab_content" hidden="{{activeIndex != 1}}">
+          <view class="expense">
+            <view class="title">预授权金额</view>
+            <view class="text">用户授权是从订单提交时填写的信用卡账户中冻结的一笔金额，额度为机器价值加意外保障服务费。预授权金额不会产生利息、无需还款，并随用户支付每期费用后解冻等额的额度。</view>
+            <view class="title">分期费用</view>
+            <view class="text">分期费用是系统按期向用户订单提交时填写的信用卡账户内收取的租赁及服务费。</view>
+            <view class="title">意外保障服务费用</view>
+            <view class="text">为了方便用户更好的使用手机，租赁订单提交时需购买一份意外保障服务。在租赁期间，若因意外导致的租赁手机发生保障范围内的损伤，可享受一次官方免费维修服务。</view>
+            <view class="title">买断费用</view>
+            <view class="text">用户在租赁期到期前，可以选择还机，也可以选择买断。如果选择买断，系统会从用户的预授权金额中扣取剩余的金额作为买断费用。如果选择归还，则会解冻这部分金额。</view>
+          </view> 
+        </view>
+        <!-- 产品信息 -->
+        <view class="tab_content " hidden="{{activeIndex != 2}}">
+          <view class="proDetail">
+            <view class="title">产品详情信息</view>
+          </view>
+        </view>
+        <!-- 常见问题 -->
+        <view class="tab_content" hidden="{{activeIndex != 3}}">
+          <view class="quest">
+            <view class="title">一个用户可以下几个订单？</view>
+            <view class="text">一个实名认证支付宝账户限一个租赁订单。</view>
+            <view class="title">更换机型吗？</view>
+            <view class="text">不可以。租期到期归还后可以更换机型重新租机。</view>
+            <view class="title">可以更改租赁时间或租期吗？</view>
+            <view class="text">租赁期内，用户不可以更改租赁时间或租期。租赁结束时，可选择买断或归还商品。</view>
+            <view class="title">到期归还时，配件也需要归还吗？</view>
+            <view class="text">需要将设备所带配件一起归还。若遗失或损坏，需按照配件的售价进行赔偿。</view>
+            <view class="title">如何取还机？</view>
+            <view class="text">租赁到期后，用户可以通过快递的方式归还商品。快递信息可以在用户订单中心查看。寄回设备前请自行妥善处理旧设备内的数据信息，我们在收到设备后将对旧设备进行恢复出厂设置，保障用户的隐私安全。</view>
+            <view class="title">意外损坏怎么办？</view>
+            <view class="text">租期内，因意外导致的屏幕碎裂，可享受1次意外碎屏免费维修（换原装屏）服务，设备遗失、经过非乐租授权维修商拆修、更换零部件、其它损坏等情形，将进行租转售处理。</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 立即下单弹出框 -->
+  <view class="sku-info">
+    <view  wx:if="{{showSku}}" class="sku-dialog" animation="{{animationData}}">
+      <view class="proInfo">
+        <view class="rent">
+          <view class="every">每期租金：<text class="money">¥{{filters.toFix(product.rent_amount/product.rent_lbf_period)}}</text></view>
+          <view>总计租金：<text class="money">¥{{product.rent_amount}}</text></view>
+          <image bindtap="hideSku" src="../../images/product/delete.png"/>
+        </view>
+        <view class="guar">
+          <view class="bloGuar">
+            <image src="../../images/product/good.png"/>
+            租金分期还款
+          </view>
+          <view class="bloGuar">
+            <image src="../../images/product/good.png"/>
+            冻结预授权不产生利息
+          </view>
+        </view>
+      </view>
+      <view class="list" wx:for="{{skuList}}" wx:for-index="skuKey" wx:key="id">
+        <view class="item" wx:for="{{item}}" wx:for-index="itemKey" wx:for-item="list" wx:key="key">
+          <view class="title">{{list.group_name}}</view>
+          <view class="radio">
+            <block wx:for="{{list.option_list}}" wx:for-item="data" wx:key="idx">
+              <view class="{{data.checked == 'true' ? 'checked' : data.disabled == 'true' ? 'disabled' : ''}}" bindtap="setModel" data-wpysetmodel-a="{{skuKey}}" data-wpysetmodel-b="{{itemKey}}" data-wpysetmodel-c="{{data.value}}" data-wpysetmodel-d="{{data.disabled}}">
+                {{data.option_name}}
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class="good">
+          <view class="title">
+            <view class="layout">
+              <image src="../../images/product/guar.png"/>
+              <text>保障服务（必选）</text>
+            </view>
+            <view class="price">￥298</view>
+          </view>
+          <view class="radio">
+            因意外导致的屏幕碎裂，可享受一次免费官方维修
+          </view>
+        </view>
+      
+      <view class="footer" bindtap="sendOrder">
+        <view class="btn full">确认下单</view>
+      </view>
+    </view>
+    <view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{showSku}}"/>
+  </view>
+
+  <!-- 页面底部固定行 -->
+  <view class="footer" bindtap="getSkuList">
+    <image src="../../images/home/customer.png"/>
+    <view class="info">¥{{filters.toFix(product.rent_amount/product.rent_lbf_period)}}<text>/期起</text></view>
+    <view class="btn" bindtap='getSkuList'>立即下单</view>
+  </view>
+
+  <!-- 产品服务弹框 -->
+  <view class="orderModal"  wx:if="{{showDetail}}">
+    <view class="intro">
+      <view class="orderRemind">服务说明</view>
+      <view class="proDescrip">
+        <view class="step">
+          <image src="../../images/product/advan.png"/>
+          <text class="title">品质保证  正品国行</text>
+          <view class="desc">100%正品保障，杜绝一切假货，让你购机无忧</view>
+        </view>
+        <view class="step">
+          <image src="../../images/product/advan.png"/>
+          <text class="title">碎屏无忧  免费官修</text>
+          <view class="desc">意外碎屏，可享受一次官方换屏维修</view>
+        </view>
+        <view class="step">
+          <image src="../../images/product/advan.png"/>
+          <text class="title">租金分期  轻松享用</text>
+          <view class="desc">信用卡分期支付，轻松享用</view>
+        </view>
+      </view>
+    </view>
+    
+    <view>
+      <text class="btn renew" bindtap="hideDetail">关闭</text>
+    </view>
+    <view class="sku-dialog_mask" catchtouchmove="preventTouchMove" wx:if="{{showDetail}}"/>
+  </view>

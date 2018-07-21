@@ -1,1 +1,118 @@
-/* pages/list/list.wxss */
+.scroll-view {
+  position: absolute;
+  width: 150rpx;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #F6F6F6;
+  color: #000;
+}
+.scroll-view .scroll-view-item {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.scroll-view .scroll-view-item.scroll-view__item_on {
+  background-color: #fff;
+  color: #FF6000;
+}
+.models {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  color: #464646;
+}
+.models .model-list {
+  margin-left: 150rpx;
+  padding-bottom: 32rpx;
+  height: auto;
+}
+.models .scroll-view-item {
+  width: 490rpx;
+  height: auto;
+  margin: 24rpx 0 0 32rpx;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 4rpx;
+  padding: 20rpx;
+  box-shadow: 0px 0px 16rpx rgba(0, 0, 0, 0.08);
+  line-height: 32rpx;
+  display: flex;
+}
+.models .scroll-view-item::after {
+  display: none;
+}
+.models .scroll-view-item .image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.models .scroll-view-item .image > image {
+  width: 100%;
+  height: 200rpx;
+}
+.models .scroll-view-item .content {
+  margin-left: 16rpx;
+  width: 310rpx;
+  height: 200rpx;
+  padding-bottom: 8rpx;
+}
+.models .scroll-view-item .content .title {
+  overflow: hidden;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 30rpx;
+}
+.models .scroll-view-item .content .desc {
+  margin-top: 18rpx;
+  height: 42rpx;
+  overflow: hidden;
+  display: flex;
+}
+.models .scroll-view-item .content .desc .tag {
+  background: #F0F1F5;
+  color: #474747;
+  border-radius: 8rpx;
+  padding: 8rpx 16rpx;
+  margin-right: 8rpx;
+  font-size: 20rpx;
+}
+.models .scroll-view-item .content .price {
+  font-family: 'DINPro';
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #474747;
+}
+.models .scroll-view-item .content .btn {
+  height: 50rpx;
+  padding-right: 108rpx;
+  line-height: 50rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #FF6000;
+  margin: 16rpx auto 0;
+  border: 1rpx solid #FF6000;
+  text-align: center;
+  position: relative;
+}
+.models .scroll-view-item .content .btn .priBtn {
+  font-size: 32rpx;
+}
+.models .scroll-view-item .content .btn text {
+  font-family: 'DINPro';
+  font-size: 28rpx;
+}
+.models .scroll-view-item .content .btn view {
+  background: #FF6000;
+  color: #fff;
+  width: 108rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-top-right-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+}

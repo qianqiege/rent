@@ -1,2 +1,109 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<wxs module="filters" src="../fliter.wxs"></wxs>
+<view class="header">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{currColor}}" circular="{{circular}}" class="banner">
+    <block  wx:for="{{banners}}" wx:key="id">
+      <swiper-item>
+        <navigator hover-class="none">
+          <image src="{{item.banner_img}}" class="slide-image"/>
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 租机流程 -->
+  <view class="process">
+    <view class="title">租机流程</view>
+    <view class="proText">
+      <view class="proBlo">
+        选择机型
+        <image src="../../images/home/next.png"/>
+      </view>
+      <view class="proBlo">
+        确认订单
+        <image src="../../images/home/next.png"/>
+      </view>
+      <view class="proBlo">
+        拍照面签
+        <image src="../../images/home/next.png"/>
+      </view>
+      <view class="proBlo">
+        <text class="msg">到期归还/买断</text>
+      </view>
+    </view>
+    <view class="guarantee">
+      <view class="bloGuar">
+        <image src="../../images/home/right.png"/>
+        品质保证 正品国行
+      </view>
+      <view class="bloGuar">
+        <image src="../../images/home/right.png"/>
+        碎屏无忧 免费官修
+      </view>
+      <view class="bloGuar">
+        <image src="../../images/home/right.png"/>
+        租金分期 轻松享用
+      </view>
+    </view>
+  </view>
+  <!-- 租机优势 -->
+  <view class="advantage">
+    <view class="title">租机优势</view>
+    <view class="conAdv">
+      <view class="conImg"  wx:for="{{advantage}}" wx:key="id">
+        <image src="{{item}}"/>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热门推荐 -->
+  <view class="popular">
+    <view class="title">热门推荐</view>
+    <view class="popuCon">
+      <view class="popuPro" wx:for="{{popular}}" wx:key="id">
+        <view class="navCon" id="{{item.goods_id}}" bindtap='goProduct'>
+          <image class="image" mode="aspectFit" src="{{item.goods_image}}"/>
+          <view class="title">{{item.goods_name}}</view>
+          <view class="sale">用12个月比购买省￥{{item.sales_amount-item.rent_amount}}起</view>
+          <view class="price">￥{{filters.toFix(item.rent_amount/12)}}<text class="smFont">/期起</text></view>
+        </view>
+      </view>  
+    </view>
+  </view>
+  <!-- 客服 -->
+  <view class="service">
+    <view class="serInfo">
+      <image class="customer" src="../../images/home/customer.png"/>
+      <text>400-606-8810</text>
+    </view>
+    <navigator url="./question" class="serInfo">
+      <image class="quest" src="../../images/home/quest.png"/>
+      <text>常见问题</text>
+    </navigator>
+  </view>
+  <!-- - 本租赁服务由易享优租提供 - -->
+  <view class="yixiang">- 本租赁服务由易享优租提供 -</view>
+
+  <!-- 弹框未完成订单 -->
+  <view class="orderModal" wx:if="{{showModal}}">
+    <view class="orderRemind">订单提醒</view>
+    <view class="remindInfo">查询到您有进行中的订单，是否继续完成该订单？如选择重新下单会关闭该订单。</view>
+    <view class="orderDetail">
+      <view class="image">
+        <image src="https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg"/>
+      </view>
+      <view class="proInfo">
+        <view class="title">HUAWEI Mate 10 Pro</view>
+        <view>规格：国行 全新 浅灰色 128G 全网通</view>
+        <view>总租金：￥4618</view>
+        <view>分期：15期</view>
+        <view>订单状态：待付款</view>
+      </view>
+    </view>
+    <view class="doubleBtn">
+      <text class="btn continue">继续完成</text>
+      <text class="btn renew" bindtap="renewOrder">重新下单</text>
+    </view>  
+  </view> 
+</view>
+<view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{showModal}}"/>

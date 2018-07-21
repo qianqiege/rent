@@ -12,8 +12,18 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         util.request(util.bashUrl +"/user/wx-login",{code:res.code}, function(result){
-          getApp().globalData.token = result.data;
-          console.log(result);
+          var token = result.data;
+          getApp().globalData.token = token;
+          wx.setStorage({
+            key: "token",
+            data: getApp().globalData.token
+          })
+
+          if (getApp().globalData.token) {
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
+          }
         });
       }
     })
@@ -41,6 +51,7 @@ App({
   globalData: {
     userInfo: null,
     userData: null,
-    token:''
+    token:'',
+    channel_code: 'QD100000'
   }
 })

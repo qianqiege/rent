@@ -1,1 +1,249 @@
-/* pages/home/home.wxss */
+
+.banner {
+  width: 100%;
+  height: 320rpx;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.banner image {
+  width: 100%;
+  height: 320rpx;
+}
+.process,
+.advantage,
+.popular {
+  padding: 28rpx 26rpx;
+}
+.process .proBlo {
+  display: inline-block;
+}
+.process .title {
+  font-family: MicrosoftYaHei;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: bolder;
+  padding: 8rpx 0 26rpx 0;
+}
+.process .proText {
+  font-size: 28rpx;
+  text-align: center;
+  margin: 0 0 20rpx 0;
+}
+.process .proText image {
+  width: 20rpx;
+  height: 20rpx;
+  margin: 2rpx 18rpx;
+}
+.process .guarantee {
+  font-size: 24rpx;
+  color: #B3B3B3;
+  padding-top: 20rpx;
+  border-top: 1px solid #E5E5E5;
+  text-align: center;
+}
+.process .guarantee image {
+  width: 22rpx;
+  height: 22rpx;
+  padding-right: 3rpx;
+}
+.process .guarantee .bloGuar {
+  display: inline-block;
+}
+.process .guarantee .bloGuar:not(:last-child) {
+  margin-right: 6rpx;
+}
+.advantage {
+  background-color: #FFF;
+}
+.advantage .title {
+  font-size: 34rpx;
+}
+.advantage .conAdv {
+  margin-top: 20rpx;
+}
+.advantage .conImg {
+  display: inline-block;
+  width: 48.5%;
+  padding-bottom: 2%;
+}
+.advantage .conImg image {
+  width: 100%;
+  height: 140rpx;
+}
+.advantage .conImg:nth-child(2n) {
+  margin-left: 3%;
+}
+.popular {
+  background-color: #FFF;
+  margin-top: 20rpx;
+}
+.popular .title {
+  font-size: 34rpx;
+}
+.popular .popuCon {
+  margin-top: 20rpx;
+}
+.popular .popuCon .popuPro {
+  display: inline-block;
+  width: 48%;
+  margin-bottom: 2%;
+}
+.popular .popuCon .popuPro:nth-child(2n) {
+  margin-left: 4%;
+}
+.popular .popuCon .navCon {
+  padding-bottom: 4%;
+}
+.popular .popuCon .navCon image {
+  width: 80%;
+  height: 360rpx;
+  padding: 0 10%;
+  border-radius: 8rpx;
+  -moz-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.popular .popuCon .navCon .title {
+  color: #000;
+  font-size: 28rpx;
+  margin: 30rpx 20rpx 10rpx;
+}
+.popular .popuCon .navCon .sale {
+  font-size: 26rpx;
+  color: #C5C5C5;
+  margin-left: 20rpx;
+}
+.popular .popuCon .navCon .price {
+  font-size: 30rpx;
+  color: #FF6000;
+  margin-left: 16rpx;
+}
+.popular .popuCon .navCon .smFont {
+  font-size: 24rpx;
+}
+.service {
+  background-color: #FFF;
+  margin-top: 3%;
+  height: 90rpx;
+  font-size: 32rpx;
+}
+.service .serInfo {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  margin: 3% 0;
+}
+.service .serInfo .customer {
+  width: 52rpx;
+  height: 42rpx;
+  position: relative;
+  left: -15rpx;
+  bottom: -4rpx;
+}
+.service .serInfo .quest {
+  width: 42rpx;
+  height: 42rpx;
+  position: relative;
+  right: 15rpx;
+  bottom: -6rpx;
+}
+.service .serInfo:first-child {
+  border-right: 1px solid #eee;
+}
+.yixiang {
+  color: #B3B3B3;
+  font-size: 26rpx;
+  padding: 4%;
+  text-align: center;
+}
+.orderModal {
+  width: 80%;
+  position: fixed;
+  left: 10%;
+  bottom: 20%;
+  background-color: #fff;
+  border: 1px soild #000;
+  border-radius: 20rpx;
+  z-index: 99;
+}
+.orderModal .orderRemind {
+  font-size: 34rpx;
+  color: #000;
+  font-weight: bolder;
+  text-align: center;
+  padding: 30rpx 20rpx 20rpx;
+}
+.orderModal .remindInfo {
+  color: #888;
+  margin: 10rpx 30rpx 20rpx;
+  text-align: center;
+  line-height: 44rpx;
+  font-size:26rpx;
+}
+.orderModal .remindInfo::after {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  bottom: 400rpx;
+  right: 0;
+  height: 1rpx;
+  width: 90%;
+  border-bottom: 1rpx solid #E0DCF0;
+  color: #E0DCF0;
+}
+.orderModal .orderDetail {
+  display: flex;
+  margin: 80rpx 30rpx 20rpx;
+}
+.orderModal .orderDetail .image {
+  width: 300rpx;
+  height: 250rpx;
+}
+.orderModal .orderDetail .image image {
+  width: 100%;
+  height: 100%;
+}
+.orderModal .orderDetail .proInfo {
+  color: #888;
+  font-size: 24rpx;
+  margin: 20rpx 0 0 30rpx;
+}
+.orderModal .orderDetail .proInfo .title {
+  color: #000;
+  font-size: 28rpx;
+  padding-bottom: 12rpx;
+}
+.orderModal .orderDetail .proInfo view {
+  line-height: 34rpx;
+}
+.orderModal .doubleBtn {
+  border-top: 1px solid #E5E5E5;
+}
+.orderModal .doubleBtn .btn {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  border-radius: 4rpx;
+  padding: 20rpx 40rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.orderModal .doubleBtn .continue {
+  color: #5C5C5C;
+  border-right: 1px solid #E5E5E5;
+}
+.orderModal .doubleBtn .renew {
+  color: #FF6000;
+}
+.sku-dialog_mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.8;
+  overflow: hidden;
+  z-index: 11;
+  color: #fff;
+}

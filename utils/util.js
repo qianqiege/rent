@@ -16,7 +16,7 @@ const formatNumber = n => {
 
 
 //服务器请求封装
-function request(url, data, callback,method) {
+function request(url, data, callback, method) {
   if( method == undefined ){
     method = 'POST';
   }
@@ -42,6 +42,7 @@ function request(url, data, callback,method) {
 }
 
 const bashUrl = 'https://client.test.mintongfu.com';
+// const bashUrl = "http://www.adong.com/";
 
 module.exports = {
   formatTime: formatTime,

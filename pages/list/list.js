@@ -1,66 +1,59 @@
 // pages/list/list.js
+const util = require('../../utils/util.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    brands: [], // 品牌列表，后期增加本地缓存
+    models: [], // 所选的型号列表，后期增加本地缓存
+    activeIndex: 0, // 默认选中的品牌 ID
+    id: 1,
+    // brdname: '全部',
+    page: 1, // 当前页面，用于下拉到底时翻页
+    windowHeight: null,
+    windowWidth: null,
+    loadmodel: true,
+
+    animationData: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    var that = this;
+    util.request(util.bashUrl + "/rent-goods/brand-list", { channel_code: getApp().globalData.channel_code, business_type: 'is_rent' }, function (result) {
+      console.log(result);
+      that.setData({
+        brands:result.data
+      })
+    }, 'GET');
+    that.getModel(0)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  getBuy(e){
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '../product/product?id='+id,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
   
+  /* 品牌列的点击事件*/
+  tabClick(e) {
+    console.log(e)
+    var id = e.currentTarget.id;
+    var name = e.currentTarget.dataset.name;
+    var that= this;
+    that.setData({
+      activeIndex:id,
+      id: id,
+      models: [],
+      page: 1
+    })
+    that.getModel(id)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  getModel(id){
+    var that = this;
+    util.request(util.bashUrl + "/rent-goods/model-list", { channel_code: getApp().globalData.channel_code, business_type: 'is_sale', brdid:id }, function (result) {
+      console.log(result);
+      that.setData({
+        models: result.data,
+      })
+    }, 'GET');
   }
 })

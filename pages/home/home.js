@@ -1,66 +1,57 @@
 // pages/home/home.js
+const util = require('../../utils/util.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    banners: [],
+    animationData: [],
+    indicatorDots: true,
+    autoplay: true,
+    indicatorColor: 'rgba(255,96,0,.2)',
+    currColor: 'rgba(255,96,0,1)',
+    circular: true,
+    interval: 3000,
+    duration: 1000,
+    advantage: [
+      '../../images/home/rest.png',
+      '../../images/home/free.png',
+      '../../images/home/relax.png',
+      '../../images/home/flexible.png'
+    ],
+    popular: [],
+    showModal: true
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onLoad: function (options) { 
+    var that = this;
+    util.request(util.bashUrl + "/channel/channel-banner/rent-list", { channel_code: getApp().globalData.channel_code}, function (result) {
+      if (result.code == 0){
+        that.setData({
+          banners: result.data
+        });
+      }    
+    }, 'GET');
+
+    util.request(util.bashUrl + "/channel/channel-hot-goods/rent-list", { channel_code: getApp().globalData.channel_code, business_type: 'is_rent' }, function (result) {
+      console.log(result.data)
+      if (result.code == 0) {
+        that.setData({
+          popular: result.data
+        });
+      }
+    }, 'GET');
+
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  renewOrder(){
+    this.setData({
+      showModal:false
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  goProduct(e){
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '../product/product?id='+id
+    })
   }
 })

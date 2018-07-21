@@ -1,2 +1,31 @@
-<!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+<wxs module="filters" src="../fliter.wxs"></wxs>
+<scroll-view scroll-y scroll-with-animation="scroll-with-animation" class="scroll-view" style="height: {{windowHeight}}px;">
+  <view id="{{item.brdid}}" data-name="{{item.brdname}}" class="scroll-view-item {{activeIndex == 0 ? 'scroll-view__item_on' : ''}}" bindtap="tabClick">
+    全部
+  </view>
+  <block  wx:for="{{brands}}" wx:key="brdid">
+    <view id="{{item.brdid}}" data-name="{{item.brdname}}" class="scroll-view-item {{activeIndex == item.brdid ? 'scroll-view__item_on' : ''}}" bindtap="tabClick">
+      {{item.brand_name}}
+    </view>
+  </block>
+</scroll-view>
+
+<scroll-view scroll-y scroll-with-animation="scroll-with-animation" enable-back-to-top="true" class="scroll-view models" style="height: {{windowHeight}}px;" lower-threshold="10" bindscrolltolower="loadmore">
+  <view class="model-list">
+    <block  wx:for="{{models.goods_list}}" wx:key="mdlid">
+      <view id="{{item.goods_id}}" animation="{{animationData[item.goods_id]}}" bindtouchstart="click" bindtouchend="out" class="scroll-view-item" bindtap='getBuy' hover-class="none">
+        <view class="image">
+          <image src="{{item.goods_image}}" mode="aspectFit"/>
+        </view>
+        <view class="content">
+          <view class="title">{{item.goods_name}}</view>
+          <view class="desc">
+            <view class="tag" wx:for="{{item.goods_tags}}" wx:for-item="tag" wx:key="id">{{tag}}</view>
+          </view>
+          <view class="price">用{{item.period}}个月比购买省¥{{filters.toFix(item.market_price-item.rent_amount)}}起</view>
+          <view class="btn"><text class="priBtn">¥{{filters.toFix(item.market_price /15)}}</text>/期起<view>下单</view></view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
