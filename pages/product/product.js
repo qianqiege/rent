@@ -11,93 +11,130 @@ Page({
 
     showSku: false,
     animationData: {},
-    skuList: [[], [{
-      group_name: '支付',
-      option_list: [{ option_name: '信用卡', value: 1, checked: 'true' }]
-    }, {
+    skuList: [
+      [],
+      [{
+        group_name: '支付',
+        option_list: [{
+          option_name: '信用卡',
+          option_id: 1,
+          checked: 'true'
+        }]
+      }, {
         group_name: '分期',
-        option_list: [{ option_name: '15期', value: 15, checked: 'true' }]
-    }]],
+        option_list: [{
+          option_name: '15期',
+          option_id: 15,
+          checked: 'true'
+        }]
+      }]
+    ],
 
     skuValue: [],
     showDetail: false,
+    proSku:{},
+    order:{}
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     var id = options.id;
     var that = this;
-    util.request(util.bashUrl + "/rent-goods/model-detail", { channel_code: getApp().globalData.channel_code, business_type: 'is_rent', goods_id: id}, function (result) {
+    util.request(util.bashUrl + "/rent-goods/model-detail", {
+      channel_code: getApp().globalData.channel_code,
+      business_type: 'is_rent',
+      goods_id: id
+    }, function(result) {
       console.log(result);
 
       var data = result.data.goods_sku_list;
+      var arr = [];
       for (var i = 0, l = data.length; i < l; i++) {
-        if (data[i]['option_list'].length == 1) {
+        if (data[i]['option_list'].length <= 2) {
           data[i]['option_list'][0].checked = 'true';
-          console.log('123')
-          // that.setData({
-          //   skuValue: data[i]['option_list'][0].value
-          // })
-          // _this3.skuValue[i] = data[i]['option_list'][0].value;
+          var opt_id = data[i]['option_list'][0].option_id;
+          arr.push(opt_id);
+          that.setData({
+            skuValue: arr
+          })
         } else {
-          // _this3.skuValue[i] = 0;
-          // that.setData({
-          //   skuValue : 0
-          // })
+          data[i]['option_list'][0].checked = 'true';
+          that.setData({
+            skuValue: 0
+          })
         }
       }
-
       that.setData({
         product: result.data,
         'skuList[0]': result.data.goods_sku_list
       })
     }, 'GET');
+    this.getSkuInfo()
   },
- 
+
 
   //选择产品规格 颜色
-  setModel(idx, model, value, disabled) {
+  setModel(e, idx, model, value, disabled) {
     if (disabled == 'true') return;
-
+    var idx = e.currentTarget.dataset.wpysetmodelA;
+    var model = e.currentTarget.dataset.wpysetmodelB;
+    var value = e.currentTarget.dataset.wpysetmodelC;
     var skuList = this.data.skuList[idx];
-    var skuInfo = skuList[model].data;
-    console.log(skuList ,skuInfo)
+    var skuInfo = skuList[model].option_list;
+    var optArr = [];
     for (var k in skuInfo) {
-      skuInfo[k].checked = skuInfo[k].value == value ? 'true' : '';
+      skuInfo[k].checked = skuInfo[k].option_id == value ? 'true' : '';
     }
-
+    for (var j = 0; j < skuList.length; j++) {
+      var opt = skuList[j].option_list;
+      for (var p = 0; p < opt.length; p++) {
+        if (opt[p].checked == 'true') {
+          var optList = opt[p].option_id;
+          optArr.push(optList)
+        }
+      }
+    }
     this.setData({
-      'skuValue[model]': value
+      'skuList[0]': skuList,
+      skuValue: optArr
     })
-
-    // this.skuValue[model] = value;
-
-    // this.getPrice();
+    this.getSkuInfo()
   },
 
-  getSkuList(){
+  getSkuList() {
     var that = this;
     that.setData({
-      showSku:true
+      showSku: true
     })
     that.getSkuInfo()
   },
 
   //获取产品价格信息
-  getSkuInfo(){
-    var that= this;
-    util.request(util.bashUrl + "/rent-goods/get-sku-price", { channel_code: getApp().globalData.channel_code, business_type: 'is_rent', goods_id: that.data.product.goods_id, sku_ids: '1,3,5,6' }, function (result) {
-      console.log(result);
-      // that.setData({
-      //   skuList: result.data
-      // })
-    }, 'GET');
+  getSkuInfo() {
+    var that = this;
+    var sku = this.data.skuValue;
+    var idx = sku.indexOf(0);
+    if (idx == -1) {
+      var skuStr = sku.toString();
+      console.log(skuStr)
+      util.request(util.bashUrl + "/rent-goods/get-sku-price", {
+        channel_code: getApp().globalData.channel_code,
+        business_type: 'is_rent',
+        goods_id: that.data.product.goods_id,
+        sku_ids: skuStr
+      }, function(result) {
+        console.log(result);
+        that.setData({
+          proSku: result.data
+        })
+      }, 'GET');
+    }
   },
 
   // 隐藏产品详情
-  hideSku(){
+  hideSku() {
     var that = this;
     that.setData({
-      showSku:false
+      showSku: false
     })
   },
 
@@ -107,48 +144,42 @@ Page({
     var skuList = this.data.skuList[0];
     var product = this.data.product;
     var skuName = [];
-    var idx = skuValue.indexOf(0);
+    var skuStr = skuValue.toString();
 
-    if (idx != -1) {
-      this.$parent.showErrMsg('请选择' + skuList[idx].title);
-      return;
-    }
+    // skuList.forEach(function(list, idx) {
+    //   var s = list['data'];
+    //   // return sku.checked == 'true';
 
-    skuList.forEach(function (list, idx) {
-      var name = list['data'].find(function (sku) {
-        return sku.checked == 'true';
-      });
-      skuName.push(name.title);
-    });
+    //   // skuName.push(name.title);
+    // });
 
-    var order = {
-      skuName: skuName,
-      skuValue: skuValue,
-      amount: product.amount,
-      brdname: product.brdname,
-      goods_id: product.id,
-      goods_name: product.goods_name,
-      goods_image: product.goods_image,
-      insu_cost: product.insu_cost,
-      per_cost: product.per_cost,
-      period: product.period,
-      price: product.price,
-      title: product.brdname + ' ' + product.goods_name + ' ' + skuName.join(' '),
-      order_no: new Date().getTime(),
-      imei: '',
-      status: '待面签'
+    var data = {
+      goods_id: product.goods_id,
+      channel_id: 1,
+      store_id: 1,
+      sku: skuStr,//用户选择机型规格等信息
+      order_type: 'rent', //租赁 - rent，购买 - sale
+      app_source: 'wxapp',
+      pay_platform: 'lbf',
     };
 
-    // this.$parent.globalData.order = order;
-
-    // _wepy2.default.setStorage({
-    //   key: 'order',
-    //   data: order
-    // });
-
-    // _wepy2.default.navigateTo({
-    //   url: 'checkimei'
-    // });
+    var that = this ;
+    util.request(util.bashUrl + "/rent-order/create", data, function (result) {
+      console.log(result);
+      if (result.code == 0) {
+        wx.showToast({ title: '成功', icon: 'success', duration: 2000 });
+      } else {
+        wx.showModal({ title: '提示', content: result.msg, showCancel: false });
+      }
+      getApp().globalData.order = result.data;
+      wx.setStorage({
+        key: 'order',
+        data: result.data
+      });
+    });
+    wx.navigateTo({
+      url: '../confirm/confirm'
+    });
   },
 
   //切换产品详情介绍信息

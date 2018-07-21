@@ -1,0 +1,113 @@
+.header{
+  height: 100%;
+  padding-bottom: 115rpx;
+}
+.orderList{
+  background: #fff;
+  padding-bottom: 14rpx;
+}
+.orderModal .orderDetail {
+  display: flex;
+  margin: 0 30rpx 20rpx;
+}
+.orderModal .orderDetail .image {
+  width: 180rpx;
+  height: 180rpx;
+  margin-top: 20rpx;
+}
+.orderModal .orderDetail .image image {
+  width: 100%;
+  height: 100%;
+}
+.orderModal .orderDetail .proInfo {
+  color: #888;
+  font-size: 24rpx;
+  margin: 60rpx 0 0 30rpx;
+  vertical-align: middle;
+}
+.orderModal .orderDetail .proInfo .title {
+  color: #000;
+  font-size: 30rpx;
+  padding-bottom: 14rpx;
+}
+.orderModal .orderDetail .proInfo view {
+  line-height: 34rpx;
+}
+
+.orderInfo{
+  margin-top: 24rpx;
+  background: #fff;
+  position: relative;
+}
+.orderInfo .flex:last-child::before{
+  content: " ";
+  position: absolute;
+  left: 25rpx;
+  right: 0;
+  height: 1rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+}
+.orderInfo .flex:last-child{
+  margin-top: 8rpx;
+}
+.orderInfo .flex:last-child view{
+  margin-top: 24rpx;
+}
+.orderInfo .title{
+  font-size: 34rpx;
+  padding: 20rpx 25rpx 0;
+}
+
+.orderInfo .flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.orderInfo .flex view{
+  font-size: 28rpx;
+  color: #888888;
+  margin: 15rpx 25rpx;
+}
+.orderInfo .alert{
+  display: flex;
+  margin: 15rpx 25rpx;
+  color: #B3B3B3;
+  font-size: 24rpx;
+  padding-bottom: 20rpx;
+}
+.orderInfo .alert image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 18rpx;  
+}
+.orderInfo .alert view{
+  display: inline-block;
+  line-height: 34rpx;
+}
+/* .orderModal .orderInfo .rent{
+  color:#353535;
+}
+.orderModal .orderInfo .money{
+  color:#353535;
+} */
+
+.agree{ 
+  background: #fff;
+}
+
+.agree .readArg{
+  margin: 24rpx 25rpx;
+  display: flex;
+  font-size: 24rpx;
+}
+
+.agree .readArg view{
+  margin-top: 10rpx;
+}
+
+.agree image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-top: 6rpx;
+  margin-right: 16rpx;
+}

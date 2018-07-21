@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/confirm/confirm",
     "pages/first/first",
     "pages/home/home",
     "pages/index/index",

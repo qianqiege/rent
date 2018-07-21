@@ -188,8 +188,8 @@
     <view  wx:if="{{showSku}}" class="sku-dialog" animation="{{animationData}}">
       <view class="proInfo">
         <view class="rent">
-          <view class="every">每期租金：<text class="money">¥{{filters.toFix(product.rent_amount/product.rent_lbf_period)}}</text></view>
-          <view>总计租金：<text class="money">¥{{product.rent_amount}}</text></view>
+          <view class="every">每期租金：<text class="money">¥{{filters.toFix(proSku.rent_amount/15)}}</text></view>
+          <view>总计租金：<text class="money">¥{{filters.parse(proSku.rent_amount)}}</text></view>
           <image bindtap="hideSku" src="../../images/product/delete.png"/>
         </view>
         <view class="guar">
@@ -208,7 +208,7 @@
           <view class="title">{{list.group_name}}</view>
           <view class="radio">
             <block wx:for="{{list.option_list}}" wx:for-item="data" wx:key="idx">
-              <view class="{{data.checked == 'true' ? 'checked' : data.disabled == 'true' ? 'disabled' : ''}}" bindtap="setModel" data-wpysetmodel-a="{{skuKey}}" data-wpysetmodel-b="{{itemKey}}" data-wpysetmodel-c="{{data.value}}" data-wpysetmodel-d="{{data.disabled}}">
+              <view class="{{data.checked == 'true' ? 'checked' : data.disabled == 'true' ? 'disabled' : ''}}" bindtap="setModel" data-wpysetmodel-a="{{skuKey}}" data-wpysetmodel-b="{{itemKey}}" data-wpysetmodel-c="{{data.option_id}}" data-wpysetmodel-d="{{data.disabled}}">
                 {{data.option_name}}
               </view>
             </block>

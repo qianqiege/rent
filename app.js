@@ -19,11 +19,11 @@ App({
             data: getApp().globalData.token
           })
 
-          if (getApp().globalData.token) {
-            wx.switchTab({
-              url: '/pages/home/home',
-            })
-          }
+          // if (getApp().globalData.token) {
+          //   wx.switchTab({
+          //     url: '/pages/home/home',
+          //   })
+          // }
         });
       }
     })
@@ -52,6 +52,17 @@ App({
     userInfo: null,
     userData: null,
     token:'',
-    channel_code: 'QD100000'
+    channel_code: 'QD100000',
+    order: {}
+  },
+  showErrMsg(title) {
+    var image = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '../images/warn.png';
+    var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
+
+    wx.showToast({
+      title: title,
+      image: image,
+      duration: duration
+    });
   }
 })
