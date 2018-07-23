@@ -1,5 +1,6 @@
 {
-  "pages":[
+  "pages": [
+    "pages/facesign/facesign",
     "pages/confirm/confirm",
     "pages/first/first",
     "pages/home/home",
@@ -9,8 +10,8 @@
     "pages/list/list",
     "pages/orderList/orderList",
     "pages/product/product"
+    
   ],
-  
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
