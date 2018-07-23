@@ -1,0 +1,55 @@
+<!--pages/facesign/facesign.wxml-->
+<view class="title">面签信息</view>
+<view class="content">
+    <view class="info">请上传身份证头像面</view>
+    <view class="upload">
+        <view class="row img" bindtap='uploadAvatar'>
+            <image class='{{avatar=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{avatar}}'></image>
+        </view>
+        <view class="row">
+            <image src="/images/facesign/avatar.png"></image>
+        </view>
+    </view>
+    <view class="remark">请按上图上传身份证头像面图片,并确保信息清晰</view>
+</view>
+<view class="content">
+    <view class="info">请上传身份证国徽面</view>
+    <view class="upload">
+        <view class="row img" bindtap='uploadBack'>
+            <image class='{{back=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{back}}'></image>
+        </view>
+        <view class="row">
+            <image src="/images/facesign/back.png"></image>
+        </view>
+    </view>
+    <view class="remark">请按上图上传身份证国徽面图片,并确保信息清晰</view>
+</view>
+<view class="content">
+    <view class="info">请上传用户手持手机照片</view>
+    <view class="upload">
+        <view class="row img" bindtap='uploadHandson'>
+            <image class='{{handson=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{handson}}'></image>
+        </view>
+        <view class="row">
+            <image src="/images/facesign/handson.png"></image>
+        </view>
+    </view>
+    <view class="remark">请按上图上传手持手机的照片，并确保照片清晰</view>
+</view>
+
+
+<view class="pick">
+    <view class="pick-title">请输入取货码</view>
+    <view class="pick-ipt">
+        <input placeholder-class="place-holder" placeholder="点击输入短信接收的取货码" name="pickup_code" />
+    </view>
+</view>
+
+<view>
+    <button class="btn" formType="submit">确定</button>
+</view>
+
+
+<input placeholder="订单" name="order_id" value="1" />
+<input placeholder="IMEI" name="imei" value="imei909300803920" />
+<input placeholder="取货码" name="pickup_code" value="134343434" />
