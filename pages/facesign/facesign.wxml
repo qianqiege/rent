@@ -4,7 +4,7 @@
     <view class="info">请上传身份证头像面</view>
     <view class="upload">
         <view class="row img" bindtap='uploadAvatar'>
-            <image class='{{avatar=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{avatar}}'></image>
+            <image class='{{imgAvatar=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{imgAvatar}}'></image>
         </view>
         <view class="row">
             <image src="/images/facesign/avatar.png"></image>
@@ -16,7 +16,7 @@
     <view class="info">请上传身份证国徽面</view>
     <view class="upload">
         <view class="row img" bindtap='uploadBack'>
-            <image class='{{back=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{back}}'></image>
+            <image class='{{imgBack=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{imgBack}}'></image>
         </view>
         <view class="row">
             <image src="/images/facesign/back.png"></image>
@@ -28,7 +28,7 @@
     <view class="info">请上传用户手持手机照片</view>
     <view class="upload">
         <view class="row img" bindtap='uploadHandson'>
-            <image class='{{handson=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{handson}}'></image>
+            <image class='{{imgHandson=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{imgHandson}}'></image>
         </view>
         <view class="row">
             <image src="/images/facesign/handson.png"></image>
@@ -41,15 +41,10 @@
 <view class="pick">
     <view class="pick-title">请输入取货码</view>
     <view class="pick-ipt">
-        <input placeholder-class="place-holder" placeholder="点击输入短信接收的取货码" name="pickup_code" />
+        <input bindinput="bindText" placeholder-class="place-holder" placeholder="点击输入短信接收的取货码" />
     </view>
 </view>
 
 <view>
-    <button class="btn" formType="submit">确定</button>
+    <button class="btn" bindtap="faceSign">确定</button>
 </view>
-
-
-<input placeholder="订单" name="order_id" value="1" />
-<input placeholder="IMEI" name="imei" value="imei909300803920" />
-<input placeholder="取货码" name="pickup_code" value="134343434" />

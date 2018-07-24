@@ -6,19 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatar:'/images/facesign/pic.png',
-    back: '/images/facesign/pic.png',
-    handson: '/images/facesign/pic.png',
-    iptAvatar:'',
-    iptBack: '',
-    iptHandson: '',
+    imgAvatar:'/images/facesign/pic.png',
+    imgBack: '/images/facesign/pic.png',
+    imgHandson: '/images/facesign/pic.png',
+    avatar:'',
+    back: '',
+    handson: '',
+    order_id:0,
+    pickup_code:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      order_id:9,//options.order_id,
+      imei:(options.imei?options.imei:'')
+    });
   },
 
   /**
@@ -69,12 +74,18 @@ Page({
   onShareAppMessage: function () {
   
   },
+  bindText: function (e) {
+    var text = e.detail.value;
+    this.setData({
+      pickup_code:text
+    })
+  },
   uploadAvatar:function(){
     var _this = this;
     upload('avatar',function(data){
       _this.setData({
-        iptAvatar:data.path,
-        avatar:data.url
+        avatar:data.path,
+        imgAvatar:data.url
       });
     });
   },
@@ -82,8 +93,8 @@ Page({
     var _this = this;
     upload('back',function(data){
       _this.setData({
-        iptBack:data.path,
-        back:data.url
+        back:data.path,
+        imgBack:data.url
       });
     });
   },
@@ -91,13 +102,13 @@ Page({
     var _this = this;
     upload('handson',function(data){
       _this.setData({
-        iptHandson:data.path,
-        handson:data.url
+        handson:data.path,
+        imgHandson:data.url
       });
     });
   },
   faceSign:function(e){//面签操作
-    var form = e.detail.value;
+    var form = this.data;
     util.request(util.bashUrl +"/rent-order/face-sign", form, function (result) {
       console.log(result);
       if (result.code == 0) {
@@ -126,13 +137,12 @@ function upload(filename,callback){
           'Authorization': 'Bearer ' + getApp().globalData.token,
         },
         formData: {
-          filename:filename,
-          type:'bankcard'
+          filename:filename
         },
         success: function (res) {
           var result = JSON.parse(res.data);
           if (result.code == 0) {
-            callback(result.data);
+            callback( result.data );
           } else {
             wx.showModal({title:'提示',content:result.msg});
           }

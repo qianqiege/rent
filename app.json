@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/facesign/facesign",
     "pages/confirm/confirm",
     "pages/first/first",
     "pages/home/home",
@@ -9,8 +8,8 @@
     "pages/login/login",
     "pages/list/list",
     "pages/orderList/orderList",
-    "pages/product/product"
-    
+    "pages/product/product",
+    "pages/facesign/facesign"
   ],
   "window": {
     "backgroundTextStyle": "light",
