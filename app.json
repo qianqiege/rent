@@ -1,14 +1,15 @@
 {
   "pages": [
+    "pages/cancel/cancel",
+    "pages/success/success",
     "pages/first/first",
     "pages/login/login",
     "pages/signature/signature",
     "pages/card/card",
     "pages/home/home",
     "pages/confirm/confirm", 
-    "pages/success/success",
     
-    "pages/cancel/cancel",
+    
     "pages/index/index",
     "pages/logs/logs",
     "pages/list/list",

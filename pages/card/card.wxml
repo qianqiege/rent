@@ -86,7 +86,7 @@
 
   <view class="showPrompt" wx:if="{{showPrompt}}">
     <view class='title'>支付失败</view>
-    <view class="content">由于您的信用卡信用额度不足,请更换其他信用卡支付</view>
+    <view class="content">{{promptMsg}}由于您的信用卡信用额度不足,请更换其他信用卡支付</view>
     <view class='doubleBtn'>
       <text class='btn cancel' bindtap='cancelOrder'>取消订单</text>
       <text class='btn renew' bindtap='renewInfo'>更改资料</text>

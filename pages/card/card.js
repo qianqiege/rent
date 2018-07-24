@@ -16,7 +16,8 @@ Page({
     showText: true,
     showImage: false,
     order_id: '',
-    showPrompt: false
+    showPrompt: false,
+    promptMsg:''
   },
 
   onLoad: function(options) {
@@ -320,8 +321,12 @@ Page({
         wx.navigateTo({
           url: '../success/success?id=' + orid,
         })
+      }else{
+        // that.setData({
+        //   showPrompt:true,
+        //   promptMsg:result.msg
+        // })
       }
-
     }, 'POST');
   },
 
@@ -339,13 +344,12 @@ Page({
       order_id: id,
       action: 'close'
     }, function(result) {
-      console.log(result);
-
-
+      if(result.code==0){
+        console.log(result);
+        wx.navigateTo({
+          url: '../cancel/cancel',
+        })
+      }
     });
-
-    wx.navigateTo({
-      url: '../cancel/cancel',
-    })
   }
 })

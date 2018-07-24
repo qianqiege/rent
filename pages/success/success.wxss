@@ -101,9 +101,126 @@
   text-align: center;
   line-height: 94rpx;
 }
-.return .confirm{
+
+.return .confirm {
   font-size: 24rpx;
   color: #888;
   text-align: center;
   margin: 15rpx 0;
 }
+
+.reChoose {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 33;
+}
+
+.reChoose .colorInfo {
+  margin: 28rpx 25rpx;
+}
+
+.reChoose .colorInfo .title {
+  font-size: 34rpx;
+  color: #000;
+}
+
+.radio{
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+.color{
+  margin-top: 20rpx;
+}
+
+.radio view{
+  display: inline-block;
+  width: 150rpx;
+  height: 60rpx;
+  border-radius: 8rpx;
+  background: #ffefe5;
+  color: #ff6000;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+
+
+.sku-dialog_mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 11;
+  color: #fff;
+}
+
+.cprompt{
+  font-size: 24rpx;
+  margin: 30rpx 25rpx;
+}
+
+.conbtn{
+  width: 100%;
+  height: 94rpx;
+  color: #fff;
+  background: #FF6000;
+  line-height: 94rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+
+
+.cancelorder {
+  width: 80%;
+  position: fixed;
+  left: 10%;
+  bottom: 45%;
+  background-color: #fff;
+  border: 1px soild #000;
+  border-radius: 20rpx;
+  z-index: 99;
+}
+.cancelorder .title {
+  font-size: 34rpx;
+  color: #000;
+  font-weight: bolder;
+  text-align: center;
+  margin: 25rpx 0;
+}
+.cancelorder .content {
+  color: #353535;
+  margin: 10rpx 30rpx 20rpx;
+  text-align: center;
+  line-height: 44rpx;
+  font-size:28rpx;
+}
+
+.cancelorder .doubleBtn {
+  border-top: 1px solid #E5E5E5;
+   width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+}
+.cancelorder .doubleBtn .btn {
+  width: 49%;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 0;
+  padding: 20rpx 0;
+}
+ .cancelorder .doubleBtn .cancel {
+  color: #5C5C5C;
+  border-right: 1px solid #E5E5E5;
+}
+.cancelorder .doubleBtn .renew {
+  color: #FF6000;
+} 
