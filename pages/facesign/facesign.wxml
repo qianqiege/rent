@@ -4,10 +4,10 @@
     <view class="info">请上传身份证头像面</view>
     <view class="upload">
         <view class="row img" bindtap='uploadAvatar'>
-            <image class='{{imgAvatar=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{imgAvatar}}'></image>
+            <image class='{{imgAvatar=="/images/carmer.png"?"pic":"avatar"}}' src='{{imgAvatar}}'></image>
         </view>
         <view class="row">
-            <image src="/images/facesign/avatar.png"></image>
+            <image src="https:/static.test.mintongfu.com/wxmini/images/facesign/avatar.png"></image>
         </view>
     </view>
     <view class="remark">请按上图上传身份证头像面图片,并确保信息清晰</view>
@@ -16,10 +16,10 @@
     <view class="info">请上传身份证国徽面</view>
     <view class="upload">
         <view class="row img" bindtap='uploadBack'>
-            <image class='{{imgBack=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{imgBack}}'></image>
+            <image class='{{imgBack=="/images/carmer.png"?"pic":"avatar"}}' src='{{imgBack}}'></image>
         </view>
         <view class="row">
-            <image src="/images/facesign/back.png"></image>
+            <image src="https:/static.test.mintongfu.com/wxmini/images/facesign/back.png"></image>
         </view>
     </view>
     <view class="remark">请按上图上传身份证国徽面图片,并确保信息清晰</view>
@@ -28,10 +28,10 @@
     <view class="info">请上传用户手持手机照片</view>
     <view class="upload">
         <view class="row img" bindtap='uploadHandson'>
-            <image class='{{imgHandson=="/images/facesign/pic.png"?"pic":"avatar"}}' src='{{imgHandson}}'></image>
+            <image class='{{imgHandson=="/images/carmer.png"?"pic":"avatar"}}' src='{{imgHandson}}'></image>
         </view>
         <view class="row">
-            <image src="/images/facesign/handson.png"></image>
+            <image src="https:/static.test.mintongfu.com/wxmini/images/facesign/handson.png"></image>
         </view>
     </view>
     <view class="remark">请按上图上传手持手机的照片，并确保照片清晰</view>
