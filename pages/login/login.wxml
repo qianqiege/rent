@@ -30,13 +30,13 @@
     <view class="login-text">账号登录</view>
     <view class="login-update">
       <view>
-        <input type="number" name="mobile" maxlength="13" value="{{verifMobile}}" bindinput="verifMobile" placeholder="请输入您的手机号" />
+        <input type="number" name="mobile" maxlength="13" placeholder-class="place-holder" value="{{verifMobile}}" bindinput="verifMobile" placeholder="请输入您的手机号" />
       </view>
       <view class="clear"></view>
     </view>
     <view class="login-update">
       <view>
-        <input type="number" maxlength="6" name="verifycode" placeholder="请输入验证码" />
+        <input type="number" maxlength="6" name="verifycode" placeholder-class="place-holder" placeholder="请输入验证码" />
         <button bindtap="sendCode" >获取验证码</button>
       </view>
       <view class="clear"></view>

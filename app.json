@@ -1,18 +1,19 @@
 {
   "pages": [
     "pages/first/first",
+    "pages/confirm/confirm", 
     "pages/success/success",
     "pages/home/home",
     "pages/cancel/cancel",
     "pages/card/card",
-    "pages/confirm/confirm",
     "pages/index/index",
     "pages/logs/logs",
     "pages/login/login",
     "pages/list/list",
     "pages/orderList/orderList",
     "pages/product/product",
-    "pages/signature/signature"
+    "pages/signature/signature",
+    "pages/facesign/facesign"
   ],
   "window": {
     "backgroundTextStyle": "light",
