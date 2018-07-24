@@ -10,6 +10,7 @@ Page({
     sliderLeft: 30,
 
     showSku: false,
+    insu_price:'',
     animationData: {},
     skuList: [
       [],
@@ -32,8 +33,8 @@ Page({
 
     skuValue: [],
     showDetail: false,
-    proSku:{},
-    order:{}
+    proSku: {},
+    order: {}
   },
 
   onLoad: function(options) {
@@ -45,8 +46,8 @@ Page({
       goods_id: id
     }, function(result) {
       console.log(result);
-
       var data = result.data.goods_sku_list;
+      var insu_price = result.data.insu_price;
       var arr = [];
       for (var i = 0, l = data.length; i < l; i++) {
         if (data[i]['option_list'].length <= 2) {
@@ -65,7 +66,8 @@ Page({
       }
       that.setData({
         product: result.data,
-        'skuList[0]': result.data.goods_sku_list
+        'skuList[0]': result.data.goods_sku_list,
+        insu_price:insu_price
       })
     }, 'GET');
     this.getSkuInfo()
@@ -157,31 +159,41 @@ Page({
       goods_id: product.goods_id,
       channel_id: 1,
       store_id: 1,
-      sku: skuStr,//用户选择机型规格等信息
+      sku: skuStr, //用户选择机型规格等信息
       order_type: 'rent', //租赁 - rent，购买 - sale
       app_source: 'wxapp',
       pay_platform: 'lbf',
     };
 
-    var that = this ;
-    util.request(util.bashUrl + "/rent-order/create", data, function (result) {
+    var that = this;
+    util.request(util.bashUrl + "/rent-order/create", data, function(result) {
       console.log(result);
       if (result.code == 0) {
-        wx.showToast({ title: '成功', icon: 'success', duration: 2000 });
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        });
+        var id = result.data.id;
+        wx.navigateTo({
+          url: '../login/login?id='+id
+        });
       } else {
-        wx.showModal({ title: '提示', content: result.msg, showCancel: false });
+        wx.showModal({
+          title: '提示',
+          content: result.msg,
+          showCancel: false
+        });
       }
       // getApp().globalData.order = result.data;
       // wx.setStorage({
       //   key: 'order',
       //   data: result.data
       // });
-      var id =result.data.id;
-      wx.navigateTo({
-        url: '../confirm/confirm?id=' + id
-      });
+      
+      
     });
-  
+
   },
 
   //切换产品详情介绍信息

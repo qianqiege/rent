@@ -12,7 +12,7 @@
 .process,
 .advantage,
 .popular {
-  padding: 28rpx 26rpx;
+  padding: 25rpx 26rpx;
 }
 .process .proBlo {
   display: inline-block;
@@ -106,17 +106,17 @@
 .popular .popuCon .navCon .title {
   color: #000;
   font-size: 28rpx;
-  margin: 30rpx 20rpx 10rpx;
+  margin: 30rpx 10rpx 10rpx;
 }
 .popular .popuCon .navCon .sale {
   font-size: 26rpx;
   color: #C5C5C5;
-  margin-left: 20rpx;
+  margin-left: 10rpx;
 }
 .popular .popuCon .navCon .price {
   font-size: 30rpx;
   color: #FF6000;
-  margin-left: 16rpx;
+  margin:6rpx 0 0 6rpx;
 }
 .popular .popuCon .navCon .smFont {
   font-size: 24rpx;
@@ -242,7 +242,7 @@
   top: 0;
   left: 0;
   background: #000;
-  opacity: 0.8;
+  opacity: 0.5;
   overflow: hidden;
   z-index: 11;
   color: #fff;

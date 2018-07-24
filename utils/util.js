@@ -41,8 +41,8 @@ function request(url, data, callback, method) {
   });
 }
 
-//const bashUrl = 'https://client.test.mintongfu.com';
-const bashUrl = "http://www.dong6.com/";
+const bashUrl = 'https://client.test.mintongfu.com';
+// const bashUrl = "http://www.dong6.com/";
 
 module.exports = {
   formatTime: formatTime,

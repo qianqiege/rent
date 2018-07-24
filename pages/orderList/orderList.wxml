@@ -1,2 +1,42 @@
-<!--pages/orderList/orderList.wxml-->
-<text>pages/orderList/orderList.wxml</text>
+<view class="header">
+  <view class="navbar">
+    <block wx:for="{{status}}" wx:key="id">
+      <view id="{{index}}" class="item {{activeIndex == index ? 'item_on' : ''}}" bindtap="tabClick">
+        {{item}}
+      </view>
+    </block>
+    <view class="slider" style="left: {{sliderLeft}}rpx; transform: translateX({{sliderOffset}}rpx); -webkit-transform: translateX({{sliderOffset}}rpx);" />
+  </view>
+</view>
+
+<block wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="item" wx:key="index">
+
+  <navigator class="orderlist" hover-class="none" url="orderinfo">
+    <view class="item item__hd" wx:if="{{showHead}}">
+      <view>{{item.headMsg.left}}</view>
+    </view>
+    <view class="item item__bd">
+      <view class="image">
+        <image src="{{item.order.goods_image}}" />
+      </view>
+      <view class="content">
+        <view class="title">{{item.order.title}}</view>
+        <view>规格：¥{{item.order.amount}}（市场价¥{{item.order.price}}）</view>
+        <view>分期费用：{{item.order.amount}}</view>
+        <view>分期：{{item.order.amount}}</view>
+        <view>扣款方：上海银骏科技有限公司</view>
+      </view>
+    </view>
+
+     <view class="item item__ft" wx:if="{{showFoot}}">
+      <text class="faceSign">{{item.footMsg.buttons[0].text}}</text>
+      <text class="closeOrder">关闭订单</text>
+      <!-- <view class="btn">
+        <block wx:for="{{buttons}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+          <button class="{{item.class}}" disabled="{{item.disabled}}" catchtap="tap({{item.value}}, {{item.id}})" hover-stop-propagation="true">{{item.text}}</button>
+        </block>
+      </view> -->
+    </view> 
+  </navigator>
+
+</block>

@@ -8,63 +8,18 @@ Page({
   data: {
     isUpdate:false,
     userPhone:'',
-    verifMobile:''
+    verifMobile:'',
+    id:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    var id = options.id;
+    this.setData({
+      id:id
+    })
   },
   update:function(){
     this.setData({
@@ -97,6 +52,7 @@ Page({
   sendCode: function () {//发送验证码
 
     var mobile = this.data.verifMobile;
+    console.log(mobile)
 
     if(!mobile.match(/^1[0-9]{10}$/)){
       wx.showToast({ title: '请正确填写手机号码', icon: 'none', duration: 2000 });
@@ -130,8 +86,11 @@ Page({
       wx.showToast({ title: '请正确填写验证码', icon: 'none', duration: 2000 });
       return; 
     }
+
+    var order_id = this.data.id;
+    console.log(order_id)
     
-    form.order_id = 9;
+    form.order_id = order_id;
     util.request(util.bashUrl +"/rent-order/bind-order-mobile",form, function (result) {
       console.log(result);
       if(result.code == 0){
@@ -141,6 +100,9 @@ Page({
           data: getApp().globalData.token
         });
         //跳转到下一个流程页面
+        wx.navigateTo({
+          url: '../confirm/confirm?id='+order_id,
+        })
       }else{
         wx.showModal({ title: '提示', content: result.msg, showCancel: false });
       }

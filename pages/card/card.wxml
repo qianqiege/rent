@@ -9,7 +9,7 @@
     <view class='row'>
       <view class='info'>
         <view class="title">姓名</view>
-        <input class='info-input' bindinput="nameInput" name="namee" placeholder="姓名" value="{{name}}"/>
+        <input class='info-input' bindblur="nameInput" name="namee" placeholder="姓名" value="{{name}}"/>
       </view>
       <image bindtap='doGetCode' src="../../images/carmer.png" />
     </view>
@@ -17,14 +17,14 @@
     <view class='row'>
       <view class='info'>
         <view class="title">身份证</view>
-        <input class='info-input' type="number" maxlength='18' bindinput="cardInput" name="idCard" placeholder="填写持卡人身份证号"  value="{{idCard}}"/>
+        <input class='info-input' type="number" maxlength='18' bindblur="cardInput" name="idCard" placeholder="填写持卡人身份证号"  value="{{idCard}}"/>
       </view>
     </view>
 
     <view class='row'>
       <view class='info'>
         <view class="title">信用卡</view>
-        <input type='number' minlength='14' maxlength='19' value='{{credit}}' class='info-input' bindinput="creditInput" name="credit" placeholder="填写信用卡卡号" />
+        <input type='number' minlength='14' maxlength='19' value='{{credit}}' class='info-input' bindblur="creditInput" name="credit" placeholder="填写信用卡卡号" />
       </view>
       <image bindtap='doGetBankCode' src="../../images/carmer.png" />
     </view>
@@ -45,21 +45,21 @@
     <view class='row'>
       <view class='info'>
         <view class="title">CVN2码</view>
-        <input type='password'  minlength="3" maxlength="3" class='info-input' name="cvn" bindinput="" placeholder="请输入卡背面最后三位数字" />
+        <input type='password' value='{{cvn}}'  minlength="3" maxlength="3" class='info-input' name="cvn" bindblur="" placeholder="请输入卡背面最后三位数字" />
       </view>
     </view>
 
     <view class='row'>
       <view class='info'>
         <view class="title">手机号</view>
-        <input type='number' maxlength='11' class='info-input' name="phone" bindinput="numberInput" placeholder="请输入银行预留手机号码" />
+        <input type='number' value='{{num}}' maxlength='11' class='info-input' name="phone" bindblur="numberInput" placeholder="请输入银行预留手机号码" />
       </view>
     </view>
 
     <view class='row'>
       <view class='info'>
         <view class="title">验证码</view>
-        <input type='number' class='info-input' name="code" bindinput="codeInput" placeholder="请输入验证码" />
+        <input type='number' class='info-input' name="code" bindblur="codeInput" placeholder="请输入验证码" />
       </view>
       <button class='getCode' plain="true" bindtap='getCode'>{{phcode}}</button>
     </view>

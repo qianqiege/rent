@@ -37,7 +37,7 @@
   text-align: left;
   background-color: #fff;
   border-radius: 4rpx;
-  padding: 20rpx;
+  padding:10rpx 30rpx 30rpx 0;
   box-shadow: 0px 0px 16rpx rgba(0, 0, 0, 0.08);
   line-height: 32rpx;
   display: flex;
@@ -65,6 +65,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: 30rpx;
+  margin-top: 10rpx;
 }
 .models .scroll-view-item .content .desc {
   margin-top: 18rpx;

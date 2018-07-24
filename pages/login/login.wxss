@@ -1,22 +1,103 @@
 /* pages/login/login.wxss */
-.btn{border:1rpx solid #FD6A11;color:#ffffff;background:#FD6A11;}
 
-.fixclear{clear:both;}
-.login{margin:96rpx 48rpx;}
-.login .login-text{font-family:MicrosoftYaHei;font-weight:Regular;font-size:36rpx;color:#353535;}
-.login .login-phone{flex-direction:row;}
-.login .login-phone view{width:30%;float:left;margin-top:58rpx;}
-.login .login-phone view:nth-child(2){width:40%;float:left;padding-top:10rpx;margin-top:40rpx;}
-.login .login-phone view:nth-child(3){float:right;margin-top:40rpx;}
-.login .login-phone text{font-size:32rpx;color:#353535;}
-.login .login-phone input{font-size:32rpx;color:#000000;}
-.login .login-phone button{color:#FD6A11;border:1rpx #FD6A11 solid;font-size:28rpx;width:126rpx;}
-.login .login-phone .clear,.login .login-update .clear{clear:both;border-bottom:#E5E5E5 solid 1rpx;width:100%;margin-top:36rpx;margin-bottom:48rpx;}
+.btn {
+  border: 1rpx solid #fd6a11;
+  color: #fff;
+  background: #fd6a11;
+}
 
-.login .login-update{margin-top:58rpx;}
-.login .login-update button{color:#FD6A11;border:1rpx #FD6A11 solid;font-size:28rpx;width:200rpx;position:absolute;float:right;right:50rpx;margin-top:-65rpx;}
+.fixclear {
+  clear: both;
+}
 
-.login .referee{padding:37rpx 0;border-bottom:#E5E5E5 solid 1rpx;}
-.login .referee .place-holder{color:#B3B3B3;}
-.login .btn-view{margin:96rpx 0;}
-.login .btn-view view{margin:40rpx 0;}
+.login {
+  margin: 96rpx 48rpx;
+}
+
+.login .login-text {
+  font-family: MicrosoftYaHei;
+  font-weight: Regular;
+  font-size: 36rpx;
+  color: #353535;
+}
+
+.login .login-phone {
+  flex-direction: row;
+}
+
+.login .login-phone view {
+  width: 30%;
+  float: left;
+  margin-top: 58rpx;
+}
+
+.login .login-phone view:nth-child(2) {
+  width: 40%;
+  float: left;
+  padding-top: 10rpx;
+  margin-top: 40rpx;
+}
+
+.login .login-phone view:nth-child(3) {
+  float: right;
+  margin-top: 40rpx;
+}
+
+.login .login-phone text {
+  font-size: 32rpx;
+  color: #353535;
+}
+
+.login .login-phone input {
+  font-size: 32rpx;
+  color: #000;
+}
+
+.login .login-phone button {
+  color: #fd6a11;
+  border: 1rpx #fd6a11 solid;
+  font-size: 28rpx;
+  width: 126rpx;
+}
+
+.login .login-phone .clear, .login .login-update .clear {
+  clear: both;
+  border-bottom: #e5e5e5 solid 1rpx;
+  width: 100%;
+  margin-top: 36rpx;
+  margin-bottom: 48rpx;
+}
+
+.login .login-update {
+  margin-top: 58rpx;
+}
+
+.login .login-update .loginLay {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login .login-update button {
+  color: #fd6a11;
+  border: 1rpx #fd6a11 solid;
+  font-size: 28rpx;
+  width: 200rpx;
+  margin-right: 25rpx;
+}
+
+.login .referee {
+  padding: 37rpx 0;
+  border-bottom: #e5e5e5 solid 1rpx;
+}
+
+.login .referee .place-holder {
+  color: #b3b3b3;
+}
+
+.login .btn-view {
+  margin: 96rpx 0;
+}
+
+.login .btn-view view {
+  margin: 40rpx 0;
+}

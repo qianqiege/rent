@@ -1,14 +1,15 @@
+<wxs module="filters" src="../fliter.wxs"></wxs>
 <view class="header">
   <view class="orderList">
      <navigator class="orderModal" hover-class="none" url="orderinfo">
       <view class="orderDetail">
         <view class="image">
           <!-- <image src="../../images/product/oppo.png"/> -->
-          <image src="{{order.goods.goods_image}}"/> 
+          <image src="{{order.goods_image}}"/> 
         </view>
         <view class="proInfo">
           <view class="title">{{order.goods_name}}</view>
-          <view>{{order.sku_name}}</view>
+          <view>规格：{{sku_name}}</view>
         </view>
       </view>
     </navigator>
@@ -17,7 +18,7 @@
     <view class='title'>费用明细</view>
     <view class="flex rent">
       <view>总租金</view>
-      <view>￥{{order.total_amount}}</view>
+      <view>￥{{order.real_total_amount}}</view>
     </view>
     <view class="flex">
       <view>意外保障服务费</view>
@@ -30,7 +31,7 @@
 
     <view class="flex money">
       <view>分期费用</view>
-      <view>￥{{order.totl_amount/order.period}}</view>
+      <view>￥{{filters.toFix(order.real_total_amount/order.period)}}</view>
     </view>
     <view class="alert">
       <view><image src="../../images/product/alert.png"/></view>
@@ -41,11 +42,11 @@
     <view class='title'>预授权明细</view>
     <view class="flex">
       <view>预授权总金额</view>
-      <view>￥{{order.credit_amount}}</view>
+      <view>￥{{order.real_freeze}}</view>
     </view>
     <view class="flex">
       <view>到期还机解冻金额</view>
-      <view>￥{{order.total_freeze}}</view>
+      <view>￥{{order.deposit}}</view>
     </view>
     <view class="flex way">
       <view>预授权冻结方式</view>
@@ -60,15 +61,15 @@
     <view class='title'>租期信息</view>
     <view class="flex">
       <view>下单日期</view>
-      <view>2018-03-22</view>
+      <view>{{order.add_time}}</view>
     </view>
     <view class="flex">
       <view>租赁到期日期</view>
-      <view>2018-03-22</view>
+      <view>{{order.order_time}}</view>
     </view>
     <view class="flex">
       <view>意外保障生效日期</view>
-      <view>2018-04-06</view>
+      <view>{{order.insu_time}}</view>
     </view>
     <view class="flex choose">
       <view>到期可选</view>
@@ -83,7 +84,11 @@
   <view class="agree">
     <view class="readArg">
       <view><image src="../../images/product/choose.png"/></view>
-      <view>我已阅读并同意《易享优租用户协议》《易享优租意外保障服务协议》《个人消费分期合同》</view>
+      <view>我已阅读并同意
+        <text>《易享优租用户协议》、</text>
+        <text>《易享优租意外保障服务协议》、</text>
+        <text>《个人消费分期合同》</text>
+      </view>
     </view>      
   </view>
 </view>

@@ -221,7 +221,7 @@
               <image src="../../images/product/guar.png"/>
               <text>保障服务（必选）</text>
             </view>
-            <view class="price">￥298</view>
+            <view class="price">￥{{insu_price}}</view>
           </view>
           <view class="radio">
             因意外导致的屏幕碎裂，可享受一次免费官方维修

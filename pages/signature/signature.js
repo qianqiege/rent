@@ -3,33 +3,41 @@ var touchs = [];
 var canvasw = 0;
 var canvash = 0;
 
+const upng = require('../../utils/upng-js/UPNG.js');
+
 //获取系统信息
 wx.getSystemInfo({
-  success: function (res) {
-    canvasw = res.windowWidth;
-    canvash = canvasw * 9 / 16;
-  },
-}),
+    success: function(res) {
+      canvasw = res.windowWidth;
+      canvash = canvasw * 9 / 10;
+    },
+  }),
 
   Page({
     /**
-    * 页面的初始数据
-    */
+     * 页面的初始数据
+     */
     data: {
       signImage: '',
     },
     // 画布的触摸移动开始手势响应
-    start: function (event) {
+    start: function(event) {
       // console.log("触摸开始" + event.changedTouches[0].x)
       // console.log("触摸开始" + event.changedTouches[0].y)
       //获取触摸开始的 x,y
-      let point = { x: event.changedTouches[0].x, y: event.changedTouches[0].y }
+      let point = {
+        x: event.changedTouches[0].x,
+        y: event.changedTouches[0].y
+      }
       touchs.push(point)
     },
 
     // 画布的触摸移动手势响应
-    move: function (e) {
-      let point = { x: e.touches[0].x, y: e.touches[0].y }
+    move: function(e) {
+      let point = {
+        x: e.touches[0].x,
+        y: e.touches[0].y
+      }
       touchs.push(point)
       if (touchs.length >= 2) {
         this.draw(touchs)
@@ -37,7 +45,7 @@ wx.getSystemInfo({
     },
 
     // 画布的触摸移动结束手势响应
-    end: function (e) {
+    end: function(e) {
       console.log("触摸结束" + e)
       //清空轨迹数组
       for (let i = 0; i < touchs.length; i++) {
@@ -47,20 +55,20 @@ wx.getSystemInfo({
     },
 
     // 画布的触摸取消响应
-    cancel: function (e) {
+    cancel: function(e) {
       console.log("触摸取消" + e)
     },
 
     // 画布的长按手势响应
-    tap: function (e) {
+    tap: function(e) {
       console.log("长按手势" + e)
     },
 
-    error: function (e) {
+    error: function(e) {
       console.log("画布触摸错误" + e)
     },
 
-    onLoad: function (options) {
+    onLoad: function(options) {
       //获得Canvas的上下文
       content = wx.createCanvasContext('firstCanvas')
       //设置线的颜色
@@ -74,7 +82,7 @@ wx.getSystemInfo({
     },
 
     //绘制
-    draw: function (touchs) {
+    draw: function(touchs) {
       let point1 = touchs[0]
       let point2 = touchs[1]
       touchs.shift()
@@ -85,33 +93,59 @@ wx.getSystemInfo({
     },
 
     //清除操作
-    clearClick: function () {
+    clearClick: function() {
       //清除画布
       content.clearRect(0, 0, canvasw, canvash)
       content.draw(true)
     },
-    
+
     //保存图片
-    saveClick: function () {
-      var that = this
-      wx.canvasToTempFilePath({
+    saveClick: function() {
+      var that = this;
+      wx.canvasGetImageData({
         canvasId: 'firstCanvas',
-        success: function (res) {
+        x: 0,
+        y: 0,
+        width: 300,
+        height: 300,
+        success(res) {
+          // 3. png编码
+          let pngData = upng.encode([res.data.buffer], res.width, res.height)
+          // 4. base64编码
+          let base64 = wx.arrayBufferToBase64(pngData)
+          // ...
+          let base　 = 'data:image/jpeg;base64,' + base64
+          console.log(base);
           var pages = getCurrentPages();
           var prevPage = pages[pages.length - 2]; //上一个页面
-          //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
-          let base64 = wx.arrayBufferToBase64(res.tempFilePath);
-          base64　= 'data:image/jpeg;base64,' + base64
-          console.log(base64)
           prevPage.setData({
-            Image: base64,
+            Image: base,
             showText: false,
             showImage: true
           })
           wx.navigateBack({
-            delta:1
+            delta: 1
           })
         }
       })
+      // wx.canvasToTempFilePath({
+      //   canvasId: 'firstCanvas',
+      //   success: function (res) {
+      //     var pages = getCurrentPages();
+      //     var prevPage = pages[pages.length - 2]; //上一个页面
+      //     //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+      //     // let base64 = wx.arrayBufferToBase64(res.tempFilePath);
+      //     // base64　= 'data:image/jpeg;base64,' + base64
+      //     // console.log(base64)
+      //     prevPage.setData({
+      //       Image: res.tempFilePath,
+      //       showText: false,
+      //       showImage: true
+      //     })
+      //     wx.navigateBack({
+      //       delta:1
+      //     })
+      //   }
+      // })
     }
   })

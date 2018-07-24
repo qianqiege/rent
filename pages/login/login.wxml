@@ -35,7 +35,7 @@
       <view class="clear"></view>
     </view>
     <view class="login-update">
-      <view>
+      <view class='loginLay'>
         <input type="number" maxlength="6" name="verifycode" placeholder-class="place-holder" placeholder="请输入验证码" />
         <button bindtap="sendCode" >获取验证码</button>
       </view>

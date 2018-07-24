@@ -27,7 +27,7 @@
 
 .info {
   display: flex;
-  width: 83%;
+  width: 85%;
 }
 
 .info .title, .info .info-input {
@@ -35,7 +35,7 @@
 }
 
 .info .title {
-  width: 118rpx;
+  width: 124rpx;
 }
 
 .info .info-input {
@@ -244,7 +244,7 @@
   top: 0;
   left: 0;
   background: #000;
-  opacity: 0.8;
+  opacity: 0.5;
   overflow: hidden;
   z-index: 11;
   color: #fff;

@@ -1,0 +1,33 @@
+<view class='content'>
+  <view class='img'>
+    <image src="../../images/success.png" />
+    <view class='text'>恭喜，订单已完成！</view>
+    <view class='text'>祝您新手机使用愉快!</view>
+  </view>
+
+  <view class='order'>
+    <view class="orderDetail">
+      <view class="image">
+        <image src="https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg" />
+      </view>
+      <view class="proInfo">
+        <view class="title">HUAWEI Mate 10 Pro</view>
+        <view>规格：国行 全新 浅灰色 128G 全网通</view>
+        <view>分期费用：￥4618</view>
+        <view>分期：15期</view>
+        <view>扣款方：上海银骏科技有限公司</view>
+      </view>
+    </view>
+
+    <view class='date'>
+      <view>租赁到期日期：2019-09-20</view>
+      <view>意外保障生效期：2019-09-20</view>
+      </view>
+  </view>
+
+
+</view>
+<view class='return'>
+  <view class='button returnPage' bindtap='returnPage'>返回首页</view>
+  <view class='button detail' bindtap='orderDetail'>订单详情</view>
+</view>

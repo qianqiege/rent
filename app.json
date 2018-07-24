@@ -1,18 +1,20 @@
 {
   "pages": [
     "pages/first/first",
+    "pages/login/login",
+    "pages/signature/signature",
+    "pages/card/card",
+    "pages/home/home",
     "pages/confirm/confirm", 
     "pages/success/success",
-    "pages/home/home",
+    
     "pages/cancel/cancel",
-    "pages/card/card",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/login/login",
     "pages/list/list",
     "pages/orderList/orderList",
     "pages/product/product",
-    "pages/signature/signature",
+    "pages/complete/complete",
     "pages/facesign/facesign"
   ],
   "window": {

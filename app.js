@@ -54,7 +54,8 @@ App({
     token:'',
     channel_code: 'QD100000',
     order: {},
-    Image:''
+    Image:'',
+    baseImg: 'https://static.test.mintongfu.com'
   },
   showErrMsg(title) {
     var image = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '../images/warn.png';

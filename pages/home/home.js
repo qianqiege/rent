@@ -19,7 +19,8 @@ Page({
     ],
     popular: [],
     showModal: true,
-    order:{}
+    order:{},
+    sku_name:''
   },
 
   onLoad: function (options) { 
@@ -34,8 +35,12 @@ Page({
             showModal:false
           })
         }else{
+          var sku_name = result.data.sku_name;
+          var sku = sku_name.replace(/,/g, " ");
+          console.log(sku)
           that.setData({
-            order: result.data
+            order: result.data,
+            sku_name:sku
           });
         }
       }

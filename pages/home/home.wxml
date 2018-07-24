@@ -94,10 +94,10 @@
       </view>
       <view class="proInfo">
         <view class="title">{{order.goods_name}}</view>
-        <view>规格：国行 全新 浅灰色 128G 全网通</view>
-        <view>总租金：￥{{order.goods_data.rent_amount}}</view>
+        <view>规格：{{sku_name}}</view>
+        <view>总租金：￥{{order.real_total_amount}}</view>
         <view>分期：{{order.period}}期</view>
-        <view>订单状态：{{order.order_status}}</view>
+        <view>订单状态：{{order.status_name}}</view>
       </view>
     </view>
     <view class="doubleBtn">

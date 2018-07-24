@@ -3,7 +3,8 @@ const util = require('../../utils/util.js');
 Page({
 
   data: {
-    order:{}
+    order:{},
+    sku_name:''
   },
 
   onLoad: function (options) {
@@ -12,10 +13,13 @@ Page({
     console.log(options,id)
     util.request(util.bashUrl + "/rent-order/detail", { order_id: id }, function (result) {
       console.log(result);
+      var sku_name = result.data.sku_name;
+      var sku = sku_name.replace(/,/g, " ");
+      console.log(sku)
       that.setData({
-        order:result.data
-      })
-      
+        order:result.data,
+        sku_name:sku
+      }) 
     }, 'GET');
   },
 
