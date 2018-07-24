@@ -25,8 +25,13 @@ Page({
 
   getConfirm(){
     var id= this.data.order.id;
-    wx.navigateTo({
-      url: '../card/card?id='+id,
-    })
+    util.request(util.bashUrl + "/rent-order/update-status", { order_id: id, action: "confirm" }, function (result) {
+      console.log(result);
+      if(result.code ==0 ){
+        wx.navigateTo({
+          url: '../card/card?id=' + id,
+        })
+      }
+    }, 'POST');  
   }
 })
