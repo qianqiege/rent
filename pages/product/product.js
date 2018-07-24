@@ -171,15 +171,17 @@ Page({
       } else {
         wx.showModal({ title: '提示', content: result.msg, showCancel: false });
       }
-      getApp().globalData.order = result.data;
-      wx.setStorage({
-        key: 'order',
-        data: result.data
+      // getApp().globalData.order = result.data;
+      // wx.setStorage({
+      //   key: 'order',
+      //   data: result.data
+      // });
+      var id =result.data.id;
+      wx.navigateTo({
+        url: '../confirm/confirm?id=' + id
       });
     });
-    wx.navigateTo({
-      url: '../confirm/confirm'
-    });
+  
   },
 
   //切换产品详情介绍信息

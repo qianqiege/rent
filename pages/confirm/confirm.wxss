@@ -1,6 +1,6 @@
 .header{
   height: 100%;
-  padding-bottom: 115rpx;
+  padding-bottom: 100rpx;
 }
 .orderList{
   background: #fff;
@@ -39,14 +39,14 @@
   background: #fff;
   position: relative;
 }
-.orderInfo .flex:last-child::before{
+/* .orderInfo .flex:last-child::before{
   content: " ";
   position: absolute;
   left: 25rpx;
   right: 0;
   height: 1rpx;
   border-bottom: 1rpx solid #E5E5E5;
-}
+} */
 .orderInfo .flex:last-child{
   margin-top: 8rpx;
 }
@@ -70,7 +70,7 @@
 }
 .orderInfo .alert{
   display: flex;
-  margin: 15rpx 25rpx;
+  margin: 0 25rpx;
   color: #B3B3B3;
   font-size: 24rpx;
   padding-bottom: 20rpx;
@@ -84,25 +84,60 @@
   display: inline-block;
   line-height: 34rpx;
 }
-/* .orderModal .orderInfo .rent{
+.orderInfo .rent view{
   color:#353535;
 }
-.orderModal .orderInfo .money{
+
+/* .orderInfo .money,.orderInfo .way,.orderInfo .choose{
+  margin-top: 10rpx;
+}  */
+
+.orderInfo .money view,.orderInfo .way view,.orderInfo .choose view{
+  margin-top: 25rpx;
+}
+
+.orderInfo .money view{
   color:#353535;
-} */
+} 
+.orderInfo .money::before{
+  content: " ";
+  position: absolute;
+  left: 25rpx;
+  right: 0;
+  /* height: 1rpx; */
+  border-bottom: 1rpx solid #E5E5E5;
+}
+
+.orderInfo .way::before{
+  content: " ";
+  position: absolute;
+  left: 25rpx;
+  right: 0;
+  height: 1rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+}
+
+.orderInfo .choose::before{
+  content: " ";
+  position: absolute;
+  left: 25rpx;
+  right: 0;
+  height: 1rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+}
 
 .agree{ 
   background: #fff;
 }
 
 .agree .readArg{
-  margin: 24rpx 25rpx;
+  margin: 24rpx 25rpx 0;
   display: flex;
   font-size: 24rpx;
 }
 
 .agree .readArg view{
-  margin-top: 10rpx;
+  margin: 10rpx 0;
 }
 
 .agree image{

@@ -19,11 +19,11 @@ App({
             data: getApp().globalData.token
           })
 
-          // if (getApp().globalData.token) {
-          //   wx.switchTab({
-          //     url: '/pages/home/home',
-          //   })
-          // }
+          if (getApp().globalData.token) {
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
+          }
         });
       }
     })
@@ -53,7 +53,8 @@ App({
     userData: null,
     token:'',
     channel_code: 'QD100000',
-    order: {}
+    order: {},
+    Image:''
   },
   showErrMsg(title) {
     var image = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '../images/warn.png';

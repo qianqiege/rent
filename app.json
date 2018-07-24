@@ -1,16 +1,19 @@
 {
-  "pages":[
-    "pages/confirm/confirm",
+  "pages": [
     "pages/first/first",
+    "pages/success/success",
     "pages/home/home",
+    "pages/cancel/cancel",
+    "pages/card/card",
+    "pages/confirm/confirm",
     "pages/index/index",
     "pages/logs/logs",
     "pages/login/login",
     "pages/list/list",
     "pages/orderList/orderList",
-    "pages/product/product"
+    "pages/product/product",
+    "pages/signature/signature"
   ],
-  
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",

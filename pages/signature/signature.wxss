@@ -1,0 +1,44 @@
+.content {
+  width: 100%;
+  height: 500px;
+  background-color: #f6f6f6;
+}
+
+.firstCanvas {
+  margin: 20rpx 25rpx;
+  background-color: #fff;
+  width: 700rpx;
+  height: 530rpx;
+}
+
+.please{
+  font-size: 28rpx;
+  color: #888;
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.btn{
+  width: 700rpx;
+  height: 94rpx;
+  margin: 40rpx 25rpx;
+border-radius:20rpx;
+font-size:36rpx;
+}
+
+.save{
+  background:#FF6000;
+  color: #FFFFFF;
+}
+
+.reWrite{
+  background:#FFFFFF;
+  color: #000;
+}
+
+image {
+  width: 700rpx;
+  height: 530rpx;
+  margin: 20rpx 25rpx;
+  background-color: #eee;
+}

@@ -1,0 +1,109 @@
+/* pages/cancel/cancel.wxss */
+
+.content {
+  /* background: #fff; */
+}
+
+.content .img {
+  background: #fff;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 56rpx;
+}
+
+.content .img image {
+  width: 164rpx;
+  height: 164rpx;
+  margin-top: 56rpx;
+}
+
+.content .img .text {
+  font-size: 30rpx;
+  color: #474747;
+  text-align: center;
+  margin: 10rpx 160rpx;
+}
+
+.middle {
+  background: #fff;
+}
+
+.scan {
+  background: #fff;
+  margin: 20rpx 25rpx 20rpx;
+  padding-bottom: 25rpx;
+}
+
+.scan .title {
+  font-size: 34rpx;
+  color: #000;
+  padding-top: 25rpx;
+}
+
+.scan .info {
+  font-size: 24rpx;
+  color: #888;
+  margin: 10rpx 0 20rpx;
+}
+
+.scan .scanCode {
+  background: #f4f4f4;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8rpx;
+  margin: 10rpx 0 25rpx;
+}
+
+.scan .scanCode text {
+  margin: 25rpx 18rpx;
+  color: #b3b3b3;
+  font-size: 28rpx;
+}
+
+.scan .scanCode image {
+  width: 50rpx;
+  height: 49rpx;
+  margin: 25rpx 18rpx;
+}
+
+.scan .image image {
+  width: 338rpx;
+  height: 230rpx;
+}
+
+.scan .image image:first-child {
+  margin-right: 25rpx;
+}
+
+.bottom {
+  margin: 20rpx 25rpx;
+}
+
+.other {
+  display: flex;
+  justify-content: space-between;
+  color: #ff6000;
+  margin-left: 8rpx;
+  font-size: 28rpx;
+}
+
+.return {
+  margin: 60rpx 25rpx;
+}
+
+.return .button {
+  width: 700tpx;
+  height: 94rpx;
+  border-radius: 20rpx;
+  background: #ff6000;
+  color: #fff;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 94rpx;
+}
+.return .confirm{
+  font-size: 24rpx;
+  color: #888;
+  text-align: center;
+  margin: 15rpx 0;
+}

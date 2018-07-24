@@ -1,0 +1,101 @@
+<form class='formCard' bindsubmit="formSubmit" bindreset="formReset">
+
+  <view wx:if="{{alertModel}}" class="prompt">
+    <view>{{msg}}</view>
+  </view>
+
+  <view class="formTitle">请输入您的信用卡账号</view>
+  <view class="formList">
+    <view class='row'>
+      <view class='info'>
+        <view class="title">姓名</view>
+        <input class='info-input' bindinput="nameInput" name="namee" placeholder="姓名" value="{{name}}"/>
+      </view>
+      <image bindtap='doGetCode' src="../../images/carmer.png" />
+    </view>
+
+    <view class='row'>
+      <view class='info'>
+        <view class="title">身份证</view>
+        <input class='info-input' type="number" maxlength='18' bindinput="cardInput" name="idCard" placeholder="填写持卡人身份证号"  value="{{idCard}}"/>
+      </view>
+    </view>
+
+    <view class='row'>
+      <view class='info'>
+        <view class="title">信用卡</view>
+        <input type='number' minlength='14' maxlength='19' value='{{credit}}' class='info-input' bindinput="creditInput" name="credit" placeholder="填写信用卡卡号" />
+      </view>
+      <image bindtap='doGetBankCode' src="../../images/carmer.png" />
+    </view>
+
+    <view class='row'>
+      <view class='info'>
+        <view class="title">有效期</view>
+        <picker class='info-input' mode="date" name="picker" value="{{date}}" start="{{sdate}}" end="" bindchange="bindDateChange">
+          <view class="picker">
+            <view class="month">{{month}}</view>
+            <view class="line">/</view>
+            <view class="year">{{year}}</view>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class='row'>
+      <view class='info'>
+        <view class="title">CVN2码</view>
+        <input type='password'  minlength="3" maxlength="3" class='info-input' name="cvn" bindinput="" placeholder="请输入卡背面最后三位数字" />
+      </view>
+    </view>
+
+    <view class='row'>
+      <view class='info'>
+        <view class="title">手机号</view>
+        <input type='number' maxlength='11' class='info-input' name="phone" bindinput="numberInput" placeholder="请输入银行预留手机号码" />
+      </view>
+    </view>
+
+    <view class='row'>
+      <view class='info'>
+        <view class="title">验证码</view>
+        <input type='number' class='info-input' name="code" bindinput="codeInput" placeholder="请输入验证码" />
+      </view>
+      <button class='getCode' plain="true" bindtap='getCode'>{{phcode}}</button>
+    </view>
+
+  </view>
+  <view class="signature">
+    <view class='signTitle'>客户签名：
+      <text class="confirm">(请确认以上信息准确无误，并在以下方框签名)</text>
+    </view>
+    <view class="clickSign" bindtap='clickSign'>
+      <view wx:if="{{showText}}">请点击签名</view>
+      <image mode="aspectFit" wx:if="{{showImage}}" src="{{Image}}"/>
+    </view>
+  </view>
+
+  <view class="remarks">
+    <view class='signTitle'>备注：
+      <text class="confirm">(选填)</text>
+    </view>
+    <view  class="textarea">
+      <textarea name="textarea"/>
+    </view>
+  </view>
+
+  <view class="showPrompt" wx:if="{{showPrompt}}">
+    <view class='title'>支付失败</view>
+    <view class="content">由于您的信用卡信用额度不足,请更换其他信用卡支付</view>
+    <view class='doubleBtn'>
+      <text class='btn cancel' bindtap='cancelOrder'>取消订单</text>
+      <text class='btn renew' bindtap='renewInfo'>更改资料</text>
+    </view>
+  </view>
+  <view class="btn">
+    <button formType="submit" class='btnConfirm'>确认授权</button>
+  </view>
+
+  <view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{showPrompt}}"/>
+</form>
+

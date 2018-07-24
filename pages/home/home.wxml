@@ -90,18 +90,18 @@
     <view class="remindInfo">查询到您有进行中的订单，是否继续完成该订单？如选择重新下单会关闭该订单。</view>
     <view class="orderDetail">
       <view class="image">
-        <image src="https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg"/>
+        <image src="{{order.goods_image}}"/>
       </view>
       <view class="proInfo">
-        <view class="title">HUAWEI Mate 10 Pro</view>
+        <view class="title">{{order.goods_name}}</view>
         <view>规格：国行 全新 浅灰色 128G 全网通</view>
-        <view>总租金：￥4618</view>
-        <view>分期：15期</view>
-        <view>订单状态：待付款</view>
+        <view>总租金：￥{{order.goods_data.rent_amount}}</view>
+        <view>分期：{{order.period}}期</view>
+        <view>订单状态：{{order.order_status}}</view>
       </view>
     </view>
     <view class="doubleBtn">
-      <text class="btn continue">继续完成</text>
+      <text class="btn continue" bindtap='continueOrder'>继续完成</text>
       <text class="btn renew" bindtap="renewOrder">重新下单</text>
     </view>  
   </view> 

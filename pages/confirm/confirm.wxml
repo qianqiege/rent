@@ -4,11 +4,11 @@
       <view class="orderDetail">
         <view class="image">
           <!-- <image src="../../images/product/oppo.png"/> -->
-          <image src="https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg"/> 
+          <image src="{{order.goods.goods_image}}"/> 
         </view>
         <view class="proInfo">
-          <view class="title">HUAWEI Mate 10 Pro</view>
-          <view>规格：国行 全新 浅灰色 128G 全网通</view>
+          <view class="title">{{order.goods_name}}</view>
+          <view>{{order.sku_name}}</view>
         </view>
       </view>
     </navigator>
@@ -17,36 +17,43 @@
     <view class='title'>费用明细</view>
     <view class="flex rent">
       <view>总租金</view>
-      <view>￥3288</view>
+      <view>￥{{order.total_amount}}</view>
     </view>
     <view class="flex">
       <view>意外保障服务费</view>
-      <view>￥298</view>
+      <view>￥{{order.insu_cost}}</view>
     </view>
     <view class="flex">
       <view>期数</view>
-      <view>15期（25天/期）</view>
+      <view>{{order.period}}期（25天/期）</view>
     </view>
 
     <view class="flex money">
       <view>分期费用</view>
-      <view>￥239.06</view>
+      <view>￥{{order.totl_amount/order.period}}</view>
     </view>
-
+    <view class="alert">
+      <view><image src="../../images/product/alert.png"/></view>
+      <view>您每期需要还款的费用。差额部分将在最后一期补齐。</view>
+    </view>
   </view>
   <view class="orderInfo">
     <view class='title'>预授权明细</view>
     <view class="flex">
       <view>预授权总金额</view>
-      <view>￥6882</view>
+      <view>￥{{order.credit_amount}}</view>
     </view>
     <view class="flex">
       <view>到期还机解冻金额</view>
-      <view>￥3296</view>
+      <view>￥{{order.total_freeze}}</view>
     </view>
-    <view class="flex">
-      <view>期数</view>
-      <view>15期（25天/期）</view>
+    <view class="flex way">
+      <view>预授权冻结方式</view>
+      <view>信用卡</view>
+    </view>
+    <view class="alert">
+      <view><image src="../../images/product/alert.png"/></view>
+      <view>预授权冻结无利息，不会产生附加费用。</view>
     </view>
   </view>
   <view class="orderInfo">
@@ -63,7 +70,7 @@
       <view>意外保障生效日期</view>
       <view>2018-04-06</view>
     </view>
-    <view class="flex">
+    <view class="flex choose">
       <view>到期可选</view>
       <view>买断或还机</view>
     </view>
@@ -82,5 +89,5 @@
 </view>
 
 <view class="footer">
-  <view class="btn full" bindtap="getQrcode">确定提交</view>
+  <view class="btn full" bindtap="getConfirm">确定提交</view>
 </view>

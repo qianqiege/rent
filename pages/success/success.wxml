@@ -1,0 +1,50 @@
+<view class='content'>
+  <view class='img'>
+    <image src="../../images/success.png" />
+    <view class='text'>冻结信用卡预授权成功！</view>
+    <view class='text'>还差2步，就可以取走手机啦!</view>
+  </view>
+
+  <view class='middle'>
+
+    <view class='scan'>
+      <view class='title'>扫码验证IMEI</view>
+      <view class='info'>请扫描包装盒上的IMEI条码，IMEI错误会影响订单提交及还机</view>
+      <view class='scanCode' bindtap='scanCode'>
+        <text>点击扫码</text>
+        <image src='../../images/scan.png' />
+      </view>
+
+      <view class='image'>
+        <image src='../../images/imei1.png' />
+        <image src='../../images/imei2.png' />
+      </view>
+    </view>
+
+  </view>
+  <view class='bottom'>
+    <view class='other'>
+      <view>机器故障? 取消订单</view>
+      <view>缺货？更换规格</view>
+    </view>
+  </view>
+
+
+</view>
+<view class='return'>
+  <view class='button' bindtap='returnPage'>下一步</view>
+  <view class='confirm'>请确认手机无故障后，点击下一步完成面签，即可取走手机</view>
+</view>
+
+<!-- <view class='reChoose'>
+  <view class='title'>请重新选择机器颜色</view>
+  <view>
+    <view class="radio">
+      <block wx:for="{{list.option_list}}" wx:for-item="data" wx:key="idx">
+        <view class="{{data.checked == 'true' ? 'checked' : data.disabled == 'true' ? 'disabled' : ''}}" bindtap="setModel" data-wpysetmodel-a="{{skuKey}}" data-wpysetmodel-b="{{itemKey}}" data-wpysetmodel-c="{{data.option_id}}" data-wpysetmodel-d="{{data.disabled}}">
+          {{data.option_name}}
+        </view>
+      </block>
+    </view>
+  </view>
+</view> -->

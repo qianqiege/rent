@@ -32,7 +32,7 @@
 .process .proText image {
   width: 20rpx;
   height: 20rpx;
-  margin: 2rpx 18rpx;
+  margin: 2rpx 16rpx;
 }
 .process .guarantee {
   font-size: 24rpx;
@@ -50,7 +50,7 @@
   display: inline-block;
 }
 .process .guarantee .bloGuar:not(:last-child) {
-  margin-right: 6rpx;
+  margin-right: 4rpx;
 }
 .advantage {
   background-color: #FFF;

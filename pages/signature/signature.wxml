@@ -1,0 +1,20 @@
+<view class='content'>
+
+<canvas class='firstCanvas'
+canvas-id="firstCanvas"
+bindtouchmove='move'
+bindtouchstart='start'
+bindtouchend='end'
+bindtouchcancel='cancel'
+bindlongtap='tap'
+disable-scroll='true'
+binderror='error'>
+</canvas>
+<view class='please'>(请在白色框内手写签名)</view>
+
+<button bindtap='saveClick' class='btn save'>确定</button>
+<button bindtap='clearClick' class='btn reWrite'>擦掉重写</button>
+
+<!-- <image id='signatureImg' src='{{signImage}}'></image> -->
+
+</view>
