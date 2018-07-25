@@ -18,7 +18,7 @@ Page({
       '../../images/home/flexible.png'
     ],
     popular: [],
-    showModal: true,
+    showModal:false,
     order:{},
     sku_name:''
   },
@@ -30,17 +30,14 @@ Page({
       if (result.code == 0) {
         console.log(result.data)
         
-        if(result.data == ''){
-          thst.setData({
-            showModal:false
-          })
-        }else{
+        if( result.data != null ){
           var sku_name = result.data.sku_name;
           var sku = sku_name.replace(/,/g, " ");
           console.log(sku)
           that.setData({
             order: result.data,
-            sku_name:sku
+            sku_name:sku,
+            showModal:true
           });
         }
       }

@@ -34,6 +34,7 @@ function request(url, data, callback, method) {
     },
     fail: function (error) {
       console.log(error);
+      wx.showModal({ title: '提示', content: JSON.stringify(error) , showCancel: false });
     },
     complete: function (res) {
       wx.hideLoading();
@@ -41,8 +42,8 @@ function request(url, data, callback, method) {
   });
 }
 
-const bashUrl = 'https://client.test.mintongfu.com';
-// const bashUrl = "http://www.dong6.com/";
+//const bashUrl = 'https://client.test.mintongfu.com';
+const bashUrl = "http://www.dong6.com/";
 
 module.exports = {
   formatTime: formatTime,

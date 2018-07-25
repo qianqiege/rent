@@ -115,6 +115,7 @@ Page({
     var that = this;
     var sku = this.data.skuValue;
     var idx = sku.indexOf(0);
+    if( that.data.product.goods_id == undefined ) return;
     if (idx == -1) {
       var skuStr = sku.toString();
       console.log(skuStr)
