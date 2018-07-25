@@ -24,8 +24,8 @@
   </view>
   <view class='bottom'>
     <view class='other'>
-      <view>机器故障? 取消订单</view>
-      <view>缺货？更换规格</view>
+      <view class="cancelOrder" bindtap='cancel'>机器故障? 取消订单</view>
+      <view class='changeSpe' bindtap='changeSpe'>缺货？更换规格</view>
     </view>
   </view>
 
@@ -36,15 +36,34 @@
   <view class='confirm'>请确认手机无故障后，点击下一步完成面签，即可取走手机</view>
 </view>
 
-<!-- <view class='reChoose'>
-  <view class='title'>请重新选择机器颜色</view>
-  <view>
-    <view class="radio">
-      <block wx:for="{{list.option_list}}" wx:for-item="data" wx:key="idx">
-        <view class="{{data.checked == 'true' ? 'checked' : data.disabled == 'true' ? 'disabled' : ''}}" bindtap="setModel" data-wpysetmodel-a="{{skuKey}}" data-wpysetmodel-b="{{itemKey}}" data-wpysetmodel-c="{{data.option_id}}" data-wpysetmodel-d="{{data.disabled}}">
-          {{data.option_name}}
-        </view>
-      </block>
+<view class='reChoose' wx:if="{{showChoose}}">
+  <view class='colorInfo'>
+    <view class='title'>请重新选择机器颜色</view>
+    <view class="color">
+      <view class="radio" wx:for="{{option_name}}"  wx:key="{{id}}">
+        <block>
+          <view>
+            {{item}}
+          </view>
+        </block>
+      </view>
     </view>
   </view>
-</view> -->
+  <view class='cprompt'>提示：确认后请再扫描新机器包装盒上的条形码，验证IMEI。</view>
+  <view class='conbtn' bindtap='conbtn'>确定</view>
+</view>
+
+<!-- <view class='cancelorder'> -->
+ <view class="cancelorder" wx:if="{{cancelorder}}">
+    <view class='title'>是否确认取消订单？</view>
+    <view class="content">提示：因银行结算原因，如确认取消订单，系统会立即解冻预授权中的￥3780.32，剩余￥328.68会在72小时内解冻。具体时间以银行账单为准。</view>
+    <view class='doubleBtn'>
+      <text class='btn cancel' bindtap='cancelOrder'>确认取消</text>
+      <text class='btn renew' bindtap='renewInfo'>更改规格</text>
+    </view>
+  </view>
+
+
+<!-- </view> -->
+<view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{showChoose}}"/>
+<view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{cancelorder}}"/>

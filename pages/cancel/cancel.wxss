@@ -67,3 +67,11 @@
   text-align: center;
   line-height: 94rpx;
 }
+
+.prompt{
+  margin: 0 25rpx 50rpx;
+  background: #F6F6F6;
+  padding: 20rpx;
+  color: #888888;
+  font-size: 28rpx;
+}

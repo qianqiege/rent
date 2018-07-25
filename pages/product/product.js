@@ -70,7 +70,7 @@ Page({
         insu_price:insu_price
       })
     }, 'GET');
-    this.getSkuInfo()
+    // this.getSkuInfo()
   },
 
 

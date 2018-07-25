@@ -3,6 +3,9 @@
     <image src="../../images/cancel.png" />
     <view class='text'>订单已取消!</view>
   </view>
+  <view class='prompt'>
+    提示：因银行结算原因，系统会立即解冻预授权中的￥3780.32，剩余￥328.68会在72小时内解冻。具体时间以银行账单为准。
+  </view>
 
   <view class='order'>
     <view class="orderDetail">

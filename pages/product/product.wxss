@@ -129,7 +129,7 @@
   text-align: center;
 }
 .expire .plan:first-child {
-  margin-right: 24rpx;
+  margin-right: 22rpx;
 }
 .expire .plan:last-child {
   color: #353535;
