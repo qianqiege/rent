@@ -19,36 +19,36 @@
   font-size: 34rpx;
 }
 
-.title {
+.formList .title {
   height: 100rpx;
   line-height: 100rpx;
   margin: 20rpx 25rpx 0;
-}
+} 
 
-.info {
+.formList .info {
   display: flex;
   width: 85%;
 }
 
-.info .title, .info .info-input {
+.formList .info .title, .info .info-input {
   display: inline-block;
 }
 
-.info .title {
+.formList .info .title {
   width: 124rpx;
 }
 
-.info .info-input {
-  margin-top: 42rpx;
+.formList .info .info-input {
+  margin-top: 48rpx;
   width: 80%;
 }
 
-.row {
+.formList .row {
   display: flex;
   justify-content: space-between;
 }
 
-.row:not(:first-child)::after {
+.formList .row:not(:first-child)::after {
   content: " ";
   position: absolute;
   left: 25rpx;
@@ -57,23 +57,23 @@
   border-bottom: 1rpx solid #e5e5e5;
 }
 
-.row image {
+.formList .row image {
   width: 40rpx;
   height: 37rpx;
   margin-top: 42rpx;
   margin-right: 25rpx;
 }
 
-.picker view {
+.formList .row .picker view {
   display: inline-block;
 }
 
-.picker .line {
+.formList .row .picker .line {
   margin: 0 25rpx;
   color: #b3b3b3;
 }
 
-.picker .month, view .year {
+.formList .row .picker .month, view .year {
   width: 150rpx;
   height: 60rpx;
   background: #f6f6f6;
@@ -83,7 +83,7 @@
   color: #b3b3b3;
 }
 
-.row .getCode {
+.formList .row .getCode {
   width: 176rpx;
   height: 60rpx;
   border: 1px solid #ff6000;
@@ -178,8 +178,6 @@
   z-index: 9999;
 }
 
-
-
 .showPrompt {
   width: 80%;
   position: fixed;
@@ -190,19 +188,23 @@
   border-radius: 20rpx;
   z-index: 99;
 }
+
 .showPrompt .title {
   font-size: 34rpx;
   color: #000;
   font-weight: bolder;
   text-align: center;
+  margin:34rpx 0;
 }
+
 .showPrompt .content {
   color: #888;
   margin: 10rpx 30rpx 20rpx;
   text-align: center;
   line-height: 44rpx;
-  font-size:28rpx;
+  font-size: 28rpx;
 }
+
 /* .showPrompt .content::after {
   content: " ";
   position: absolute;
@@ -216,11 +218,12 @@
 } */
 
 .showPrompt .doubleBtn {
-  border-top: 1px solid #E5E5E5;
-   width: 100%; 
+  border-top: 1px solid #e5e5e5;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
+
 .showPrompt .doubleBtn .btn {
   width: 49%;
   text-align: center;
@@ -228,13 +231,16 @@
   margin: 0;
   padding: 20rpx 0;
 }
- .showPrompt .doubleBtn .cancel {
-  color: #5C5C5C;
-  border-right: 1px solid #E5E5E5;
+
+.showPrompt .doubleBtn .cancel {
+  color: #5c5c5c;
+  border-right: 1px solid #e5e5e5;
 }
+
 .showPrompt .doubleBtn .renew {
-  color: #FF6000;
-} 
+  color: #ff6000;
+}
+
 .sku-dialog_mask {
   width: 100%;
   height: 100%;
@@ -247,3 +253,96 @@
   z-index: 11;
   color: #fff;
 }
+
+.closeOrder{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 999999;
+   background: #F6F6F6; 
+}
+
+.closeOrder .content {
+  background: #fff;
+  height:665rpx;
+}
+
+.closeOrder .content .img {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 56rpx;
+}
+
+.closeOrder .content .img image {
+  width: 164rpx;
+  height: 164rpx;
+  margin-top: 56rpx;
+}
+
+.closeOrder .content .img .text {
+  font-size: 30rpx;
+  color: #474747;
+  text-align: center;
+}
+
+.closeOrder .content .order {
+  border-top: 1px solid #e5e5e5;
+  margin: 20rpx 25rpx 20rpx;
+}
+
+.closeOrder .content .orderDetail {
+  display: flex;
+  padding: 56rpx 0;
+}
+
+.closeOrder .content .orderDetail .image {
+  width: 195rpx;
+  height: 195rpx;
+}
+
+.closeOrder .content .orderDetail .image image {
+  width: 100%;
+  height: 100%;
+}
+
+.closeOrder .content .orderDetail .proInfo {
+  color: #888;
+  font-size: 24rpx;
+  margin: 10rpx 0 0 25rpx;
+}
+
+.closeOrder .content .orderDetail .proInfo .title {
+  color: #000;
+  font-size: 28rpx;
+  padding-bottom: 12rpx;
+}
+
+.closeOrder .content .orderDetail .proInfo view {
+  line-height: 34rpx;
+}
+
+.closeOrder .return {
+  
+  margin: 80rpx 25rpx;
+}
+
+.closeOrder .return .button {
+  width: 700rpx;
+  height: 94rpx;
+  border-radius: 20rpx;
+  background: #ff6000;
+  color: #fff;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 94rpx;
+}
+/* 
+.formCard .prompt {
+  margin: 0 25rpx 50rpx;
+  background: #f6f6f6;
+  padding: 20rpx;
+  color: #888;
+  font-size: 28rpx;
+} */

@@ -3,8 +3,6 @@ var touchs = [];
 var canvasw = 0;
 var canvash = 0;
 
-const upng = require('../../utils/upng-js/UPNG.js');
-
 //获取系统信息
 wx.getSystemInfo({
     success: function(res) {
@@ -102,50 +100,25 @@ wx.getSystemInfo({
     //保存图片
     saveClick: function() {
       var that = this;
-      wx.canvasGetImageData({
+     
+      wx.canvasToTempFilePath({
         canvasId: 'firstCanvas',
-        x: 0,
-        y: 0,
-        width: 300,
-        height: 300,
-        success(res) {
-          // 3. png编码
-          let pngData = upng.encode([res.data.buffer], res.width, res.height)
-          // 4. base64编码
-          let base64 = wx.arrayBufferToBase64(pngData)
-          // ...
-          let base　 = 'data:image/jpeg;base64,' + base64
-          console.log(base);
+        success: function (res) {
           var pages = getCurrentPages();
           var prevPage = pages[pages.length - 2]; //上一个页面
+          //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+          // let base64 = wx.arrayBufferToBase64(res.tempFilePath);
+          // base64　= 'data:image/jpeg;base64,' + base64
+          // console.log(base64)
           prevPage.setData({
-            Image: base,
+            Image: res.tempFilePath,
             showText: false,
             showImage: true
           })
           wx.navigateBack({
-            delta: 1
+            delta:1
           })
         }
       })
-      // wx.canvasToTempFilePath({
-      //   canvasId: 'firstCanvas',
-      //   success: function (res) {
-      //     var pages = getCurrentPages();
-      //     var prevPage = pages[pages.length - 2]; //上一个页面
-      //     //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
-      //     // let base64 = wx.arrayBufferToBase64(res.tempFilePath);
-      //     // base64　= 'data:image/jpeg;base64,' + base64
-      //     // console.log(base64)
-      //     prevPage.setData({
-      //       Image: res.tempFilePath,
-      //       showText: false,
-      //       showImage: true
-      //     })
-      //     wx.navigateBack({
-      //       delta:1
-      //     })
-      //   }
-      // })
     }
   })

@@ -11,13 +11,13 @@
       <view class='title'>扫码验证IMEI</view>
       <view class='info'>请扫描包装盒上的IMEI条码，IMEI错误会影响订单提交及还机</view>
       <view class='scanCode' bindtap='scanCode'>
-        <text>点击扫码</text>
+        <text>{{iemiMsg}}</text>
         <image src='../../images/scan.png' />
       </view>
 
       <view class='image'>
-        <image src='../../images/imei1.png' />
-        <image src='../../images/imei2.png' />
+        <image src='https://static.test.mintongfu.com/wxmini/images/imei1.png' />
+        <image src='https://static.test.mintongfu.com/wxmini/images/imei2.png' />
       </view>
     </view>
 
@@ -32,7 +32,7 @@
 
 </view>
 <view class='return'>
-  <view class='button' bindtap='returnPage'>下一步</view>
+  <view class='button' bindtap='nextStep'>下一步</view>
   <view class='confirm'>请确认手机无故障后，点击下一步完成面签，即可取走手机</view>
 </view>
 
@@ -40,7 +40,7 @@
   <view class='colorInfo'>
     <view class='title'>请重新选择机器颜色</view>
     <view class="color">
-      <view class="radio" wx:for="{{option_name}}"  wx:key="{{id}}">
+      <view class="radio" wx:for="{{option_name}}" wx:key="{{id}}">
         <block>
           <view>
             {{item}}
@@ -54,16 +54,50 @@
 </view>
 
 <!-- <view class='cancelorder'> -->
- <view class="cancelorder" wx:if="{{cancelorder}}">
-    <view class='title'>是否确认取消订单？</view>
-    <view class="content">提示：因银行结算原因，如确认取消订单，系统会立即解冻预授权中的￥3780.32，剩余￥328.68会在72小时内解冻。具体时间以银行账单为准。</view>
-    <view class='doubleBtn'>
-      <text class='btn cancel' bindtap='cancelOrder'>确认取消</text>
-      <text class='btn renew' bindtap='renewInfo'>更改规格</text>
+<view class="cancelorder" wx:if="{{confirmCancel}}">
+  <view class='title'>是否确认取消订单？</view>
+  <view class="content">提示：因银行结算原因，如确认取消订单，系统会立即解冻预授权中的￥{{order.real_freeze - order.real_total_amount/order.period}}，剩余￥{{order.real_total_amount/order.period}}会在72小时内解冻。具体时间以银行账单为准。</view>
+  <view class='doubleBtn'>
+    <text class='btn cancel' bindtap='confirmCancel'>确认取消</text>
+    <text class='btn renew' bindtap='renewInfo'>更改规格</text>
+  </view>
+</view>
+
+<!-- 订单已取消 -->
+
+<view class='succCancel' wx:if="{{succCancel}}">
+
+  <view class='content'>
+    <view class='img'>
+      <image src="../../images/cancel.png" />
+      <view class='text'>订单已取消!</view>
+    </view>
+    <view class='prompt'>
+      提示：因银行结算原因，系统会立即解冻预授权中的￥3780.32，剩余￥328.68会在72小时内解冻。具体时间以银行账单为准。
+    </view>
+
+    <view class='order'>
+      <view class="orderDetail">
+        <view class="image">
+          <image src="https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg" />
+        </view>
+        <view class="proInfo">
+          <view class="title">{{order.goods_name}}</view>
+          <view>规格：{{sku_name}}</view>
+          <view>总租金：￥{{order.real_total_amount}}</view>
+          <view>市场价：￥8838</view>
+          <view>分期：{{order.period}}期</view>
+        </view>
+      </view>
     </view>
   </view>
+  <view class='return'>
+    <view class='button' bindtap='returnPage'>返回首页</view>
+  </view>
+
+</view>
 
 
 <!-- </view> -->
-<view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{showChoose}}"/>
-<view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{cancelorder}}"/>
+<view class="sku-dialog_mask" catchtouchmove="preventTouchMove" wx:if="{{showChoose}}" />
+<view class="sku-dialog_mask" catchtouchmove="preventTouchMove" wx:if="{{confirmCancel}}" />

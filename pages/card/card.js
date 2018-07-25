@@ -17,7 +17,13 @@ Page({
     showImage: false,
     order_id: '',
     showPrompt: false,
-    promptMsg:''
+    promptMsg:'',
+    timer: '',//定时器名字
+    second: '60',//倒计时初始值
+    disabled: false,
+    showContent:false,
+    order:{},
+    sku_name:''
   },
 
   onLoad: function(options) {
@@ -211,9 +217,12 @@ Page({
             var result = JSON.parse(res.data);
             console.log(result)
             if (result.code == 0) {
+              var mon = result.data[4].itemstring.slice(0,2);
+              var year = result.data[4].itemstring.slice(5,7)
               that.setData({
-                name: result.data.name,
-                idCard: result.data.id,
+                credit: result.data[0].itemstring,
+                month: mon,
+                year:year
               })
             } else {
               wx.showModal({
@@ -251,14 +260,15 @@ Page({
 
   // 获取手机验证码
   getCode: function() {
-    var num = this.data.num;
+    var that= this;
+    var num = that.data.num;
     if (num.length == 0) {
-      this.setData({
+      that.setData({
         alertModel: true,
         msg: '请输入手机号'
       })
     } else {
-      this.setData({
+      that.setData({
         alertModel: false
       })
       util.request(util.bashUrl + "/rent-order/send-pay-code", {
@@ -272,6 +282,31 @@ Page({
             icon: 'success',
             duration: 2000
           });
+          var second = that.data.second;
+          console.log(second);
+          that.setData({
+            timer: setInterval(function () {
+              second--;
+              //然后把countDownNum存进data，好让用户知道时间在倒计着
+              that.setData({
+                second: second,
+                phcode: '倒计时(' + second + ')',
+                disabled: true
+              })
+              //在倒计时还未到0时，这中间可以做其他的事情，按项目需求来
+              if (second == 0) {
+                //这里特别要注意，计时器是始终一直在走的，如果你的时间为0，那么就要关掉定时器！不然相当耗性能
+                //因为timer是存在data里面的，所以在关掉时，也要在data里取出后再关闭
+                clearInterval(that.data.timer);
+                //关闭定时器之后，可作其他处理codes go here
+                that.setData({
+                  phcode: '重新获取',
+                  disabled: false,
+                  second:'60'
+                })
+              }
+            }, 1000)
+          })
         } else {
           wx.showModal({
             title: '提示',
@@ -322,10 +357,10 @@ Page({
           url: '../success/success?id=' + orid,
         })
       }else{
-        // that.setData({
-        //   showPrompt:true,
-        //   promptMsg:result.msg
-        // })
+        that.setData({
+          showPrompt:true,
+          promptMsg:result.msg
+        })
       }
     }, 'POST');
   },
@@ -339,17 +374,31 @@ Page({
   },
   //支付失败取消订单
   cancelOrder: function() {
-    var id = this.data.order_id;
+    var that = this;
+    var id = that.data.order_id;
     util.request(util.bashUrl + "/rent-order/update-status", {
       order_id: id,
       action: 'close'
     }, function(result) {
       if(result.code==0){
         console.log(result);
-        wx.navigateTo({
-          url: '../cancel/cancel',
+        var sku_name = result.data.sku_name;
+        var sku = sku_name.replace(/,/g, " ");
+        that.setData({
+          showContent:true,
+          order:result.data,
+          sku_name:sku
+        })
+        wx.setNavigationBarTitle({
+          title:'订单已取消'
         })
       }
     });
-  }
+  },
+  //订单取消成功后返回首页
+  returnPage: function () {
+    wx.switchTab({
+      url: '../home/home',
+    })
+  },
 })

@@ -6,6 +6,23 @@ const STATUS_COMFIRM = 2; //已确认，订单确认页面已经点击确认
 const STATUS_PAYMENT = 3; //已支付
 const STATUS_COMP = 4;
 const STATUS_CANCEL = 5;
+ var p=1;
+var getOrderList = function(){
+  util.request(util.bashUrl + "/rent-order/list", {
+    channel_code: getApp().globalData.channel_code,
+    index: 0,
+    count: 20,
+    type: 0
+  }, function (result) {
+    if (result.code == 0) {
+      console.log(result);
+      that.setData({
+        orderList: result.data,
+        id: result.data.id,
+      })
+    }
+  }, 'GET');
+}
 Page({
   data: {
     orderList: [],
@@ -22,6 +39,26 @@ Page({
     reClose:false,
     reClose:'',
     msgClose: '',
+    scrollTop: 0,
+    scrollHeight: 0,
+  },
+
+  // 下拉刷新
+  onPullDownRefresh: function () {
+    this.onLoad()
+  },
+
+
+  //上拉加载
+  bindDownLoad: function () {
+    var that = this;
+    GetList(that);
+  },
+  //该方法绑定了页面滚动时的事件
+  scroll: function (event) {
+    this.setData({
+      scrollTop: event.detail.scrollTop
+    });
   },
 
   onLoad: function(options) {

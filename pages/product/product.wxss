@@ -48,12 +48,13 @@
   margin-left: 12rpx;
 }
 .product .title {
-  font-size: #353535;
+  color: #353535;
   font-size: 34rpx;
 }
 .product .title .desc {
   font-size: 28rpx;
   color: #888;
+  margin-top: 5rpx;
 }
 .product .title text {
   font-size: 28rpx;
@@ -285,10 +286,11 @@
 }
 .superiority {
   margin: 22rpx 26rpx 0;
+  display: flex;
+  justify-content: space-between;
 }
 .superiority .list {
-  display: inline-block;
-  width: 30%;
+  width: 220rpx;
   height: 170rpx;
   border-radius: 8rpx;
   border: 1px solid #FDF9F4;
@@ -389,10 +391,10 @@
   flex-wrap: wrap;
 }
 .sku-dialog .list .radio view {
-  border: 1rpx solid #E0DCF0;
+  border: 1rpx solid #B3B3B3;
   width: 150rpx;
   margin-right: 30rpx;
-  border-radius: 4rpx;
+  border-radius: 8rpx;
   height: 60rpx;
   line-height: 60rpx;
   margin-top: 20rpx;
@@ -423,7 +425,7 @@
 .sku-dialog .good image {
   width: 30rpx;
   height: 30rpx;
-  margin: 0 14rpx 0 0;
+  margin: -2rpx 14rpx 0 0;
   vertical-align: middle;
   display: inline-block;
 }

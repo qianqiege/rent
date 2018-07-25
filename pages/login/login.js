@@ -9,7 +9,11 @@ Page({
     isUpdate:false,
     userPhone:'',
     verifMobile:'',
-    id:''
+    id:'',
+    getCode:'获取验证码',
+    timer: '',//定时器名字
+    second: '60',//倒计时初始值
+    disabled: false
   },
 
   /**
@@ -51,8 +55,8 @@ Page({
     })
   },
   sendCode: function () {//发送验证码
-
-    var mobile = this.data.verifMobile;
+    var that = this;
+    var mobile = that.data.verifMobile;
     console.log(mobile)
 
     if(!mobile.match(/^1[0-9]{10}$/)){
@@ -64,6 +68,33 @@ Page({
       console.log(result);
       if (result.code == 0) {
         wx.showToast({ title: '成功', icon: 'success', duration: 2000 });
+
+        var second = that.data.second;
+        console.log(second);
+        that.setData({
+          timer: setInterval(function () {
+            second--;
+            //然后把countDownNum存进data，好让用户知道时间在倒计着
+            that.setData({
+              second: second,
+              getCode: '倒计时(' + second+')',
+              disabled:true
+            })
+            //在倒计时还未到0时，这中间可以做其他的事情，按项目需求来
+            if (second == 0) {
+              //这里特别要注意，计时器是始终一直在走的，如果你的时间为0，那么就要关掉定时器！不然相当耗性能
+              //因为timer是存在data里面的，所以在关掉时，也要在data里取出后再关闭
+              clearInterval(that.data.timer);
+              //关闭定时器之后，可作其他处理codes go here
+              that.setData({
+                getCode: '重新获取',
+                disabled:false,
+                second:'60'
+              })
+              
+            }
+          }, 1000)
+        })
       } else {
         wx.showModal({ title: '提示', content: result.msg, showCancel: false });
       }

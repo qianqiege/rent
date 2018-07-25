@@ -20,7 +20,8 @@ Page({
     popular: [],
     showModal:false,
     order:{},
-    sku_name:''
+    sku_name:'',
+    showClose:false
   },
 
   onLoad: function (options) { 
@@ -65,20 +66,28 @@ Page({
   },
   //关闭订单
   renewOrder(){
-    this.setData({
+    var that = this;
+    that.setData({
       showModal:false
     })
-    var id = this.data.order.id;
+    var id = that.data.order.id;
     console.log(id)
     util.request(util.bashUrl + "/rent-order/update-status", { order_id: id, action: 'close' }, function (result) {
       console.log(result);
-      wx.showToast({
-        title: '订单关闭成功！',
-      })
+      if(result.code == 0){
+        that.setData({
+          showClose: true
+        })
+        setInterval(function () {
+          that.setData({
+            showClose: false
+          })
+        }, 3000)    
+      }  
     });
   },
 
-  //重新下单
+  //继续下单
   continueOrder:function(){
     var id = this.data.order.id;
     var order = this.data.order;
@@ -91,6 +100,7 @@ Page({
     })
   },
 
+  //去到产品详情页
   goProduct(e){
     var id = e.currentTarget.id;
     wx.navigateTo({

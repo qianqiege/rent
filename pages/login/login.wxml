@@ -8,7 +8,7 @@
         <input type="number" maxlength="13" name="mobile" disabled='disabled' value="{{userPhone}}" />
       </view>
       <view>
-        <button type="button" bindtap="update" >修改</button>
+        <button type="button"  plain='true' bindtap="update" >修改</button>
       </view>
       <view class="clear"></view>
     </view>
@@ -19,7 +19,7 @@
     </view>
     
     <view class="btn-view">
-      <button class="btn" formType="submit">
+      <button class="btn"  plain='true' formType="submit">
         确定
       </button>
     </view>
@@ -37,7 +37,7 @@
     <view class="login-update">
       <view class='loginLay'>
         <input type="number" maxlength="6" name="verifycode" placeholder-class="place-holder" placeholder="请输入验证码" />
-        <button bindtap="sendCode" >获取验证码</button>
+        <button bindtap="sendCode" plain='true' disabled='{{disabled}}'>{{getCode}}</button>
       </view>
       <view class="clear"></view>
     </view>
@@ -49,10 +49,10 @@
     
     <view class="btn-view">
       <view>
-        <button class="btn" formType="submit">确定</button>
+        <button class="btn" plain='true' formType="submit">确定</button>
       </view>
       <view>
-        <button type="button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >自动登录</button>
+        <button type="button" plain='true' class='auto' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >自动登录</button>
       </view>
     </view>
   </form>

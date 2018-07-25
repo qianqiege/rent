@@ -9,7 +9,7 @@
     <view class='row'>
       <view class='info'>
         <view class="title">姓名</view>
-        <input class='info-input' bindblur="nameInput" name="namee" placeholder="姓名" value="{{name}}"/>
+        <input class='info-input' bindblur="nameInput" name="namee" placeholder="姓名" value="{{name}}" />
       </view>
       <image bindtap='doGetCode' src="../../images/carmer.png" />
     </view>
@@ -17,7 +17,7 @@
     <view class='row'>
       <view class='info'>
         <view class="title">身份证</view>
-        <input class='info-input' type="number" maxlength='18' bindblur="cardInput" name="idCard" placeholder="填写持卡人身份证号"  value="{{idCard}}"/>
+        <input class='info-input' type="number" maxlength='18' bindblur="cardInput" name="idCard" placeholder="填写持卡人身份证号" value="{{idCard}}" />
       </view>
     </view>
 
@@ -45,7 +45,7 @@
     <view class='row'>
       <view class='info'>
         <view class="title">CVN2码</view>
-        <input type='password' value='{{cvn}}'  minlength="3" maxlength="3" class='info-input' name="cvn" bindblur="" placeholder="请输入卡背面最后三位数字" />
+        <input type='password' value='{{cvn}}' minlength="3" maxlength="3" class='info-input' name="cvn" bindblur="" placeholder="请输入卡背面最后三位数字" />
       </view>
     </view>
 
@@ -61,7 +61,7 @@
         <view class="title">验证码</view>
         <input type='number' class='info-input' name="code" bindblur="codeInput" placeholder="请输入验证码" />
       </view>
-      <button class='getCode' plain="true" bindtap='getCode'>{{phcode}}</button>
+      <button class='getCode' plain="true" disabled='{{disabled}}' bindtap='getCode'>{{phcode}}</button>
     </view>
 
   </view>
@@ -71,7 +71,7 @@
     </view>
     <view class="clickSign" bindtap='clickSign'>
       <view wx:if="{{showText}}">请点击签名</view>
-      <image mode="aspectFit" wx:if="{{showImage}}" src="{{Image}}"/>
+      <image mode="aspectFit" wx:if="{{showImage}}" src="{{Image}}" />
     </view>
   </view>
 
@@ -79,14 +79,14 @@
     <view class='signTitle'>备注：
       <text class="confirm">(选填)</text>
     </view>
-    <view  class="textarea">
-      <textarea name="textarea"/>
+    <view class="textarea">
+      <textarea name="textarea" />
     </view>
   </view>
 
   <view class="showPrompt" wx:if="{{showPrompt}}">
     <view class='title'>支付失败</view>
-    <view class="content">{{promptMsg}}由于您的信用卡信用额度不足,请更换其他信用卡支付</view>
+    <view class="content">{{promptMsg}}</view>
     <view class='doubleBtn'>
       <text class='btn cancel' bindtap='cancelOrder'>取消订单</text>
       <text class='btn renew' bindtap='renewInfo'>更改资料</text>
@@ -95,7 +95,31 @@
   <view class="btn">
     <button formType="submit" class='btnConfirm'>确认授权</button>
   </view>
-
-  <view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{showPrompt}}"/>
+  <view class="sku-dialog_mask" catchtouchmove="preventTouchMove" wx:if="{{showPrompt}}" />
 </form>
 
+<view class='closeOrder' wx:if="{{showContent}}">
+  <view class='content'>
+    <view class='img'>
+      <image src="../../images/cancel.png" />
+      <view class='text'>订单已取消!</view>
+    </view>
+    <view class='order'>
+      <view class="orderDetail">
+        <view class="image">
+          <image src="{{order.goods_image}}" />
+        </view>
+        <view class="proInfo">
+          <view class="title">{{order.goods_name}}</view>
+          <view>规格：{{sku_name}}</view>
+          <view>市场价：￥{{}}</view>
+          <view>总租金：￥{{order.real_total_amount}}</view>
+          <view>分期：{{order.period}}期</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='return'>
+    <view class='button' bindtap='returnPage'>返回首页</view>
+  </view>
+</view>

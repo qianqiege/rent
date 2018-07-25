@@ -1,7 +1,7 @@
 /* pages/login/login.wxss */
 
 .btn {
-  border: 1rpx solid #fd6a11;
+  border: 1px solid #fd6a11;
   color: #fff;
   background: #fd6a11;
 }
@@ -77,12 +77,17 @@
   justify-content: space-between;
 }
 
+.login .login-update .loginLay input{
+  padding-top: 10rpx;
+}
+
 .login .login-update button {
-  color: #fd6a11;
-  border: 1rpx #fd6a11 solid;
+  color: #FF6000;
+  border: 1rpx #FF6000 solid;
   font-size: 28rpx;
   width: 200rpx;
   margin-right: 25rpx;
+  padding: 0;
 }
 
 .login .referee {
@@ -100,4 +105,8 @@
 
 .login .btn-view view {
   margin: 40rpx 0;
+}
+.auto{
+  background: #fff;
+  border: 1px solid #B3B3B3;
 }

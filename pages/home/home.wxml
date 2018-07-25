@@ -15,35 +15,33 @@
   <view class="process">
     <view class="title">租机流程</view>
     <view class="proText">
-      <view class="proBlo">
-        选择机型
+      <view>选择机型</view>
+      <view>
         <image src="../../images/home/next.png"/>
       </view>
-      <view class="proBlo">
-        确认订单
+      <view>确认订单</view>
+      <view>
         <image src="../../images/home/next.png"/>
       </view>
-      <view class="proBlo">
-        拍照面签
+      <view>拍照面签</view>
+      <view>
         <image src="../../images/home/next.png"/>
       </view>
-      <view class="proBlo">
-        <text class="msg">到期归还/买断</text>
-      </view>
+      <view>到期归还/买断</view>
     </view>
     <view class="guarantee">
-      <view class="bloGuar">
+      <view>
         <image src="../../images/home/right.png"/>
-        品质保证 正品国行
       </view>
-      <view class="bloGuar">
+      <view>品质保证 正品国行</view>
+      <view>
         <image src="../../images/home/right.png"/>
-        碎屏无忧 免费官修
       </view>
-      <view class="bloGuar">
+      <view>碎屏无忧 免费官修</view>
+      <view>
         <image src="../../images/home/right.png"/>
-        租金分期 轻松享用
       </view>
+      <view>租金分期 轻松享用</view>
     </view>
   </view>
   <!-- 租机优势 -->
@@ -105,5 +103,10 @@
       <view class="btn renew" bindtap="renewOrder">重新下单</view>
     </view>  
   </view> 
+
+  <!-- 弹框提示订单已关闭 -->
+  <view class='close' wx:if="{{showClose}}">
+    <view>订单已关闭，请重新选择机器，提交订单！</view>
+  </view>
 </view>
 <view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{showModal}}"/>

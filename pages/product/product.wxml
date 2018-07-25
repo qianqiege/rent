@@ -66,11 +66,11 @@
     <view class="page__title">租赁到期可选方案</view>
     <view class="expire">
       <view class="plan">
-        <view class="buyout">.买断.</view>
+        <view class="buyout">· 买断 ·</view>
         <view>支付尾款，自己拥有</view>
       </view>
       <view class="plan">
-        <view class="buyout">.归还.</view>
+        <view class="buyout">· 归还 ·</view>
         <view>年年换新，玩机无忧</view>
       </view>
     </view>
@@ -221,7 +221,7 @@
               <image src="../../images/product/guar.png"/>
               <text>保障服务（必选）</text>
             </view>
-            <view class="price">￥{{insu_price}}</view>
+            <view class="price">￥{{filters.parse(insu_price)}}</view>
           </view>
           <view class="radio">
             因意外导致的屏幕碎裂，可享受一次免费官方维修
