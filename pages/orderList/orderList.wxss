@@ -1,13 +1,14 @@
-
 .header {
   box-shadow: 0px 0px 16rpx rgba(0, 0, 0, 0.08);
   position: fixed;
   top: 0;
   z-index: 999;
 }
+
 .header + .orderlist {
   margin-top: 128rpx;
 }
+
 .navbar {
   height: 104rpx;
   line-height: 104rpx;
@@ -18,13 +19,16 @@
   background-color: #fff;
   font-size: 32rpx;
 }
+
 .navbar .item {
   width: 172rpx;
   text-align: center;
 }
+
 .navbar .item.item_on {
-  color: #FF6000;
+  color: #ff6000;
 }
+
 .navbar .slider {
   position: absolute;
   content: " ";
@@ -32,29 +36,29 @@
   bottom: 0;
   width: 86rpx;
   height: 8rpx;
-  background-color: #FF6000;
+  background-color: #ff6000;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
-  transition: transform .3s;
+  transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
+
 .orderlist:last-child {
   margin-bottom: 24rpx;
 }
 
 .orderlist {
   background: #fff;
-  margin: 20rpx 0;
+  margin: 20rpx 0 0;
 }
-/* .orderlist:not(:first-child) {
-  margin-top: 24rpx;
-} */
+
 .orderlist .item {
   position: relative;
   padding-left: 32rpx;
   padding-right: 32rpx;
   display: flex;
 }
+
 .orderlist .item:not(:last-child):after {
   content: " ";
   position: absolute;
@@ -63,94 +67,98 @@
   right: 0;
   height: 1rpx;
   width: 100%;
-  border-bottom: 1rpx solid #E0DCF0;
-  color: #E0DCF0;
+  border-bottom: 1rpx solid #e0dcf0;
+  color: #e0dcf0;
 }
+
 .orderlist .item.item__hd {
   height: 76rpx;
   line-height: 76rpx;
   color: #353535;
 }
+
 .orderlist .item.item__hd view:last-child {
   color: #353535;
 }
+
 .orderlist .item.item__bd {
   height: auto;
   padding: 32rpx;
 }
+
 .orderlist .item.item__bd .image {
-  width: 180rpx;
-  height: 180rpx;
+  width: 195rpx;
+  height: 195rpx;
   margin-left: -16rpx;
 }
+
 .orderlist .item.item__bd .image image {
   width: 100%;
-  height: 180rpx;
+  height: 195rpx;
 }
+
 .orderlist .item.item__bd .content {
   margin-left: 16rpx;
   color: #888;
 }
+
 .orderlist .item.item__bd .content > view {
-  margin-top: 4rpx;
+  margin-bottom: 4rpx;
 }
+
 .orderlist .item.item__bd .content .title {
   font-size: 30rpx;
   color: #000;
 }
+
 .orderlist .item.item__bd .content text {
   font-family: 'DINPro';
   font-size: 24rpx;
   margin-left: 12rpx;
 }
-.orderlist .item.item__ft {
-  color: #FF6000;
+
+.footbtn {
+  color: #ff6000;
+  background: #fff;
+  display: flex;
   justify-content: space-between;
-  padding: 30rpx;
+  padding: 30rpx 30rpx 0;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  height: 98rpx;
+  text-align: center;
 }
-.orderlist .item.item__ft text {
-  font-family: 'DINPro';
-  font-size: 30rpx;
-  margin: 0 6rpx;
+
+.footbtn .faceSign {
+  border: 1px solid #ff6000;
+  color: #ff6000;
 }
-.orderlist .item.item__ft .faceSign {
-  border: 1px solid #FF6000;
-  border-radius: 4rpx;
-  padding: 5rpx 40rpx;
-  line-height: 60rpx;
-}
-.orderlist .item.item__ft .closeOrder {
+
+.footbtn .closeOrder {
   border: 1px solid #353535;
-  border-radius: 4rpx;
-  padding: 5rpx 40rpx;
-  line-height: 60rpx;
   color: #353535;
 }
-.orderlist .item.item__ft .btn {
-  display: flex;
+
+.footbtn .reclose{
+  color: #B3B3B3;
+  border: 1px solid #B3B3B3;
+  position: absolute;
+  top: 30rpx;
+  right:30rpx ;
 }
-.orderlist .item.item__ft .btn button {
-  height: 56rpx;
-  line-height: 56rpx;
+
+.footbtn .btn {
+  height: 60rpx;
+  line-height: 60rpx;
   margin-top: 14rpx;
-  padding-left: 16rpx;
-  padding-right: 16rpx;
+  width: 164rpx;
   border-radius: 8rpx;
-  font-size: 24rpx;
+  font-size: 26rpx;
+  margin: 0 6rpx;
 }
-.orderlist .item.item__ft .btn button:not(:last-child) {
-  margin-right: 12rpx;
-}
-.orderlist .item.item__ft .btn button::after {
-  border: 0;
-}
-.orderlist .item.item__ft .btn button[disabled] {
+
+.footbtn .btn button[disabled] {
   color: #666;
   opacity: 0.5;
 }
 
-
-/* .orderlist .image image{
-  width: 195rpx;
-  height: 195rpx;
-} */

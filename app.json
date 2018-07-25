@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/first/first",
     "pages/cancel/cancel",
     "pages/success/success",
-    "pages/first/first",
     "pages/login/login",
     "pages/signature/signature",
     "pages/card/card",

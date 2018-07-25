@@ -70,7 +70,6 @@ Page({
         insu_price:insu_price
       })
     }, 'GET');
-    // this.getSkuInfo()
   },
 
 
@@ -147,14 +146,6 @@ Page({
     var product = this.data.product;
     var skuName = [];
     var skuStr = skuValue.toString();
-
-    // skuList.forEach(function(list, idx) {
-    //   var s = list['data'];
-    //   // return sku.checked == 'true';
-
-    //   // skuName.push(name.title);
-    // });
-
     var data = {
       goods_id: product.goods_id,
       channel_id: 1,
@@ -184,16 +175,8 @@ Page({
           content: result.msg,
           showCancel: false
         });
-      }
-      // getApp().globalData.order = result.data;
-      // wx.setStorage({
-      //   key: 'order',
-      //   data: result.data
-      // });
-      
-      
+      }    
     });
-
   },
 
   //切换产品详情介绍信息

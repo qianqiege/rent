@@ -101,8 +101,8 @@
       </view>
     </view>
     <view class="doubleBtn">
-      <text class="btn continue" bindtap='continueOrder'>继续完成</text>
-      <text class="btn renew" bindtap="renewOrder">重新下单</text>
+      <view class="btn continue" bindtap='continueOrder'>继续完成</view>
+      <view class="btn renew" bindtap="renewOrder">重新下单</view>
     </view>  
   </view> 
 </view>

@@ -9,34 +9,34 @@
   </view>
 </view>
 
-<block wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="item" wx:key="index">
-
+<block wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="item" wx:key="index" hidden="{{activeIndex != 0}}">
   <navigator class="orderlist" hover-class="none" url="orderinfo">
-    <view class="item item__hd" wx:if="{{showHead}}">
-      <view>{{item.headMsg.left}}</view>
+    <view class="item item__hd">
+      <view>订单号：{{item.order_no}}</view>
     </view>
     <view class="item item__bd">
       <view class="image">
-        <image src="{{item.order.goods_image}}" />
+        <image src="{{item.goods_image}}" />
       </view>
       <view class="content">
-        <view class="title">{{item.order.title}}</view>
-        <view>规格：¥{{item.order.amount}}（市场价¥{{item.order.price}}）</view>
-        <view>分期费用：{{item.order.amount}}</view>
-        <view>分期：{{item.order.amount}}</view>
+        <view class="title">{{item.goods_name}}</view>
+        <view>规格：{{item.sku_name}}</view>
+        <view>分期费用：{{item.real_total_amount}}</view>
+        <view>分期：{{item.period}}期</view>
         <view>扣款方：上海银骏科技有限公司</view>
       </view>
     </view>
-
-     <view class="item item__ft" wx:if="{{showFoot}}">
-      <text class="faceSign">{{item.footMsg.buttons[0].text}}</text>
-      <text class="closeOrder">关闭订单</text>
-      <!-- <view class="btn">
-        <block wx:for="{{buttons}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-          <button class="{{item.class}}" disabled="{{item.disabled}}" catchtap="tap({{item.value}}, {{item.id}})" hover-stop-propagation="true">{{item.text}}</button>
-        </block>
-      </view> -->
-    </view> 
   </navigator>
-
+  <view class="footbtn">
+    <navigator url="../login/login?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status == 0}}">去下单</navigator>
+    <navigator url="../confirm/confirm?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==1}}">去下单</navigator>
+    <navigator url="../card/card?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==2}}">去付款</navigator>
+    <navigator url="../facesign/facesign?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==3}}">去面签</navigator>
+    <navigator url="../success/success?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==3 && item.imei==null}}">去面签</navigator>
+    <navigator url="" plain='true' class="btn faceSign" wx:if="{{item.order_status==4}}">换机</navigator>
+    <navigator url="../complete/complete?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==4}}">已完成</navigator>
+    <navigator url="../cancel/cancel?id={{item.id}}" plain='true' class="btn reclose" wx:if="{{item.order_status==5}}">已取消</navigator>
+    <navigator url="" plain='true' class="btn closeOrder" wx:if="{{item.order_status==4}}">碎屏报险</navigator>
+    <navigator url="../cancel/cancel?id={{item.id}}" plain='true' class="btn closeOrder" wx:if="{{item.order_status==0||item.order_status==1||item.order_status==2||item.order_status==3}}">取消订单</navigator>
+  </view>
 </block>

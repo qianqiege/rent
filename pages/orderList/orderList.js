@@ -1,101 +1,64 @@
 // pages/orderList/orderList.js
+const util = require('../../utils/util.js');
+const STATUS_INIT = 0; //预订单
+const STATUS_SUBMIT = 1; //已提交手机号
+const STATUS_COMFIRM = 2; //已确认，订单确认页面已经点击确认
+const STATUS_PAYMENT = 3; //已支付
+const STATUS_COMP = 4;
+const STATUS_CANCEL = 5;
 Page({
   data: {
-    orderList: [{
-      order: {
-        title: '苹果 iPhone X 浅灰色 64G 全网通',
-        goods_image: 'https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg',
-        amount: 5016,
-        price: 8388,
-        period: 12,
-        insu_cost: 318,
-        per_cost: 418
-      },
-      headMsg: {
-        left: '订单号：2018032600291238',
-      },
-      footMsg: {
-        showFoot: 'true',
-        buttons: [{
-          text: '去面签',
-          value: 'faceSign',
-          id: 0
-        }, {
-          text: '关闭订单',
-          value: 'close',
-          // disabled: 'true',
-          id: 0
-        }]
-      }
-    }, {
-      order: {
-        title: '苹果 iPhone X 浅灰色 64G ',
-        goods_image: 'https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg',
-        amount: 5016,
-        price: 8388,
-        period: 12,
-        insu_cost: 318,
-        per_cost: 418
-      },
-      headMsg: {
-        left: '订单号：2018032600291238',
-      },
-      footMsg: {
-        showFoot: 'true',
-        buttons: [{
-          text: '去付款',
-          value: 'view',
-          id: 1
-        }]
-      }
-    }, {
-      order: {
-        title: '苹果 iPhone X 浅灰色 64G ',
-        goods_image: 'https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg',
-        amount: 5016,
-        price: 8388,
-        period: 12,
-        insu_cost: 318,
-        per_cost: 418
-      },
-      headMsg: {
-        left: '订单号：2018032600291238',
-      },
-      footMsg: {
-        showFoot: 'true',
-        buttons: [{
-          text: '换机',
-          value: 'view',
-          id: 2
-        }]
-      }
-    }],
-    status: ['全部', '待支付', '已完成', '已取消'],
+    orderList: [],
+    status: ['全部', '待完成', '已完成', '已取消'],
     activeIndex: 0,
     sliderOffset: 0,
     sliderList: [0, 172, 348, 520],
     sliderLeft: 72,
-    showHead: {
-      type: Boolean,
-      default: true
-    },
-    showFoot: {
-      type: Boolean,
-      default: true
-    },
-    buttons: []
+    pay: '',
+    close: '',
+    id:'',
+    show:0 ,
+    showClose: false,
+    reClose:false,
+    reClose:'',
+    msgClose: '',
   },
 
   onLoad: function(options) {
-
+    var that = this;
+    util.request(util.bashUrl + "/rent-order/list", {
+      channel_code: getApp().globalData.channel_code,
+      index: 0,
+      count: 20,
+      type: 0
+    }, function(result) {
+      if (result.code == 0) {
+        console.log(result);
+        that.setData({
+          orderList: result.data,
+          id:result.data.id,
+        })
+      }
+    }, 'GET');
   },
 
   tabClick(e) {
     var id = e.currentTarget.id;
     var that = this;
+    console.log(id)
     that.setData({
       sliderOffset: this.data.sliderList[id],
       activeIndex: id
     })
-  },
+    util.request(util.bashUrl + "/rent-order/list", {
+      channel_code: getApp().globalData.channel_code,
+      index: 0,
+      count: 20,
+      type: id
+    }, function(result) {
+      that.setData({
+        orderList: result.data
+      })
+    }, 'GET');
+  }
 })

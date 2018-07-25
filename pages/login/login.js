@@ -17,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
     var id = options.id;
+    console.log(id)
     this.setData({
       id:id
     })

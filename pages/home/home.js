@@ -84,6 +84,10 @@ Page({
   //重新下单
   continueOrder:function(){
     var id = this.data.order.id;
+    var order = this.data.order;
+    if (order.order_status == 0) {
+
+    }
     console.log(id)
     wx.navigateTo({
       url: '../confirm/confirm?id='+id,

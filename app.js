@@ -19,11 +19,11 @@ App({
             data: getApp().globalData.token
           })
 
-          // if (getApp().globalData.token) {
-          //   wx.switchTab({
-          //     url: '/pages/home/home',
-          //   })
-          // }
+          if (getApp().globalData.token) {
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
+          }
         });
       }
     })
