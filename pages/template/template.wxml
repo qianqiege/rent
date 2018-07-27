@@ -1,0 +1,160 @@
+<wxs module="filters" src="../fliter.wxs"></wxs>
+<template name="conOrder">
+  <view class="orderList">
+    <navigator class="orderModal" hover-class="none" url="orderinfo">
+      <view class="orderDetail">
+        <view class="image">
+          <image src="{{order.goods_image}}" />
+        </view>
+        <view class="proInfo">
+          <view class="title">{{order.goods_name}}</view>
+          <view>规格：{{sku_name}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="orderInfo">
+    <view class='title'>费用明细</view>
+    <view class="flex rent">
+      <view>总租金</view>
+      <view>￥{{filters.parse(order.real_total_amount)}}</view>
+    </view>
+    <view class="flex">
+      <view>意外保障服务费</view>
+      <view>￥{{filters.parse(order.insu_cost)}}</view>
+    </view>
+    <view class="flex">
+      <view>期数</view>
+      <view>{{order.period}}期(25天/期)</view>
+    </view>
+
+    <view class="flex money">
+      <view>分期费用</view>
+      <view>￥{{filters.toFix(order.real_total_amount/order.period)}}</view>
+    </view>
+    <view class="alert">
+      <view>
+        <image src="../../images/product/alert.png" />
+      </view>
+      <view>您每期需要还款的费用。差额部分将在最后一期补齐。</view>
+    </view>
+  </view>
+  <view class="orderInfo">
+    <view class='title'>预授权明细</view>
+    <view class="flex">
+      <view>预授权总金额</view>
+      <view>￥{{filters.parse(order.real_freeze)}}</view>
+    </view>
+    <view class="flex">
+      <view>到期还机解冻金额</view>
+      <view>￥{{filters.parse(order.deposit)}}</view>
+    </view>
+    <view class="flex way">
+      <view>预授权冻结方式</view>
+      <view>信用卡</view>
+    </view>
+    <view class="alert">
+      <view>
+        <image src="../../images/product/alert.png" />
+      </view>
+      <view>预授权冻结无利息，不会产生附加费用。</view>
+    </view>
+  </view>
+  <view class="orderInfo">
+    <view class='title'>租期信息</view>
+    <view class="flex">
+      <view>下单日期</view>
+      <view>{{order.add_time}}</view>
+    </view>
+    <view class="flex">
+      <view>租赁到期日期</view>
+      <view>{{order.order_time}}</view>
+    </view>
+    <view class="flex">
+      <view>意外保障生效日期</view>
+      <view>{{order.insu_time}}</view>
+    </view>
+    <view class="flex choose">
+      <view>到期可选</view>
+      <view>买断或还机</view>
+    </view>
+    <view class="alert">
+      <view>
+        <image src="../../images/product/alert.png" />
+      </view>
+      <view>最后还机日期为租赁到期日期后的第7天，是指易享优租收到机器的时间，而非用户寄出机器的时间。</view>
+    </view>
+  </view>
+</template>
+
+<template name="product">
+  <view class="readyOrder">
+    <view class="image">
+      <image src="{{order.goods_image}}" />
+    </view>
+    <view class="proInfo">
+      <view class="title">{{order.goods_name}}</view>
+      <view>规格：{{sku_name}}</view>
+      <view>总租金：￥{{filters.parse(order.real_total_amount)}}</view>
+      <view>分期：{{order.period}}期</view>
+      <view>订单状态：{{order.status_name}}</view>
+    </view>
+  </view>
+</template>
+
+<template name="proCompany">
+   <view class="item item__bd">
+        <view class="image">
+          <image src="{{goods_image}}" />
+        </view>
+        <view class="content">
+          <view class="title">{{goods_name}}</view>
+          <view>规格：{{sku_name}}</view>
+          <view>分期费用：{{real_total_amount}}</view>
+          <view>分期：{{period}}期</view>
+          <view>扣款方：上海银骏科技有限公司</view>
+        </view>
+      </view>
+</template>
+
+
+<template name="proChange">
+   <view class="item item__bd">
+        <view class="image">
+          <image src="{{orderCom.goods_image}}" />
+        </view>
+        <view class="content">
+          <view class="title">{{orderCom.goods_name}}</view>
+          <view>规格：{{sku_name}}</view>
+          <view>分期费用：{{orderCom.real_total_amount}}</view>
+          <view>分期：{{orderCom.period}}期</view>
+          <view>扣款方：上海银骏科技有限公司</view>
+        </view>
+      </view>
+</template>
+
+<template name="scancode">
+  <view class='middle'>
+  <view class='scan'>
+    <view class='title'>扫码验证IMEI</view>
+    <view class='info'>请扫描包装盒上的IMEI条码，IMEI错误会影响订单提交及换机</view>
+    <view class='scanCode' bindtap='scanCode'>
+      <text>{{iemiMsg}}</text>
+      <image src='../../images/scan.png' />
+    </view>
+  </view>
+</view>
+</template>
+
+<template name="scancode1">
+  <view class='middle'>
+  <view class='scan'>
+    <view class='title'>扫码验证IMEI</view>
+    <view class='info'>请扫描包装盒上的IMEI条码，IMEI错误会影响订单提交及还机</view>
+    <view class='scanCode' bindtap='scanCode'>
+      <text>{{iemiMsg}}</text>
+      <image src='../../images/scan.png' />
+    </view>
+  </view>
+</view>
+</template>

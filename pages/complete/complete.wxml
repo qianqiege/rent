@@ -1,3 +1,4 @@
+<wxs module="filters" src="../fliter.wxs"></wxs>
 <view class='content'>
   <view class='img'>
     <image src="../../images/success.png" />
@@ -8,20 +9,20 @@
   <view class='order'>
     <view class="orderDetail">
       <view class="image">
-        <image src="https://cimgs1.fenqile.com/product/M00/CA/CD/hhoGAFoMC4SAMiixAACHczSWzO4333_300x300.jpg" />
+        <image src="{{order.goods_image}}" />
       </view>
       <view class="proInfo">
-        <view class="title">HUAWEI Mate 10 Pro</view>
-        <view>规格：国行 全新 浅灰色 128G 全网通</view>
-        <view>分期费用：￥4618</view>
-        <view>分期：15期</view>
+        <view class="title">{{order.goods_name}}</view>
+        <view>规格：{{sku_name}}</view>
+        <view>分期费用：￥{{filters.toFix(order.real_total_amount/order.period)}}</view>
+        <view>分期：{{order.period}}期</view>
         <view>扣款方：上海银骏科技有限公司</view>
       </view>
     </view>
 
     <view class='date'>
-      <view>租赁到期日期：2019-09-20</view>
-      <view>意外保障生效期：2019-09-20</view>
+      <view>租赁到期日期：{{order.order_time}}</view>
+      <view>意外保障生效期：{{order.insu_time}}</view>
       </view>
   </view>
 

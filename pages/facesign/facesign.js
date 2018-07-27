@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgAvatar:'/images/facesign/pic.png',
-    imgBack: '/images/facesign/pic.png',
-    imgHandson: '/images/facesign/pic.png',
+    imgAvatar:'/images/carmer.png',
+    imgBack: '/images/carmer.png',
+    imgHandson: '/images/carmer.png',
     avatar:'',
     back: '',
     handson: '',
@@ -20,59 +20,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var id = options.id;
+    var imei = options.imei;
+    console.log(imei)
     this.setData({
-      order_id:9,//options.order_id,
+      order_id:id,//options.order_id,
       imei:(options.imei?options.imei:'')
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
   },
   bindText: function (e) {
     var text = e.detail.value;
@@ -113,6 +67,9 @@ Page({
       console.log(result);
       if (result.code == 0) {
         wx.showToast({title: '成功',icon: 'success',duration: 2000});
+        wx.navigateTo({
+          url: '../complete/complete?id='+result.data.order_id,
+        })
       } else {
         wx.showModal({ title: '提示', content: result.msg, showCancel:false });
       }
@@ -137,7 +94,8 @@ function upload(filename,callback){
           'Authorization': 'Bearer ' + getApp().globalData.token,
         },
         formData: {
-          filename:filename
+          filename:filename,
+          type:'base64'
         },
         success: function (res) {
           var result = JSON.parse(res.data);
@@ -160,8 +118,6 @@ function upload(filename,callback){
         console.log('已经上传的数据长度', res.totalBytesSent);
         console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend);
       });
-
-
     }
   });
 

@@ -1,0 +1,31 @@
+<import src="../template/template" />
+
+<view class='reChoose'>
+  <view class='colorInfo'>
+    <view class='title'>请重新选择机器颜色</view>
+    <view class="color">
+      <view class="radio" wx:for="{{sku}}" wx:for-item="data" wx:key="idx">
+          <view class="{{data.current == true ? 'checked' : data.disabled == true? 'disabled' : ''}}" bindtap="setModel">
+            {{data.name}}{{data.current}}
+          </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<template is="scancode1" data="{{iemiMsg:iemiMsg}}" />
+
+<view class="content">
+    <view class="info">请上传用户手持手机照片</view>
+    <view class="upload">
+        <view class="row img" bindtap='uploadHandson'>
+            <image class='{{imgHandson=="/images/carmer.png"?"pic":"avatar"}}' src='{{imgHandson}}'></image>
+        </view>
+        <view class="row">
+            <image src="https:/static.test.mintongfu.com/wxmini/images/facesign/handson.png"></image>
+        </view>
+    </view>
+    <view class="remark">请按上图上传手持手机的照片，并确保照片清晰</view>
+</view>
+
+<view class='confirmBtn'>确认提交</view>

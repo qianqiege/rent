@@ -1,3 +1,5 @@
+@import "../template/template.wxss";
+
 .header {
   box-shadow: 0px 0px 16rpx rgba(0, 0, 0, 0.08);
   position: fixed;
@@ -34,13 +36,17 @@
   content: " ";
   left: 0;
   bottom: 0;
-  width: 86rpx;
+  width: 115rpx;
   height: 8rpx;
   background-color: #ff6000;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.orderlist:first-child {
+  margin-top: 124rpx;
 }
 
 .orderlist:last-child {
@@ -67,10 +73,10 @@
   right: 0;
   height: 1rpx;
   width: 100%;
-  border-bottom: 1rpx solid #e0dcf0;
-  color: #e0dcf0;
+  border-bottom: 1rpx solid #E5E5E5;
+  color: #E5E5E5;
 }
-
+/* 
 .orderlist .item.item__hd {
   height: 76rpx;
   line-height: 76rpx;
@@ -107,7 +113,7 @@
 }
 
 .orderlist .item.item__bd .content .title {
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #000;
 }
 
@@ -115,7 +121,7 @@
   font-family: 'DINPro';
   font-size: 24rpx;
   margin-left: 12rpx;
-}
+} */
 
 .footbtn {
   color: #ff6000;
@@ -137,6 +143,11 @@
 .footbtn .closeOrder {
   border: 1px solid #353535;
   color: #353535;
+}
+
+.footbtn .recomp{
+  color: #B3B3B3;
+  border: 1px solid #B3B3B3;
 }
 
 .footbtn .reclose{
@@ -162,3 +173,15 @@
   opacity: 0.5;
 }
 
+.all{
+  width: 317rpx;
+  height: 313rpx;
+  margin: 0 auto;
+}
+
+.all image{
+  width: 317rpx;
+  height: 313rpx;
+  margin: 0 auto;
+  margin-top: 225rpx;
+}

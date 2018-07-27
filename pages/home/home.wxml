@@ -1,4 +1,6 @@
 <wxs module="filters" src="../fliter.wxs"></wxs>
+<import src="../template/template" />
+
 <view class="header">
   <!-- 轮播图 -->
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{currColor}}" circular="{{circular}}" class="banner">
@@ -86,18 +88,9 @@
   <view class="orderModal" wx:if="{{showModal}}">
     <view class="orderRemind">订单提醒</view>
     <view class="remindInfo">查询到您有进行中的订单，是否继续完成该订单？如选择重新下单会关闭该订单。</view>
-    <view class="orderDetail">
-      <view class="image">
-        <image src="{{order.goods_image}}"/>
-      </view>
-      <view class="proInfo">
-        <view class="title">{{order.goods_name}}</view>
-        <view>规格：{{sku_name}}</view>
-        <view>总租金：￥{{order.real_total_amount}}</view>
-        <view>分期：{{order.period}}期</view>
-        <view>订单状态：{{order.status_name}}</view>
-      </view>
-    </view>
+
+    <template is="product" data="{{order:order,sku_name:sku_name}}" />
+   
     <view class="doubleBtn">
       <view class="btn continue" bindtap='continueOrder'>继续完成</view>
       <view class="btn renew" bindtap="renewOrder">重新下单</view>

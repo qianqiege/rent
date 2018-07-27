@@ -114,6 +114,4 @@
   position: absolute;
   right: 0;
   top: 0;
-  border-top-right-radius: 8rpx;
-  border-bottom-right-radius: 8rpx;
 }

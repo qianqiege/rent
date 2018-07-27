@@ -1,0 +1,8 @@
+
+<view class='result'>
+<view class='tearea'>
+  <textarea value='' bindinput='textInput' placeholder='请输入换机原因'/>
+</view>
+  
+  <view class='confirmBtn' bindtap='confirmChange'>确认提交</view>
+</view>

@@ -1,0 +1,22 @@
+<wxs module="filters" src="../fliter.wxs"></wxs>
+ <import src="../template/template"/>
+ <view class='orderHead'>
+  <view class='orderNum'>订单号：{{orderNum}}</view>
+ </view>
+ 
+ <template is="conOrder" data="{{order:order,sku_name:sku_name}}"/>
+
+<view class='footInfo'>
+  <!-- <view class='flex'> -->
+    <view class='custom'>
+      <image src="../../images/home/customer.png"/>
+      <text class='connect'>联系客服</text>
+    </view>
+    <!-- <view class='service'>
+      <text wx:if="{{Insurance}}" bindtap='Insurance'>碎屏报险</text>
+      <text wx:if="{{changePhone}}" bindtap='changePhone'>换机</text>
+      <text wx:if="{{faceSign}}" bindtap='faceSign'>面签</text>
+      <text wx:if="{{success}}" bindtap='success'>面签</text>
+    </view> -->
+  <!-- </view> -->
+</view>

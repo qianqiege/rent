@@ -49,7 +49,7 @@
     
     <view class="btn-view">
       <view>
-        <button class="btn" plain='true' formType="submit">确定</button>
+        <button class="confirm"  formType="submit">确定</button>
       </view>
       <view>
         <button type="button" plain='true' class='auto' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >自动登录</button>

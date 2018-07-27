@@ -1,3 +1,5 @@
+<wxs module="filters" src="../fliter.wxs"></wxs>
+
 <form class='formCard' bindsubmit="formSubmit" bindreset="formReset">
 
   <view wx:if="{{alertModel}}" class="prompt">
@@ -32,7 +34,7 @@
     <view class='row'>
       <view class='info'>
         <view class="title">有效期</view>
-        <picker class='info-input' mode="date" name="picker" value="{{date}}" start="{{sdate}}" end="" bindchange="bindDateChange">
+        <picker class='info-input' mode="date" fields="month" name="picker" value="{{date}}" start="{{sdate}}" end="" bindchange="bindDateChange">
           <view class="picker">
             <view class="month">{{month}}</view>
             <view class="line">/</view>
@@ -112,8 +114,8 @@
         <view class="proInfo">
           <view class="title">{{order.goods_name}}</view>
           <view>规格：{{sku_name}}</view>
-          <view>市场价：￥{{}}</view>
-          <view>总租金：￥{{order.real_total_amount}}</view>
+          <view>市场价：￥{{filters.parse()}}</view>
+          <view>总租金：￥{{filters.parse(order.real_total_amount)}}</view>
           <view>分期：{{order.period}}期</view>
         </view>
       </view>

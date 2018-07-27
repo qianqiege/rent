@@ -1,20 +1,27 @@
 {
   "pages": [
     "pages/first/first",
+    "pages/changeSucc/changeSucc",
+    "pages/complete/complete",
     "pages/success/success",
     "pages/login/login",
     "pages/signature/signature",
     "pages/card/card",
     "pages/home/home",
     "pages/confirm/confirm", 
+    "pages/change/change",
     
     "pages/index/index",
     "pages/logs/logs",
     "pages/list/list",
     "pages/orderList/orderList",
     "pages/product/product",
-    "pages/complete/complete",
-    "pages/facesign/facesign"
+    
+    "pages/facesign/facesign",
+    "pages/orderInfo/orderInfo",
+    "pages/verify/verify",
+    "pages/changeInfo/changeInfo",
+    "pages/template/template"
   ],
   "window": {
     "backgroundTextStyle": "light",

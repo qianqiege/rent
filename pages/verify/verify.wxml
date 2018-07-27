@@ -1,0 +1,20 @@
+<import src="../template/template" />
+<view class='comOrder'>
+  <view class='titleInfo'>订单信息</view>
+  
+  <template is="proChange" data="{{orderCom:orderCom,sku_name:sku_name}}" />
+</view>
+
+<template is="scancode" data="{{iemiMsg:iemiMsg}}" />
+
+<view class='upload' wx:if="{{reupload}}">
+  <view class='fail'>验证失败</view>
+  <view class='imei'>上传的手机IMEI号和原手机的IMEI号不一致</view>
+  <view class='upBtn' bindtap='reUp'>重新上传</view>
+</view>
+
+<view class='bottomBtn'>
+  <view class='verify' bindtap='verify'>验　证</view>
+</view>
+
+<view class="sku-dialog_mask" catchtouchmove="preventTouchMove"  wx:if="{{reupload}}"/>

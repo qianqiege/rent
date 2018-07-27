@@ -9,6 +9,7 @@
   background-color: #fff;
   width: 700rpx;
   height: 530rpx;
+  border-radius: 10rpx;
 }
 
 .please{
@@ -22,7 +23,7 @@
   width: 700rpx;
   height: 94rpx;
   margin: 40rpx 25rpx;
-border-radius:20rpx;
+border-radius:10rpx;
 font-size:36rpx;
 }
 

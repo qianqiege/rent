@@ -1,0 +1,27 @@
+/* pages/change/change.wxss */
+.result{
+  background: #F6f6f6;
+}
+
+.result .tearea{
+   background: #fff; 
+  margin: 40rpx 25rpx 70rpx;
+}
+
+.result .tearea textarea{
+  margin: 25rpx;
+  padding-top: 25rpx;
+  font-size: 30rpx;
+}
+
+.result .confirmBtn{
+  margin: 0 auto;
+  width: 700rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: center;
+  background: #FF6000;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 10rpx;
+}

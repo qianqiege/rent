@@ -2,7 +2,7 @@
 <view class="header">
   <!-- 产品轮播图 -->
   <view class="image">
-    <swiper indicator-dots indicator-active-color="#FF0052" circular="circular">
+    <swiper indicator-dots indicator-active-color="#fff" circular="circular">
       <!-- <block wx:for="{{product.imgs}}" wx:key="id"> -->
         <swiper-item>
           <image src="{{product.imgs}}" mode="aspectFit"/>
@@ -19,11 +19,11 @@
 
     <view class="price">
       <view>租金<text class="money">¥{{filters.toFix(product.rent_amount/product.rent_lbf_period)}}</text><text class="extra">/期起</text></view>
-      <view><text class="dayInfo">{{product.rent_lbf_period}}期</text><text class="day">（25天/期）</text></view>
+      <view><text class="dayInfo">{{product.rent_lbf_period}}期</text><text class="day">(25天/期)</text></view>
     </view>
   </view>
 
-  <view class="guarantee">
+  <view class="guarantee"  bindtap="showService">
     <view class="bloGuar">
       <image src="../../images/product/advan.png"/>
       正品国行
@@ -37,7 +37,7 @@
       租金分期 轻松享用
     </view>
     <view class="bloGuar">
-      <image class="arrow" src="../../images/product/arrow.png" bindtap="showDetail"/>
+      <image class="arrow" src="../../images/product/arrow.png"/>
     </view>
   </view>
   <!-- 租机优势 -->
@@ -243,7 +243,7 @@
   </view>
 
   <!-- 产品服务弹框 -->
-  <view class="orderModal"  wx:if="{{showDetail}}">
+  <view class="orderModal"  wx:if="{{showService}}">
     <view class="intro">
       <view class="orderRemind">服务说明</view>
       <view class="proDescrip">
@@ -266,7 +266,8 @@
     </view>
     
     <view>
-      <text class="btn renew" bindtap="hideDetail">关闭</text>
+      <text class="btn renew" bindtap="hideService">关闭</text>
     </view>
-    <view class="sku-dialog_mask" catchtouchmove="preventTouchMove" wx:if="{{showDetail}}"/>
+    
   </view>
+  <view class="service_mask" catchtouchmove="preventTouchMove" wx:if="{{showService}}"/>

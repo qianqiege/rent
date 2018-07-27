@@ -1,0 +1,62 @@
+/* pages/orderInfo/orderInfo.wxss */
+@import "../template/template.wxss";
+.orderHead{
+  background: #fff;
+  color: #353535;
+  font-size: 28rpx;
+  border-bottom: 1px solid #E5E5E5;
+  padding-top: 15rpx;
+}
+.orderNum{
+  margin:0 25rpx;
+  padding-bottom: 15rpx;
+}
+.footInfo{
+  height: 155rpx;
+  width: 100%;
+  margin: 25rpx;
+  padding-top: 60rpx;
+}
+
+.footInfo image{
+  width: 42rpx;
+  height: 33rpx;
+  margin-top: 5rpx;
+  vertical-align: text-bottom;
+}
+
+.footInfo .connect{
+  color: #4297EA;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
+.footInfo .flex{
+  display: flex;
+  justify-content: space-between; 
+}
+
+.footInfo .custom{
+  border: 1px solid #4297EA;
+   height: 50rpx;
+  width: 190rpx;
+  line-height: 50rpx; 
+   padding: 0 15rpx; 
+  border-radius: 4rpx;
+}
+
+.footInfo .service{
+  margin-right: 48rpx;
+}
+
+.footInfo .service text{
+  display: inline-block;
+  border: 1px solid #474747;
+  border-radius: 4rpx;
+  color: #000;
+  font-size: 28rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 15rpx;  
+  margin-left: 34rpx;
+}

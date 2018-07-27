@@ -116,7 +116,7 @@
   width: 700rpx;
   height: 240rpx;
   background: #f6f6f6;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   text-align: center;
   line-height: 240rpx;
   font-size: 30rpx;
@@ -146,7 +146,7 @@
   width: 700rpx;
   height: 198rpx;
   background: #f6f6f6;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
 }
 
 .btn {
@@ -157,7 +157,7 @@
   width: 700rpx;
   height: 94rpx;
   background: #ff6100;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   color: #fff;
   font-size: 36rpx;
   padding-bottom: 25rpx;

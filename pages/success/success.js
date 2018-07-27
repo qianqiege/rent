@@ -10,11 +10,13 @@ Page({
     succCancel:false,
     order:{},
     sku_name:'',
+    sku:[]
   },
 
   onLoad: function (options) {
     var id = options.id;
-    this.setData({
+    var that = this;
+    that.setData({
       id:id
     })
   },
@@ -42,7 +44,7 @@ Page({
       console.log(result.data)
       if (result.code == 0) {
         wx.navigateTo({
-          url: '../facesign/facesign?id=' + id,
+          url: '../facesign/facesign?id='+id+'?imei='+imei,
         })
       }
     }, 'POST');
@@ -50,9 +52,22 @@ Page({
 
   changeSpe:function(){
     console.log('1123')
-    this.setData({
+    var that = this;
+    var id = that.data.id;
+    that.setData({
       showChoose:true
     })
+
+    util.request(util.bashUrl + "/rent-order/get-color-sku", { order_id: id }, function (result) {
+      console.log(result.data)
+      if (result.code == 0) {
+        console.log(result.data)
+        that.setData({
+          sku: result.data
+        })
+      }
+    }, 'GET');
+
   },
   conbtn: function () {
     this.setData({

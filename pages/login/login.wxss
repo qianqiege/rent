@@ -1,7 +1,7 @@
 /* pages/login/login.wxss */
 
 .btn {
-  border: 1px solid #fd6a11;
+   border: 1px solid #fd6a11; 
   color: #fff;
   background: #fd6a11;
 }
@@ -103,10 +103,18 @@
   margin: 96rpx 0;
 }
 
+.login .btn-view .confirm{
+  background: #FF6000;
+  color: #fff;
+  border: none;
+}
+
 .login .btn-view view {
   margin: 40rpx 0;
 }
-.auto{
+
+.login .btn-view .auto{
   background: #fff;
   border: 1px solid #B3B3B3;
+  color: #000;
 }

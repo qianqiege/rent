@@ -6,8 +6,8 @@ Page({
     tabs: ['租机流程', '费用说明', '商品介绍', '常见问题'],
     activeIndex: 0,
     sliderOffset: 0,
-    sliderList: [0, 185, 365, 550],
-    sliderLeft: 30,
+    sliderList: [0, 188, 370, 560],
+    sliderLeft: 24,
 
     showSku: false,
     insu_price:'',
@@ -32,7 +32,7 @@ Page({
     ],
 
     skuValue: [],
-    showDetail: false,
+    showService: false,
     proSku: {},
     order: {}
   },
@@ -189,4 +189,15 @@ Page({
       activeIndex: id
     })
   },
+
+  showService:function(){
+    this.setData({
+      showService:true
+    })
+  },
+  hideService:function(){
+    this.setData({
+      showService: false
+    })
+  }
 })

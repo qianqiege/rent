@@ -2,30 +2,32 @@
 const util = require('../../utils/util.js');
 Page({
   data: {
-    sdate: '',
-    month: '月',
-    year: '年',
-    name: '',
-    idCard: '',
-    credit: '',
-    num: '',
+    sdate: '', //初始date当天时间
+    month: '月', //月份
+    year: '年', //年
+    name: '', //姓名
+    idCard: '', //身份证号
+    credit: '', //卡号
+    num: '', //手机号
     alertModel: false,
     msg: '',
     phcode: '获取验证码',
-    Image: '',
+    Image: '', //签名图片
     showText: true,
     showImage: false,
     order_id: '',
     showPrompt: false,
-    promptMsg:'',
-    timer: '',//定时器名字
-    second: '60',//倒计时初始值
+    promptMsg: '',
+    timer: '', //定时器名字
+    second: '60', //倒计时初始值
     disabled: false,
-    showContent:false,
-    order:{},
-    sku_name:''
+    showContent: false,
+    order: {}, //订单信息
+    sku_name: '', //规格信息
+    Img: '' //base64图片
   },
 
+  //页面加载完成获取日期
   onLoad: function(options) {
     var order_id = options.id;
     console.log(order_id);
@@ -44,6 +46,7 @@ Page({
     })
   },
 
+  //姓名输入框失去焦点事件
   nameInput: function(e) {
     var that = this;
     that.setData({
@@ -63,6 +66,7 @@ Page({
     }
   },
 
+  //身份证输入框失焦
   cardInput: function(e) {
     var that = this;
     that.setData({
@@ -83,6 +87,7 @@ Page({
     }
   },
 
+  //卡号输入框失焦
   creditInput: function(e) {
     var that = this;
     that.setData({
@@ -93,7 +98,7 @@ Page({
       that.setData({
         alertModel: false
       })
-    } else if(credit.length<14){
+    } else if (credit.length < 14) {
       that.setData({
         alertModel: true,
         msg: '请填写正确的卡号'
@@ -101,6 +106,7 @@ Page({
     }
   },
 
+  //手机号输入框失焦
   numberInput: function(e) {
     var that = this;
     that.setData({
@@ -120,6 +126,7 @@ Page({
     }
   },
 
+  //日期选择框change事件
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     var all = e.detail.value;
@@ -132,6 +139,7 @@ Page({
     })
   },
 
+  //上传身份证照片识别身份信息
   doGetCode: function() {
     var that = this;
     wx.chooseImage({
@@ -190,6 +198,7 @@ Page({
     })
   },
 
+  //上传信用卡照片识别信息
   doGetBankCode: function() {
     var that = this;
     wx.chooseImage({
@@ -217,12 +226,12 @@ Page({
             var result = JSON.parse(res.data);
             console.log(result)
             if (result.code == 0) {
-              var mon = result.data[4].itemstring.slice(0,2);
-              var year = result.data[4].itemstring.slice(5,7)
+              var mon = result.data[4].itemstring.slice(0, 2);
+              var year = result.data[4].itemstring.slice(5, 7)
               that.setData({
                 credit: result.data[0].itemstring,
                 month: mon,
-                year:year
+                year: year
               })
             } else {
               wx.showModal({
@@ -251,16 +260,16 @@ Page({
     })
   },
 
+  //点击去手写签名跳转页面
   clickSign: function() {
     wx.navigateTo({
       url: '../signature/signature',
     })
-
   },
 
   // 获取手机验证码
   getCode: function() {
-    var that= this;
+    var that = this;
     var num = that.data.num;
     if (num.length == 0) {
       that.setData({
@@ -285,7 +294,7 @@ Page({
           var second = that.data.second;
           console.log(second);
           that.setData({
-            timer: setInterval(function () {
+            timer: setInterval(function() {
               second--;
               //然后把countDownNum存进data，好让用户知道时间在倒计着
               that.setData({
@@ -302,7 +311,7 @@ Page({
                 that.setData({
                   phcode: '重新获取',
                   disabled: false,
-                  second:'60'
+                  second: '60'
                 })
               }
             }, 1000)
@@ -318,13 +327,14 @@ Page({
     }
   },
 
+  //表单提交支付信息
   formSubmit: function(e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value);
     var that = this;
     var val = e.detail.value;
     var img = that.data.Image;
-    console.log(img)
-    if (val.namee == "" || val.idCard == "" || val.credit == "" || val.picker == null || val.cvn == "" || val.phone == "" || val.code == "" || img=='') {
+    console.log(img);
+
+    if (val.namee == "" || val.idCard == "" || val.credit == "" || val.picker == null || val.cvn == "" || val.phone == "" || val.code == "" || img == '') {
       that.setData({
         alertModel: true,
         msg: '请完善您的资料'
@@ -333,36 +343,66 @@ Page({
       that.setData({
         alertModel: false
       })
+
+      // 上传图片到后台
+      wx.uploadFile({
+        url: util.bashUrl + '/rent-order/upload-img',
+        filePath: img,
+        name: 'avatar',
+        header: {
+          'Authorization': 'Bearer ' + getApp().globalData.token,
+        },
+        formData: {
+          filename: 'avatar',
+          type: 'base64'
+        },
+        success: function(res) {
+          var result = JSON.parse(res.data);
+          console.log(result)
+          if (result.code == 0) {
+            // that.setData({
+            //   Image: result.data.base64
+            // })
+
+            //提交表单
+            var orid = that.data.order_id;
+            var datev = that.data.month + that.data.year;
+            var data = {
+              order_id: orid,
+              name: val.namee,
+              certificate_no: val.idCard,
+              card_no: val.credit,
+              cvn: val.cvn,
+              sign: result.data.base64,
+              phone: val.phone,
+              valid_date: datev,
+              valid_code: val.code
+            };
+
+            util.request(util.bashUrl + "/rent-order/pay", data, function (result) {
+              console.log(result);
+              if (result.code == 0) {
+                wx.navigateTo({
+                  url: '../success/success?id=' + orid,
+                })
+              } else {
+                that.setData({
+                  showPrompt: true,
+                  promptMsg: result.msg
+                })
+              }
+            }, 'POST');
+
+
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: result.msg
+            });
+          }
+        }
+      });
     }
-    var orid = that.data.order_id;
-    console.log(orid);
-
-    var datev = that.data.month + that.data.year;
-    var data = {
-      order_id: orid,
-      name: val.namee,
-      certificate_no: val.idCard,
-      card_no: val.credit,
-      cvn: val.cvn,
-      sign: img,
-      phone: val.phone,
-      valid_date: datev,
-      valid_code: val.code
-    };
-
-    util.request(util.bashUrl + "/rent-order/pay", data, function(result) {
-      console.log(result);
-      if (result.code == 0) {
-        wx.navigateTo({
-          url: '../success/success?id=' + orid,
-        })
-      }else{
-        that.setData({
-          showPrompt:true,
-          promptMsg:result.msg
-        })
-      }
-    }, 'POST');
   },
 
 
@@ -380,25 +420,27 @@ Page({
       order_id: id,
       action: 'close'
     }, function(result) {
-      if(result.code==0){
+      if (result.code == 0) {
         console.log(result);
-        var sku_name = result.data.sku_name;
+        var sku_name = result.data.order.sku_name;
         var sku = sku_name.replace(/,/g, " ");
         that.setData({
-          showContent:true,
-          order:result.data,
-          sku_name:sku
+          showContent: true,
+          order: result.data.order,
+          sku_name: sku
         })
         wx.setNavigationBarTitle({
-          title:'订单已取消'
+          title: '订单已取消'
         })
       }
     });
   },
   //订单取消成功后返回首页
-  returnPage: function () {
+  returnPage: function() {
+    var that = this;
+    var id = that.data.order_id;
     wx.switchTab({
-      url: '../home/home',
+      url: '../home/home?id=' + id,
     })
   },
 })

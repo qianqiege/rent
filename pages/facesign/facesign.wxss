@@ -1,22 +1,104 @@
 /* pages/facesign/facesign.wxss */
-page{background-color:#F6F6F6;}
-.content{padding:30rpx 25rpx;border-bottom:1rpx solid#E5E5E5;padding-bottom:30rpx;background-color:#ffffff;}
-.title{padding:40rpx 25rpx;font-size:34rpx;color:#000000;padding-bottom:30rpx;border-bottom:1rpx solid#E5E5E5;background-color:#ffffff;}
-.info{font-size:28rpx;color:#353535;padding-bottom:26rpx;}
-.remark{font-size:22rpx;color:#B3B3B3;padding-top:20rpx;}
 
+page {
+  background-color: #f6f6f6;
+}
 
-.upload{display:flex;flex-direction:row;}
-.upload .row{height:207rpx;width:40%;background:#F4F4F5;}
-.row image{width:100%;height:207rpx;}
-.img{flex:1;margin-right:30rpx;text-align:center;align-items:center;justify-content:center;}
-.img image{flex:1;background:#ffffff;}
-.img .pic{width:42rpx;height:39rpx;margin:0 auto;margin-top:21%;}
-.img .avatar{width:100%;height:207rpx;}
+.content {
+  padding: 30rpx 25rpx;
+  border-bottom: 1rpx solid#E5E5E5;
+  padding-bottom: 30rpx;
+  background-color: #fff;
+}
 
-.pick{margin:30rpx 0rpx;padding-bottom:30rpx;background-color:#ffffff;}
-.pick-title{font-size:34rpx;padding:40rpx 25rpx 30rpx 25rpx;}
-.pick-ipt input{background-color:#F6F6F6;margin:25rpx;padding:30rpx 20rpx;font-size:28rpx;}
-.pick-ipt .place-holder{color:#B3B3B3;}
+.title {
+  padding: 40rpx 25rpx;
+  font-size: 34rpx;
+  color: #000;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid#E5E5E5;
+  background-color: #fff;
+}
 
-.btn{border:1rpx solid #FD6A11;color:#ffffff;background:#FD6A11;margin:40rpx 25rpx;}
+.info {
+  font-size: 28rpx;
+  color: #353535;
+  padding-bottom: 26rpx;
+}
+
+.remark {
+  font-size: 24rpx;
+  color: #b3b3b3;
+  padding-top: 20rpx;
+}
+
+.upload {
+  display: flex;
+  flex-direction: row;
+}
+
+.upload .row {
+  height: 207rpx;
+  width: 40%;
+  background: #f4f4f5;
+}
+
+.row image {
+  width: 100%;
+  height: 207rpx;
+}
+
+.img {
+  flex: 1;
+  margin-right: 30rpx;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+}
+
+.img image {
+  flex: 1;
+  background: #fff;
+}
+
+.img .pic {
+  width: 42rpx;
+  height: 39rpx;
+  margin: 0 auto;
+  margin-top: 21%;
+}
+
+.img .avatar {
+  width: 100%;
+  height: 207rpx;
+}
+
+.pick {
+  margin: 30rpx 0rpx;
+  padding-bottom: 30rpx;
+  background-color: #fff;
+}
+
+.pick-title {
+  font-size: 34rpx;
+  padding: 40rpx 25rpx 30rpx 25rpx;
+}
+
+.pick-ipt input {
+  background-color: #f6f6f6;
+  margin: 25rpx;
+  padding: 30rpx 20rpx;
+  font-size: 28rpx;
+}
+
+.pick-ipt .place-holder {
+  color: #b3b3b3;
+}
+
+.btn {
+  border: 1rpx solid #fd6a11;
+  color: #fff;
+  background: #fd6a11;
+  margin: 40rpx 25rpx;
+}
