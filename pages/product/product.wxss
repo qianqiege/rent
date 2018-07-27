@@ -111,7 +111,7 @@
   margin-top: 5rpx;
 }
 .guarantee .bloGuar:not(:first-child) {
-  margin-left: 25rpx;
+  /* margin-left: 25rpx; */
 }
 .guarantee .arrow {
   width: 10rpx;

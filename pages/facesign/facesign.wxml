@@ -7,7 +7,7 @@
             <image class='{{imgAvatar=="/images/carmer.png"?"pic":"avatar"}}' src='{{imgAvatar}}'></image>
         </view>
         <view class="row">
-            <image src="https:/static.test.mintongfu.com/wxmini/images/facesign/avatar.png"></image>
+            <image src="https://static.test.mintongfu.com/wxmini/images/facesign/avatar.png"></image>
         </view>
     </view>
     <view class="remark">请按上图上传身份证头像面图片,并确保信息清晰</view>
@@ -19,7 +19,7 @@
             <image class='{{imgBack=="/images/carmer.png"?"pic":"avatar"}}' src='{{imgBack}}'></image>
         </view>
         <view class="row">
-            <image src="https:/static.test.mintongfu.com/wxmini/images/facesign/back.png"></image>
+            <image src="https://static.test.mintongfu.com/wxmini/images/facesign/back.png"></image>
         </view>
     </view>
     <view class="remark">请按上图上传身份证国徽面图片,并确保信息清晰</view>
@@ -31,7 +31,7 @@
             <image class='{{imgHandson=="/images/carmer.png"?"pic":"avatar"}}' src='{{imgHandson}}'></image>
         </view>
         <view class="row">
-            <image src="https:/static.test.mintongfu.com/wxmini/images/facesign/handson.png"></image>
+            <image src="https://static.test.mintongfu.com/wxmini/images/facesign/handson.png"></image>
         </view>
     </view>
     <view class="remark">请按上图上传手持手机的照片，并确保照片清晰</view>

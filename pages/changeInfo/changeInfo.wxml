@@ -22,7 +22,7 @@
             <image class='{{imgHandson=="/images/carmer.png"?"pic":"avatar"}}' src='{{imgHandson}}'></image>
         </view>
         <view class="row">
-            <image src="https:/static.test.mintongfu.com/wxmini/images/facesign/handson.png"></image>
+            <image src="https://static.test.mintongfu.com/wxmini/images/facesign/handson.png"></image>
         </view>
     </view>
     <view class="remark">请按上图上传手持手机的照片，并确保照片清晰</view>

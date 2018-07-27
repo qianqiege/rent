@@ -6,5 +6,6 @@ Page({
   },
 
   onLoad: function (options) {
+    getApp().login()
   },
 })
