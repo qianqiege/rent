@@ -42,12 +42,10 @@
   <view class='colorInfo'>
     <view class='title'>请重新选择机器颜色</view>
     <view class="color">
-      <view class="radio" wx:for="{{sku}}" wx:for-item="data" wx:key="{{id}}">
-        <block>
-          <view class="{{data.current == 'true' ? 'checked' : data.disabled == 'true' ? 'disabled' : ''}}" bindtap="setModel" data-wpysetmodel-c="{{data.sku}}" data-wpysetmodel-d="{{data.disabled}}">
+      <view class="radio" wx:for="{{color}}" wx:for-item="data" wx:key="idx">
+          <view class="{{curr == index ? 'checked' : data.disabled == true ? 'disabled' : ''}}" bindtap="setModel" data-key="{{index}}" data-model="{{data.name}}" data-sku="{{data.sku}}" data-check="{{data.current}}">
             {{data.name}}
           </view>
-        </block>
       </view>
     </view>
   </view>
@@ -101,5 +99,5 @@
 
 
 <!-- </view> -->
-<view class="sku-dialog_mask" catchtouchmove="preventTouchMove" wx:if="{{showChoose}}" />
-<view class="sku-dialog_mask" catchtouchmove="preventTouchMove" wx:if="{{confirmCancel}}" />
+<view class="sku-dialog_mask" catchtouchmove="preventTouchMove" bindtap='showChoose' wx:if="{{showChoose}}" />
+<view class="sku-dialog_mask" catchtouchmove="preventTouchMove" bindtap='confirmCancel' wx:if="{{confirmCancel}}" />

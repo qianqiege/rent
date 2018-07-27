@@ -43,6 +43,7 @@
   line-height: 50rpx; 
    padding: 0 15rpx; 
   border-radius: 4rpx;
+  margin:0 auto;
 }
 
 .footInfo .service{

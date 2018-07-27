@@ -4,9 +4,9 @@
   <view class='colorInfo'>
     <view class='title'>请重新选择机器颜色</view>
     <view class="color">
-      <view class="radio" wx:for="{{sku}}" wx:for-item="data" wx:key="idx">
-          <view class="{{data.current == true ? 'checked' : data.disabled == true? 'disabled' : ''}}" bindtap="setModel">
-            {{data.name}}{{data.current}}
+      <view class="radio" wx:for="{{color}}" wx:for-item="data" wx:key="idx">
+          <view class="{{curr == index ? 'checked' : data.disabled == true ? 'disabled' : ''}}" bindtap="setModel" data-key="{{index}}" data-model="{{data.name}}" data-sku="{{data.sku}}" data-check="{{data.current}}">
+            {{data.name}}
           </view>
       </view>
     </view>
@@ -28,4 +28,4 @@
     <view class="remark">请按上图上传手持手机的照片，并确保照片清晰</view>
 </view>
 
-<view class='confirmBtn'>确认提交</view>
+<view class='confirmBtn' bindtap='confirmBtn'>确认提交</view>

@@ -12,7 +12,7 @@ Page({
     avatar:'',
     back: '',
     handson: '',
-    order_id:0,
+    order_id:'',
     pickup_code:''
   },
 

@@ -99,6 +99,7 @@ Page({
     var id = this.data.order.id;
     var order = this.data.order;
     var status = order.order_status;
+    console.log(order)
     if (status == 0) {
       wx.navigateTo({
         url: '../login/login?id=' + id,
@@ -111,13 +112,14 @@ Page({
       wx.navigateTo({
         url: '../card/card?id=' + id,
       })
-    } else if (status == 3) {
-      wx.navigateTo({
-        url: '../facesign/facesign?id=' + id,
-      })
     } else if (status == 3 && order.imei == '') {
       wx.navigateTo({
         url: '../success/success?id=' + id,
+      })
+      
+    } else if (status == 3 && order.imei !== '') {
+      wx.navigateTo({
+        url: '../facesign/facesign?id=' + id,
       })
     }
   },

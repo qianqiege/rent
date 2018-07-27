@@ -21,7 +21,10 @@ Page({
     index:0,
     hasOrder:true,
     hasAll:false,
-    hasOther:false
+    hasOther:false,
+    cancel:true,
+    pay:true,
+    ready:false
   },
 
   // 下拉刷新
@@ -73,8 +76,14 @@ Page({
             hasAll:true
           })
         }else{
+          for(var i=0;i<result.data.length;i++){
+            var id = result.data[i].id;
+            that.setData({
+              id: id,
+            })
+          }
           that.setData({
-            orderList: result.data
+            orderList: result.data,
           })
         }
       }
@@ -108,5 +117,20 @@ Page({
         })
       } 
     }, 'GET');
+  },
+
+  //点击取消订单
+  cancelOrder:function(e){
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+    console.log(e);
+    util.request(util.bashUrl + "/rent-order/update-status", {
+      order_id: id,
+      action: 'close'
+    }, function (result) {
+      if (result.code == 0) {
+        that.onLoad()
+      }
+    });
   }
 })

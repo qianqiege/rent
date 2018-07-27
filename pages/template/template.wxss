@@ -129,13 +129,14 @@
 }
 
 .orderModal .readyOrder .image {
-  width: 195rpx;
-  height: 195rpx;
+  width: 215rpx;
+  height: 215rpx;
 }
 
 .orderModal .readyOrder .image image {
   width: 100%;
   height: 100%;
+  margin-top: 5rpx;
 }
 
 .orderModal .readyOrder .proInfo {

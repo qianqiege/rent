@@ -21,16 +21,16 @@
 
     </navigator>
     <view class="footbtn">
-      <navigator url="../login/login?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status == 0}}">去下单</navigator>
-      <navigator url="../confirm/confirm?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==1}}">去下单</navigator>
-      <navigator url="../card/card?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==2}}">去付款</navigator>
-      <navigator url="../facesign/facesign?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==3}}">去面签</navigator>
-      <navigator url="../success/success?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==3 && item.imei==null}}">去面签</navigator>
-      <navigator url="../change/change?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==4}}">换机</navigator>
-      <navigator url="../complete/complete?id={{item.id}}" plain='true' class="btn recomp" wx:if="{{item.order_status==4}}">已完成</navigator>
-      <button url="" plain='true' class="btn reclose" wx:if="{{item.order_status==5}}">已取消</button>
+      <navigator url="../login/login?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status == 0 &&pay}}">去下单</navigator>
+      <navigator url="../confirm/confirm?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==1&&pay}}">去下单</navigator>
+      <navigator url="../card/card?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==2&&pay}}">去付款</navigator>
+      <navigator url="../facesign/facesign?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==3&&item.imei!==''&&pay}}">去面签</navigator>
+      <navigator url="../success/success?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==3 && item.imei==''&&pay}}">去面签</navigator>
+      <navigator url="../change/change?id={{item.id}}" plain='true' class="btn faceSign" wx:if="{{item.order_status==4&& item.can_change=='yes'}}">换机</navigator>
+      <navigator url="../complete/complete?id={{item.id}}" plain='true' class="btn recomp" wx:if="{{item.order_status==4 && item.can_change=='no'}}">已完成</navigator>
+      <button plain='true' class="btn reclose" wx:if="{{item.order_status==5}}">已取消</button>
       <!-- <navigator url="" plain='true' class="btn closeOrder" wx:if="{{item.order_status==4}}">碎屏报险</navigator> -->
-      <navigator url="../cancel/cancel?id={{item.id}}" plain='true' class="btn closeOrder" wx:if="{{item.order_status==0||item.order_status==1||item.order_status==2||item.order_status==3}}">取消订单</navigator>
+      <button  plain='true' class="btn closeOrder" wx:if="{{item.order_status==0||item.order_status==1||item.order_status==2||item.order_status==3}}" bindtap='cancelOrder' data-id="{{item.id}}">取消订单</button>
     </view>
   </block>
 </srcoll-view>
@@ -40,3 +40,4 @@
 <view class='all' wx:if="{{hasOther}}">
   <image src="../../images/other.png" />
 </view>
+

@@ -19,7 +19,7 @@
     </view>
     
     <view class="btn-view">
-      <button class="btn"  plain='true' formType="submit">
+      <button class="confirm"   plain='true' formType="submit">
         确定
       </button>
     </view>

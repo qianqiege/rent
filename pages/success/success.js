@@ -2,27 +2,29 @@
 const util = require('../../utils/util.js');
 Page({
   data: {
-    id:'',
-    option_name: ['陶瓷黑', '星空紫', '雪莹白','星空灰'],
-    showChoose:false,
-    confirmCancel:false,
-    iemiMsg:'点击扫码',
-    succCancel:false,
-    order:{},
-    sku_name:'',
-    sku:[]
+    id: '',
+    showChoose: false,
+    confirmCancel: false,
+    iemiMsg: '点击扫码',
+    succCancel: false,
+    order: {},
+    sku_name: '',
+    sku: [],
+    sku1:[],
+    curr: 10,
+    color: []
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     var id = options.id;
     var that = this;
     that.setData({
-      id:id
+      id: id
     })
   },
 
   // 扫码获取imei值
-  scanCode:function(){
+  scanCode: function() {
     var that = this;
     wx.scanCode({
       onlyFromCamera: true,
@@ -35,51 +37,59 @@ Page({
     })
   },
 
-  nextStep:function(){
+  nextStep: function() {
     var that = this;
     var id = that.data.id;
     var imei = that.data.iemiMsg;
+    var sku1 = that.data.sku1;
+    // var sku = that.data.sku;
     console.log(imei);
-    util.request(util.bashUrl + "/rent-order/check-imei", { order_id: id, imei: imei }, function (result) {
+    util.request(util.bashUrl + "/rent-order/check-imei", {
+      order_id: id,
+      imei: imei
+    }, function(result) {
       console.log(result.data)
       if (result.code == 0) {
         wx.navigateTo({
-          url: '../facesign/facesign?id='+id+'?imei='+imei,
+          url: '../facesign/facesign?id=' + id + '&imei=' + imei+'&sku='+sku1,
         })
       }
     }, 'POST');
   },
 
-  changeSpe:function(){
-    console.log('1123')
+  changeSpe: function() {
     var that = this;
     var id = that.data.id;
     that.setData({
-      showChoose:true
+      showChoose: true
     })
 
-    util.request(util.bashUrl + "/rent-order/get-color-sku", { order_id: id }, function (result) {
+    util.request(util.bashUrl + "/rent-order/get-color-sku", {
+      order_id: id
+    }, function(result) {
       console.log(result.data)
       if (result.code == 0) {
-        console.log(result.data)
         that.setData({
-          sku: result.data
+          color: result.data,
         })
+        for(var i=0;i<result.data.length;i++){
+          if (result.data[i].current == true) {
+            that.setData({
+              sku: result.data[i].sku,
+            })
+          }
+        } 
       }
     }, 'GET');
 
   },
-  conbtn: function () {
-    this.setData({
-      showChoose: false
-    })
-  },
-  cancel:function(){
+  
+  cancel: function() {
     this.setData({
       confirmCancel: true
     })
   },
-  renewInfo:function(){
+  renewInfo: function() {
     this.setData({
       confirmCancel: false,
       showChoose: true
@@ -87,13 +97,13 @@ Page({
   },
 
   //取消订单更改订单状态
-  confirmCancel:function(){
+  confirmCancel: function() {
     var that = this;
     var id = that.data.id;
     util.request(util.bashUrl + "/rent-order/update-status", {
       order_id: id,
       action: 'close'
-    }, function (result) {
+    }, function(result) {
       if (result.code == 0) {
         console.log(result);
         var sku_name = result.data.order.sku_name;
@@ -110,9 +120,60 @@ Page({
     });
   },
 
-  returnPage:function(){
+  returnPage: function() {
     wx.navigateTo({
       url: '../home/home',
     })
+  },
+
+
+
+  // 换机选择不同的颜色
+  setModel(e, disabled) {
+    var that = this;
+    if (disabled == 'true') return;
+    var key = e.currentTarget.dataset.key;
+    console.log(e)
+    that.setData({
+      curr: key,
+      sku1: e.currentTarget.dataset.sku
+    })
+  },
+
+  conbtn: function () {
+    var that = this;
+    var id= that.data.id;
+    var sku1 = that.data.sku1;
+    var sku = that.data.sku;
+    if(sku1!==sku){
+      util.request(util.bashUrl + "/rent-order/save-new-sku", {
+        order_id: id,
+        reason: '',
+        imei: '',
+        sku: sku1,
+        hanson: '',
+        type: 0 //面签前操作
+      }, function (result) {
+        console.log(result)
+        if (result.code == 0) {
+          that.setData({
+            iemiMsg:'点击扫码',
+            showChoose: false
+          })
+        }
+      });
+    }
+  },
+
+  showChoose: function() {
+    this.setData({
+      showChoose: false
+    })
+  },
+  confirmCancel: function() {
+    this.setData({
+      confirmCancel: false
+    })
   }
+
 })
