@@ -1,7 +1,7 @@
 <wxs module="filters" src="../fliter.wxs"></wxs>
 <template name="conOrder">
   <view class="orderList">
-    <navigator class="orderModal" hover-class="none" url="orderinfo">
+    <view class="orderModal">
       <view class="orderDetail">
         <view class="image">
           <image src="{{order.goods_image}}" />
@@ -11,7 +11,7 @@
           <view>规格：{{sku_name}}</view>
         </view>
       </view>
-    </navigator>
+    </view>
   </view>
   <view class="orderInfo">
     <view class='title'>费用明细</view>

@@ -46,5 +46,5 @@
 </view>
 
 <view>
-    <button class="btn" bindtap="faceSign">确定</button>
+    <button class="btn" plain="true" bindtap="faceSign">确定</button>
 </view>

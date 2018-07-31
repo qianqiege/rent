@@ -236,8 +236,8 @@
   </view>
 
   <!-- 页面底部固定行 -->
-  <view class="footer" bindtap="getSkuList">
-    <image src="../../images/home/customer.png"/>
+  <view class="footer">
+    <image bindtap='toService' src="../../images/home/customer.png"/>
     <view class="info">¥{{filters.toFix(product.rent_amount/product.rent_lbf_period)}}<text>/期起</text></view>
     <view class="btn" bindtap='getSkuList'>立即下单</view>
   </view>

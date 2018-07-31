@@ -76,52 +76,6 @@
   border-bottom: 1rpx solid #E5E5E5;
   color: #E5E5E5;
 }
-/* 
-.orderlist .item.item__hd {
-  height: 76rpx;
-  line-height: 76rpx;
-  color: #353535;
-}
-
-.orderlist .item.item__hd view:last-child {
-  color: #353535;
-}
-
-.orderlist .item.item__bd {
-  height: auto;
-  padding: 32rpx;
-}
-
-.orderlist .item.item__bd .image {
-  width: 195rpx;
-  height: 195rpx;
-  margin-left: -16rpx;
-}
-
-.orderlist .item.item__bd .image image {
-  width: 100%;
-  height: 195rpx;
-}
-
-.orderlist .item.item__bd .content {
-  margin-left: 16rpx;
-  color: #888;
-}
-
-.orderlist .item.item__bd .content > view {
-  margin-bottom: 4rpx;
-}
-
-.orderlist .item.item__bd .content .title {
-  font-size: 28rpx;
-  color: #000;
-}
-
-.orderlist .item.item__bd .content text {
-  font-family: 'DINPro';
-  font-size: 24rpx;
-  margin-left: 12rpx;
-} */
 
 .footbtn {
   color: #ff6000;
@@ -162,7 +116,7 @@
   height: 60rpx;
   line-height: 60rpx;
   margin-top: 14rpx;
-  width: 164rpx;
+  width: 174rpx;
   border-radius: 8rpx;
   font-size: 26rpx;
   margin: 0 6rpx;
@@ -181,6 +135,19 @@
 
 .all image{
   width: 317rpx;
+  height: 313rpx;
+  margin: 0 auto;
+  margin-top: 225rpx;
+}
+
+.other{
+  width: 268rpx;
+  height: 313rpx;
+  margin: 0 auto;
+}
+
+.other image{
+  width: 268rpx;
   height: 313rpx;
   margin: 0 auto;
   margin-top: 225rpx;

@@ -133,7 +133,7 @@
 .popular .popuCon .navCon .title {
   color: #000;
   font-size: 28rpx;
-  margin: 30rpx 10rpx 10rpx;
+  margin: 20rpx 10rpx;
 }
 
 .popular .popuCon .navCon .sale {
@@ -166,12 +166,16 @@
   margin: 3% 0;
 }
 
+.service .serInfo text{
+  padding-bottom: 10rpx;
+}
+
 .service .serInfo .customer {
   width: 52rpx;
   height: 42rpx;
   position: relative;
   left: -15rpx;
-  bottom: -4rpx;
+  bottom: -7rpx;
 }
 
 .service .serInfo .quest {
@@ -179,7 +183,7 @@
   height: 42rpx;
   position: relative;
   right: 15rpx;
-  bottom: -6rpx;
+  bottom: -8rpx;
 }
 
 .service .serInfo:first-child {
@@ -219,7 +223,7 @@
   line-height: 44rpx;
   font-size: 26rpx;
   padding-bottom: 25rpx;
-  border-bottom: 1rpx solid #e0dcf0;
+  border-bottom: 1rpx solid #e5e5e5;
 }
 
 .orderModal .doubleBtn {

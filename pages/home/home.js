@@ -130,5 +130,12 @@ Page({
     wx.navigateTo({
       url: '../product/product?id=' + id
     })
+  },
+
+  // 点击客服拨打电话
+  toService:function(){
+    wx.makePhoneCall({
+      phoneNumber: '400-606-8810',
+    })
   }
 })

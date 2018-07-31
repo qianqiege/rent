@@ -124,7 +124,7 @@
   display: inline-block;
   width: 42%;
   background-color: #F6F6F6;
-  border-radius: 4rpx;
+  border-radius: 8rpx;
   padding: 22rpx;
   text-align: center;
 }
@@ -169,8 +169,8 @@
   right: 0;
   bottom: 0;
   height: 1px;
-  border-bottom: 1rpx solid #E0DCF0;
-  color: #E0DCF0;
+  border-bottom: 1rpx solid #E5E5E5;
+  color: #E5E5E5;
 }
 .content .navbar .item {
   width: 20%;
@@ -292,13 +292,12 @@
 .superiority .list {
   width: 220rpx;
   height: 170rpx;
-  border-radius: 4rpx;
-  border: 1px solid #FDF9F4;
+  border-radius: 8rpx;
   font-size: 26rpx;
   background-color: #FAF4F0;
 }
 .superiority .list:not(:first-child) {
-  margin-left: 28rpx;
+  margin-left: 22rpx;
 }
 .superiority .list .buy {
   color: #888;

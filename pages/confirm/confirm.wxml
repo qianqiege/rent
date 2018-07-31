@@ -1,18 +1,18 @@
-<wxs module="filters" src="../fliter.wxs"></wxs>
 <import src="../template/template" />
-
 <view class='header'>
   <template is="conOrder" data="{{order:order,sku_name:sku_name}}" />
 </view>
 <view class="foot">
   <view class="readArg">
-    <view>
-      <image src="../../images/product/choose.png" />
-    </view>
+    <checkbox-group bindchange="ischeck">
+      <view class='check-box'>
+        <checkbox value='是否选中' checked/>
+      </view>
+    </checkbox-group>
     <view>我已阅读并同意
-      <text>《易享优租用户协议》、</text>
-      <text>《易享优租意外保障服务协议》、</text>
-      <text>《个人消费分期合同》</text>
+      <text bindtap='user'>《易享优租用户协议》、</text>
+      <text bindtap='protect'>《易享优租意外保障服务协议》、</text>
+      <text bindtap='contract'>《个人消费分期合同》</text>
     </view>
   </view>
   <view class="btn full" bindtap="getConfirm">确定提交</view>

@@ -37,7 +37,7 @@
 <view class='all' wx:if="{{hasAll}}">
   <image src="../../images/all.png" />
 </view>
-<view class='all' wx:if="{{hasOther}}">
+<view class='other' wx:if="{{hasOther}}">
   <image src="../../images/other.png" />
 </view>
 

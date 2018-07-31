@@ -45,7 +45,6 @@ Page({
           });
         }
       });
-      
     }
   },
   verifMobile:function(e){

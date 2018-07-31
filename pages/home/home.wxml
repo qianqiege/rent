@@ -6,9 +6,9 @@
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{currColor}}" circular="{{circular}}" class="banner">
     <block  wx:for="{{banners}}" wx:key="id">
       <swiper-item>
-        <navigator hover-class="none">
+        <view hover-class="none">
           <image src="{{item.banner_img}}" class="slide-image"/>
-        </navigator>
+        </view>
       </swiper-item>
     </block>
   </swiper>
@@ -72,7 +72,7 @@
   </view>
   <!-- 客服 -->
   <view class="service">
-    <view class="serInfo">
+    <view bindtap='toService' class="serInfo">
       <image class="customer" src="../../images/home/customer.png"/>
       <text>400-606-8810</text>
     </view>

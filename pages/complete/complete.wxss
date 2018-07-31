@@ -68,7 +68,7 @@
 .return .button {
   width: 700tpx;
   height: 94rpx;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   font-size: 36rpx;
   text-align: center;
   line-height: 94rpx;
@@ -83,6 +83,7 @@
   color: #000;
   background: #fff;
   margin-top: 35rpx;
+  border: 1px solid #E5E5E5;
 }
 
 .return .confirm{
