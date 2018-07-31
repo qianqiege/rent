@@ -1,8 +1,8 @@
 <view class='bac'>
    <image src="https://static.test.mintongfu.com/wxmini/images/bac.jpg"/> 
-  <view class="modal">
+  <view class="modal" wx:if="{{showModal}}">
     <view class="title">友情提示！</view>
     <view class="info">本系统需扫码登录。请到我们合作门店扫码后进入系统，提交业务。</view>
   </view>
 </view>
-<view class="modalMask"></view>
+<view class="modalMask" wx:if="{{showModal}}"></view>

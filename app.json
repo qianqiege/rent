@@ -22,6 +22,7 @@
     "pages/userAgree/userAgree",
     "pages/contract/contract",
     "pages/protect/protect",
+    "pages/question/question",
     "pages/template/template"
   ],
   "window": {

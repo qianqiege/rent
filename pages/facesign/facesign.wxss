@@ -60,7 +60,6 @@ page {
 
 .img image {
   flex: 1;
-  background: #fff;
 }
 
 .img .pic {

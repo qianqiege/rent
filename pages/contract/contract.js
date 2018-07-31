@@ -1,13 +1,13 @@
 Page({
 
   data: {
-    pathCon: 'https://github.com/'
+    pathCon: ''
   },
   onLoad: function (options) {
-    var pathCon = options.pathCon;
-    console.log(options)
+    var id = options.id;
+    var order_no = options.order_no;
     this.setData({
-      pathCon: pathCon
+      pathCon: 'https://client.test.mintongfu.com/rent-order/order-info?order_id='+id + '&page=lebaifen&order_no=' + order_no
     })
   },
 })

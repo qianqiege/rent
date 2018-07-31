@@ -1,12 +1,12 @@
 Page({
   data: {
-    pathPro: 'https://mp.weixin.qq.com/wxopen/devprofile?action=get_profile&token=2045146360&lang=zh_CN',
+    pathPro: '',
   },
   onLoad: function (options) {
-    var pathPro = options.pathPro;
-    console.log(options)
+    var id = options.id;
+    var order_no = options.order_no;
     this.setData({
-      pathPro: pathPro
+      pathPro: 'https://client.test.mintongfu.com/rent-order/order-info?order_id='+id + '&page=baozhang&order_no=' + order_no
     })
   },
 })

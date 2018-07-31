@@ -79,6 +79,7 @@
   height: 207rpx;
   width: 40%;
   background: #f4f4f5;
+  border-radius: 10rpx;
 }
 
 .row image {
@@ -92,12 +93,11 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  border-radius: 10rpx;
+  
 }
 
 .img image {
   flex: 1;
-  background: #fff;
 }
 
 .img .pic {

@@ -26,7 +26,7 @@ App({
               data: getApp().globalData.token
             })
 
-            if (getApp().globalData.token) {
+            if (getApp().globalData.token && getApp().globalData.channel_code) {
               wx.switchTab({
                 url: '/pages/home/home',
               })

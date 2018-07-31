@@ -1,0 +1,9 @@
+<view class='conQuest'>
+  <view class="quest" wx:for="{{question}}" wx:key='idx'>
+    <view class="title">
+      <view>{{item.que}}</view>
+      <!-- <image src=""/> -->
+    </view>
+    <view class="text">{{item.ans}}</view>
+  </view>
+</view>

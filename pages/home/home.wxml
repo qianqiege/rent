@@ -76,7 +76,7 @@
       <image class="customer" src="../../images/home/customer.png"/>
       <text>400-606-8810</text>
     </view>
-    <navigator url="./question" class="serInfo">
+    <navigator url="../question/question" class="serInfo">
       <image class="quest" src="../../images/home/quest.png"/>
       <text>常见问题</text>
     </navigator>
