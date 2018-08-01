@@ -11,49 +11,68 @@ Page({
     windowHeight: null,
     windowWidth: null,
     loadmodel: true,
-
     animationData: []
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this;
-    util.request(util.bashUrl + "/rent-goods/brand-list", { channel_code: getApp().globalData.channel_code, business_type: 'is_rent' }, function (result) {
+    util.request(util.bashUrl + "/rent-goods/brand-list", {
+      channel_code: getApp().globalData.channel_code,
+      business_type: 'is_rent'
+    }, function(result) {
       console.log(result);
       that.setData({
-        brands:result.data
+        brands: result.data
       })
     }, 'GET');
     that.getModel(0)
   },
 
-  getBuy(e){
+  getBuy(e) {
     var id = e.currentTarget.id;
     wx.navigateTo({
-      url: '../product/product?id='+id,
+      url: '../product/product?id=' + id,
     })
   },
-  
+
   /* 品牌列的点击事件*/
   tabClick(e) {
     console.log(e)
     var id = e.currentTarget.id;
     var name = e.currentTarget.dataset.name;
-    var that= this;
+    var that = this;
     that.setData({
-      activeIndex:id,
+      activeIndex: id,
       id: id,
       models: [],
       page: 1
     })
     that.getModel(id)
   },
-  getModel(id){
+  getModel(id) {
     var that = this;
-    util.request(util.bashUrl + "/rent-goods/model-list", { channel_code: getApp().globalData.channel_code, business_type: 'is_sale', brdid:id }, function (result) {
+    util.request(util.bashUrl + "/rent-goods/model-list", {
+      channel_code: getApp().globalData.channel_code,
+      business_type: 'is_sale',
+      brdid: id
+    }, function(result) {
       console.log(result);
+      var l = that.data.models;
+      for (var i = 0; i < result.data.goods_list.length; i++) {
+        l.push(result.data.goods_list[i])
+      }
       that.setData({
-        models: result.data,
-      })
+        models: l,
+        totalPage: result.data.page_info.pageCount
+      });
+      that.data.page++;
+      // that.setData({
+      //   models: result.data,
+      // })
     }, 'GET');
-  }
+  },
+  onReachBottom: function() {
+    var that = this;
+
+  },
 })

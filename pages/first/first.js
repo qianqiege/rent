@@ -7,6 +7,7 @@ Page({
 
   onLoad: function (options) {
     // var scene = decodeURIComponent(options.scene);
+    // getApp().globalData.channel_code = scene;
     var scene = getApp().globalData.channel_code;
     if(scene ==''){
       this.setData({
@@ -15,7 +16,5 @@ Page({
     }else{
       getApp().login();
     }    
-    console.log(scene);
-
   },
 })

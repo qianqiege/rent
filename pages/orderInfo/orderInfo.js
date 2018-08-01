@@ -88,5 +88,11 @@ Page({
     wx.navigateTo({
       url: '../change/change?id=' + id,
     })
+  },
+  // 联系客服拨打电话
+  toService: function () {
+    wx.makePhoneCall({
+      phoneNumber: '400-606-8810',
+    })
   }
 })

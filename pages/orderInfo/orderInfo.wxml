@@ -8,7 +8,7 @@
 
 <view class='footInfo'>
   <!-- <view class='flex'> -->
-    <view class='custom'>
+    <view class='custom' bindtap='toService'>
       <image src="../../images/home/customer.png"/>
       <text class='connect'>联系客服</text>
     </view>
