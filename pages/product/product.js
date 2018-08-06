@@ -25,6 +25,7 @@ Page({
         group_name: '分期',
         option_list: [{
           option_name: '15期',
+          extra:'(25天/期)',
           option_id: 15,
           checked: 'true'
         }]

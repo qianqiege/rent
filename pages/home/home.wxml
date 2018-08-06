@@ -64,8 +64,8 @@
         <view class="navCon" id="{{item.goods_id}}" bindtap='goProduct'>
           <image class="image" mode="aspectFit" src="{{item.goods_image}}"/>
           <view class="title">{{item.goods_name}}</view>
-          <view class="sale">用12个月比购买省￥{{item.sales_amount-item.rent_amount}}起</view>
-          <view class="price">￥{{filters.toFix(item.rent_amount/12)}}<text class="smFont">/期起</text></view>
+          <view class="sale">用12个月比购买省￥{{item.market_price-item.rent_amount}}起</view>
+          <view class="price">￥{{filters.toFix(item.rent_amount/item.rent_lbf_period)}}<text class="smFont">/期起</text></view>
         </view>
       </view>  
     </view>

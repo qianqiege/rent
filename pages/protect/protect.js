@@ -1,3 +1,4 @@
+const util = require('../../utils/util.js');
 Page({
   data: {
     pathPro: '',
@@ -6,7 +7,7 @@ Page({
     var id = options.id;
     var order_no = options.order_no;
     this.setData({
-      pathPro: 'https://client.test.mintongfu.com/rent-order/order-info?order_id='+id + '&page=baozhang&order_no=' + order_no
+      pathPro: util.bashUrl + '/rent-order/order-info?order_id='+id + '&page=baozhang&order_no=' + order_no
     })
   },
 })

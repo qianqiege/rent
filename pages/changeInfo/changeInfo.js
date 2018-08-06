@@ -82,7 +82,9 @@ Page({
     var handson = that.data.handson;
     var sku1 = that.data.sku1;
     var sku = that.data.sku;
-    if(sku1!==sku){
+    if(imei==""||sku1==""){
+
+    }else{
       util.request(util.bashUrl + "/rent-order/save-new-sku", { order_id: id, reason: reason, imei: imei, sku: sku1,handson:handson,type:1}, function (result) {
         console.log(result);
         if (result.code == 0) {

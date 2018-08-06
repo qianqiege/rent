@@ -68,7 +68,7 @@
 .return .button {
   width: 700tpx;
   height: 94rpx;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   font-size: 36rpx;
   text-align: center;
   line-height: 94rpx;

@@ -22,8 +22,8 @@
           <view class="desc">
             <view class="tag" wx:for="{{item.goods_tags}}" wx:for-item="tag" wx:key="id">{{tag}}</view>
           </view>
-          <view class="price">用{{item.period}}个月比购买省¥{{filters.toFix(item.market_price-item.rent_amount)}}起</view>
-          <view class="btn"><text class="priBtn">¥{{filters.toFix(item.market_price /15)}}</text>/期起<view>下单</view></view>
+          <view class="price">用12个月比购买省¥{{item.market_price-item.rent_amount}}起</view>
+          <view class="btn"><text class="priBtn">¥{{filters.toFix(item.rent_amount /item.rent_lbf_period)}}</text>/期起<view>下单</view></view>
         </view>
       </view>
     </block>

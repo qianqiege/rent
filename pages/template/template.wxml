@@ -17,7 +17,7 @@
     <view class='title'>费用明细</view>
     <view class="flex rent">
       <view>总租金</view>
-      <view>￥{{filters.parse(order.real_total_amount)}}</view>
+      <view>￥{{filters.parse(order.total_amount)}}</view>
     </view>
     <view class="flex">
       <view>意外保障服务费</view>

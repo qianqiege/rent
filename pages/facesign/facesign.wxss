@@ -6,9 +6,9 @@ page {
 
 .content {
   padding: 30rpx 25rpx;
-  border-bottom: 1rpx solid#E5E5E5;
   padding-bottom: 30rpx;
   background-color: #fff;
+  border-top: 1rpx solid #E5e5e5; 
 }
 
 .title {
@@ -16,7 +16,6 @@ page {
   font-size: 34rpx;
   color: #000;
   padding-bottom: 30rpx;
-  border-bottom: 1rpx solid#E5E5E5;
   background-color: #fff;
 }
 
@@ -60,6 +59,7 @@ page {
 
 .img image {
   flex: 1;
+  border-radius: 10rpx;
 }
 
 .img .pic {
@@ -75,14 +75,14 @@ page {
 }
 
 .pick {
-  margin: 30rpx 0rpx;
-  padding-bottom: 30rpx;
+  margin: 20rpx 0rpx 60rpx;
+  padding-bottom: 8rpx;
   background-color: #fff;
 }
 
 .pick-title {
   font-size: 34rpx;
-  padding: 40rpx 25rpx 30rpx 25rpx;
+  padding: 32rpx 25rpx 0;
 }
 
 .pick-ipt input {
@@ -90,15 +90,23 @@ page {
   margin: 25rpx;
   padding: 30rpx 20rpx;
   font-size: 28rpx;
+  border-radius: 10rpx;
 }
 
 .pick-ipt .place-holder {
   color: #b3b3b3;
 }
-
+.bottom{
+  padding-bottom: 60rpx;
+}
 .btn {
-  border: 1rpx solid #fd6a11;
+  width: 700rpx;
+  height: 94rpx;
+  border-radius: 10rpx;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 94rpx;
+  background: #ff6000;
   color: #fff;
-  background: #fd6a11;
-  margin: 40rpx 25rpx;
+  margin: 0 auto;
 }

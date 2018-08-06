@@ -50,7 +50,7 @@ Page({
         var imei = that.data.iemiMsg;
         util.request(util.bashUrl + "/rent-order/check-old-imei", {
           order_id: id,
-          imei: yimei
+          imei: imei
         }, function(result) {
           console.log(result.data)
           if (result.code == 0) {

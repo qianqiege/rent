@@ -51,7 +51,7 @@
       </view>
       <view class="list">
         <view class="buy">分期购买</view>
-        <view>¥{{filters.toFix(product.rent_amount/12)}}/期</view>
+        <view>¥{{filters.toFix(product.market_price/12)}}/期</view>
         <view>首付多，利息高</view>
       </view>
       <view class="list">
@@ -172,7 +172,7 @@
             <view class="text">租赁期内，用户不可以更改租赁时间或租期。租赁结束时，可选择买断或归还商品。</view>
             <view class="title">到期归还时，配件也需要归还吗？</view>
             <view class="text">需要将设备所带配件一起归还。若遗失或损坏，需按照配件的售价进行赔偿。</view>
-            <view class="title">如何取还机？</view>
+            <view class="title">如何还机？</view>
             <view class="text">租赁到期后，用户可以通过快递的方式归还商品。快递信息可以在用户订单中心查看。寄回设备前请自行妥善处理旧设备内的数据信息，我们在收到设备后将对旧设备进行恢复出厂设置，保障用户的隐私安全。</view>
             <view class="title">意外损坏怎么办？</view>
             <view class="text">租期内，因意外导致的屏幕碎裂，可享受1次意外碎屏免费维修（换原装屏）服务，设备遗失、经过非乐租授权维修商拆修、更换零部件、其它损坏等情形，将进行租转售处理。</view>
@@ -211,6 +211,7 @@
               <view class="{{data.checked == 'true' ? 'checked' : data.disabled == 'true' ? 'disabled' : ''}}" bindtap="setModel" data-wpysetmodel-a="{{skuKey}}" data-wpysetmodel-b="{{itemKey}}" data-wpysetmodel-c="{{data.option_id}}" data-wpysetmodel-d="{{data.disabled}}">
                 {{data.option_name}}
               </view>
+              <span class="extra">{{data.extra}}</span>
             </block>
           </view>
         </view>

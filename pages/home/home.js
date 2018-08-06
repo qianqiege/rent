@@ -61,6 +61,7 @@ Page({
       business_type: 'is_rent'
     }, function(result) {
       if (result.code == 0) {
+        console.log(result.data)
         that.setData({
           popular: result.data
         });

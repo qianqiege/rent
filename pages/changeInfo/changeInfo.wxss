@@ -7,7 +7,7 @@
 }
 
 .reChoose .colorInfo {
-  margin:25rpx;
+  margin:20rpx;
 }
 
 .reChoose .colorInfo .title {
@@ -93,11 +93,13 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  border-radius: 10rpx;
   
 }
 
 .img image {
   flex: 1;
+  border-radius: 10rpx;
 }
 
 .img .pic {
