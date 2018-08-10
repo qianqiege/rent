@@ -68,3 +68,53 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
    transform:translate(-50%, -50%) scale(1);
    -webkit-transform:translate(-50%, -50%) scale(1);
 }
+
+.sku-dialog_mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 11;
+  color: #fff;
+}
+
+
+.allContract{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background: #F5F5F9;
+}
+
+.bac{
+  background: #fff;
+}
+
+.bac view{
+  color: #4297EA;
+  font-size: 30rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.allContract view:not(:first-child){
+  border-top: 1rpx solid #E5E5E5;
+}
+
+.close{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  display: block;
+  color: #000;
+  font-size: 36rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}

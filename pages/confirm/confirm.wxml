@@ -9,11 +9,22 @@
         <checkbox value='是否选中' checked/>
       </view>
     </checkbox-group>
-    <view>我已阅读并同意
-      <text bindtap='user'>《易享优租用户协议》、</text>
-      <text bindtap='protect'>《易享优租意外保障服务协议》、</text>
-      <text bindtap='contract'>《个人消费分期合同》</text>
+    <view bindtap='alertAll'>我已阅读并同意
+      <text>《易享优租用户协议》、</text>
+      <text>《易享优租意外保障服务协议》、</text>
+      <text>《个人消费分期合同》</text>
     </view>
   </view>
   <view class="btn full" bindtap="getConfirm">确定提交</view>
 </view>
+
+<view class='allContract' wx:if="{{allContract}}">
+  <view class='bac'>
+    <view bindtap='user'>易享优租用户协议</view>
+    <view bindtap='protect'>易享优租意外保障服务协议</view>
+    <view bindtap='contract'>个人消费分期合同</view>
+  </view>
+  <text class='close' bindtap='close'>关闭</text>
+</view>
+
+ <view class="sku-dialog_mask" catchtouchmove="preventTouchMove" wx:if="{{allContract}}" />

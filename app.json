@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/first/first",
+    "pages/orderList/orderList",
+    "pages/confirm/confirm",
     "pages/changeSucc/changeSucc",
     "pages/complete/complete",
     "pages/success/success",
@@ -8,12 +10,10 @@
     "pages/signature/signature",
     "pages/card/card",
     "pages/home/home",
-    "pages/confirm/confirm", 
     "pages/change/change",  
     "pages/index/index",
     "pages/logs/logs",
     "pages/list/list",
-    "pages/orderList/orderList",
     "pages/product/product",
     "pages/facesign/facesign",
     "pages/orderInfo/orderInfo",

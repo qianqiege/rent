@@ -4,7 +4,8 @@ Page({
   data: {
     order: {},
     sku_name: '',
-    check: 1
+    check: 1,
+    allContract:false
   },
 
   onLoad: function(options) {
@@ -80,6 +81,17 @@ Page({
     var order_no = order.order_no;
     wx.navigateTo({
       url: '../contract/contract?id=' + id + '&order_no=' + order_no,
+    })
+  },
+
+  alertAll:function(){
+    this.setData({
+      allContract:true
+    })
+  },
+  close:function(){
+    this.setData({
+      allContract: false
     })
   }
 })
